@@ -1,11 +1,22 @@
 ---
+- include_vars: secret.yml
+
 - name: Install some basic packages like vim
   apt: name={{ item }} state=installed
   with_items:
     - vim
     - git
+    - php5-cli
+    - php5-sqlite
+    - sqlite3
 
 # We need to load this because of a bug in iptables-persist:
 # https://bugs.launchpad.net/ubuntu/+source/iptables-persistent/+bug/1412979
 - name: Enable ipv6 kernel module 
   modprobe: name=ipv6 state=present
+
+
+- name: Create the SSH private key file
+  copy: content="{{ private_key }}"
+        dest=.ssh/id_rsa
+        mode=0600

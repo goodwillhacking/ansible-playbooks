@@ -1,1 +1,16 @@
 ---
+
+- name: cloning hagibb 
+  git: repo=git@github.com:Lorenzbi/306_Hermes.git dest="{{doc_root}}/hagibb" accept_hostkey=yes
+
+- name: running composer
+  command: composer install
+  args:
+    chdir: "{{doc_root}}/hagibb"
+
+- name: create database
+  copy: dest="{{doc_root}}/hagibb/public/hagibb.sqlite" content="" force=no
+  notify: insert initial data
+
+- name: chown
+  file: path="{{doc_root}}/hagibb" state=directory owner=www-data recurse=yes

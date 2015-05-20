@@ -12,6 +12,20 @@
     - role: jdauphant.nginx
       nginx_sites:
         hagibb:
-          - root /websites/hagibb/public
-    - role: hagibb
+          - server_name hagibb.lorenzz.ch
+          - root "{{ doc_root }}{{ item }}/public"
+          - index index.php
+          - location / { try_files $uri $uri/ /index.php; }
+          - location ~ \.php$ { fastcgi_pass unix:/var/run/php5-fpm.sock; fastcgi_index index.php; fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name; include fastcgi_params; }
+    - hagibb
+    - kosssi.composer
+    - role: nbz4live.php-fpm
+      php_fpm_pools:
+        - name: foo
+          user: www-data
+          group: www-data
+          listen: /var/run/php5-fpm.sock
+          listen.owner: www-data
+          listen.group: www-data
+          chdir: /
 
