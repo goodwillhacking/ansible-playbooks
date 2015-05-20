@@ -1,0 +1,11 @@
+---
+- name: Install some basic packages like vim
+  apt: name={{ item }} state=installed
+  with_items:
+    - vim
+    - git
+
+# We need to load this because of a bug in iptables-persist:
+# https://bugs.launchpad.net/ubuntu/+source/iptables-persistent/+bug/1412979
+- name: Enable ipv6 kernel module 
+  modprobe: name=ipv6 state=present

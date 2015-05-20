@@ -1,0 +1,17 @@
+---
+- name: Setup Raspberry Pi
+  hosts: pi
+  sudo: yes
+  remote_user: pi
+
+  roles:
+    - common
+    - role: kyl191.openvpn
+      clients:
+        - client
+    - role: jdauphant.nginx
+      nginx_sites:
+        hagibb:
+          - root /websites/hagibb/public
+    - role: hagibb
+
