@@ -6,6 +6,7 @@
 
   roles:
     - common
+    - raspberrypi
     - role: kyl191.openvpn
       clients:
         - client

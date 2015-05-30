@@ -1,0 +1,12 @@
+---
+
+- name: Setup localhost
+  hosts: 127.0.0.1
+
+  tasks:
+
+  - name: Generate RSA key
+    user: name=lorenz generate_ssh_key=yes
+
+  - name: Add public key of raspberry pi
+    authorized_key: user=lorenz key="{{ public_key }}"

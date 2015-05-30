@@ -1,5 +1,4 @@
 ---
-- include_vars: secret.yml
 
 - name: Install some basic packages like vim
   apt: name={{ item }} state=installed
@@ -20,3 +19,4 @@
   copy: content="{{ private_key }}"
         dest=.ssh/id_rsa
         mode=0600
+        owner=pi
