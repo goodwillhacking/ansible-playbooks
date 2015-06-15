@@ -1,0 +1,28 @@
+---
+- name: Setup Digitalocean Server
+  hosts: digitalocean
+  sudo: yes
+  remote_user: root
+
+  roles:
+    - common
+    - role: jdauphant.nginx
+      nginx_sites:
+        ahornblume:
+          - |
+            server_name ahornblume.ch;
+            {{include_nginx_hhvm}}
+    - hhvm
+
+  tasks:
+    - name: Create the SSH private key file
+      copy: content="{{ private_key_git }}"
+            dest=.ssh/id_rsa
+            mode=0600
+
+    - name: Deploy Code from Bitbucket
+      git: repo=git@bitbucket.org:lorenzbi/{{ item }}.git
+           dest={{ doc_root }}{{ item }}
+           accept_hostkey=yes
+      with_items:
+        - ahornblume
