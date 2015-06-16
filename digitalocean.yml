@@ -15,11 +15,6 @@
     - hhvm
 
   tasks:
-    - name: Create the SSH private key file
-      copy: content="{{ private_key_git }}"
-            dest=.ssh/id_rsa
-            mode=0600
-
     - name: Deploy Code from Bitbucket
       git: repo=git@bitbucket.org:lorenzbi/{{ item }}.git
            dest={{ doc_root }}{{ item }}
