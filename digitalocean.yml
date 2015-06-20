@@ -6,13 +6,13 @@
 
   roles:
     - common
+    - hhvm
     - role: jdauphant.nginx
       nginx_sites:
         ahornblume:
           - |
             server_name ahornblume.ch;
             {{include_nginx_hhvm}}
-    - hhvm
 
   tasks:
     - name: Deploy Code from Bitbucket

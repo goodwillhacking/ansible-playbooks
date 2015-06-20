@@ -1,4 +1,4 @@
 [webservers]
 pi ansible_ssh_host=192.168.0.111
-digitalocean ansible_ssh_host=188.166.102.248
+digitalocean ansible_ssh_host=10.10.10.10
 

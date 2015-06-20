@@ -2,11 +2,9 @@
 
 - name: Setup localhost
   hosts: 127.0.0.1
-
+  remote_user: root
   tasks:
-
-  - name: Generate RSA key
-    user: name=lorenz generate_ssh_key=yes
-
-  - name: Add public key of raspberry pi
-    authorized_key: user=lorenz key="{{ public_key }}"
+  - name: Add vagrant vhosts to /etc/hosts
+    lineinfile: dest=/etc/hosts regexp="{{item}}$" line="10.10.10.10 {{item}}" owner=root group=root mode=0644
+    with_items:
+      - ahornblume.dev
