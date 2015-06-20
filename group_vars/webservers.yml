@@ -1,5 +1,5 @@
 ---
-doc_root: /usr/share/nginx/html/
+doc_root: /var/www/vhosts/
 
 include_nginx_hhvm: |
     listen 80;

@@ -12,7 +12,17 @@
         ahornblume:
           - |
             server_name ahornblume.ch;
-            {{include_nginx_hhvm}}
+            listen 80;
+            root "{{ doc_root }}{{ item }}";
+            index index.php index.html index.htm;
+            try_files $uri $uri/ $uri.php?$args;
+            location ~ \.(hh|php)$ {
+                try_files     $uri =404;
+                fastcgi_pass  127.0.0.1:9000;
+                fastcgi_index index.php;
+                fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+                include       fastcgi_params;
+            }
 
   tasks:
     - name: Deploy Code from Bitbucket
@@ -21,3 +31,4 @@
            accept_hostkey=yes
       with_items:
         - ahornblume
+      when: ansible_hostname == "production"
