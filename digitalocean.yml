@@ -7,22 +7,20 @@
   roles:
     - common
     - hhvm
+    - pcextreme.mariadb
+    - respondcms
     - role: jdauphant.nginx
       nginx_sites:
         ahornblume:
           - |
             server_name ahornblume.ch;
-            listen 80;
-            root "{{ doc_root }}{{ item }}";
-            index index.php index.html index.htm;
             try_files $uri $uri/ $uri.php?$args;
-            location ~ \.(hh|php)$ {
-                try_files     $uri =404;
-                fastcgi_pass  127.0.0.1:9000;
-                fastcgi_index index.php;
-                fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
-                include       fastcgi_params;
-            }
+            {{ include_nginx_hhvm }}
+        maplesplendor:
+          - |
+            server_name maplesplendor.ca
+            try_files $uri $uri/ index.php?$args;
+            {{ include_nginx_hhvm }}
 
   tasks:
     - name: Deploy Code from Bitbucket
