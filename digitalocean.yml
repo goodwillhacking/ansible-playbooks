@@ -1,7 +1,6 @@
 ---
 - name: Setup Digitalocean Server
   hosts: digitalocean
-  sudo: yes
   remote_user: root
 
   roles:
@@ -13,13 +12,14 @@
       nginx_sites:
         ahornblume:
           - |
-            server_name ahornblume.ch;
+            server_name ahornblume.ch ahornblume.vagrant.dev;
             try_files $uri $uri/ $uri.php?$args;
             {{ include_nginx_hhvm }}
         maplesplendor:
           - |
-            server_name maplesplendor.ca
+            server_name maplesplendor.ca maplesplendor.vagrant.dev app.maplesplendor.vagrant.dev;
             try_files $uri $uri/ index.php?$args;
+            location /api/ { try_files $uri $uri/ $uri.php /api/dispatch.php$args; }
             {{ include_nginx_hhvm }}
 
   tasks:
@@ -29,4 +29,5 @@
            accept_hostkey=yes
       with_items:
         - ahornblume
+        - maplesplendor
       when: ansible_hostname == "production"

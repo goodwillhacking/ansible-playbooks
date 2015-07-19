@@ -1,16 +1,18 @@
 ---
 
 - name: Install python mysqldb module
-  apt: name=python-mysqldb state=installed
+  apt: name={{ item }} state=installed
+  with_items:
+    - python-mysqldb
+    - php5-curl
 
 - name: Ensure respondcms database exists
-  mysql_db: name=respondcms state=present login_user={{mysql_user}} login_password={{mysql_pass}}
+  mysql_db: name=respond state=present login_user={{mysql_user}} login_password={{mysql_pass}}
   notify: import respondcms schema
 
-- name: Clone respondcms
-  git: repo=git@github.com:madoublet/respond.git
-           dest={{ doc_root }}maplesplendor
-           accept_hostkey=yes
+- name: Copy respondcms config
+  template: src=setup.local.php dest={{ doc_root }}maplesplendor/setup.local.php
 
-
-
+- name: Fix hhvm locale bug
+  copy: src=/etc/default/locale dest=/etc/default/locale
+  notify: restart hhvm

@@ -8,3 +8,5 @@
     lineinfile: dest=/etc/hosts regexp="{{item}}$" line="10.10.10.10 {{item}}" owner=root group=root mode=0644
     with_items:
       - ahornblume.dev
+      - maplesplendor.dev
+      - app.maplesplendor.dev

@@ -6,14 +6,15 @@
 
 	// DB connection parameters
 	define('DB_HOST', 'localhost');
-	define('DB_NAME', 'respondcms');
-	define('DB_USER', 'root');
-	define('DB_PASSWORD', 'password');
+	define('DB_NAME', 'respond');
+	define('DB_USER', '{{ mysql_user }}');
+	define('DB_PASSWORD', '{{ mysql_pass }}');
 	
 	// APP URL
-	define('APP_URL', 'http://app.myrespond.com');
+	define('APP_URL', 'http://app.maplesplendor.vagrant.dev');
 	
-	
+	{% raw %}
+
 	/************************************/
 	/*  ADVANCED SETUP - LANGUAGES      */
 	/************************************/
@@ -71,7 +72,7 @@
 	// Default bucket
 	define('BUCKET_NAME', 'yourdomain.com');
 	define('S3_LOCATION', 'us-east-1');
-	define('S3_URL', 'http://{{bucket}}.s3-website-us-east-1.amazonaws.com/{{site}}');
+	define('S3_URL', 'http://default.s3-website-us-east-1.amazonaws.com/site');
 	define('S3_KEY', 'AWS ACCESS KEY');
 	define('S3_SECRET', 'AWS SECRET KEY');
 	
@@ -79,7 +80,6 @@
 	/************************************/
 	/*  ADVANCED SETUP - URLS           */
 	/************************************/
-	
 	// URLs
 	define('API_URL', APP_URL.'/api');
 	define('SITES_URL', APP_URL.'/sites');
@@ -87,7 +87,6 @@
 	define('LOGIN_URL', APP_URL.'/#/login/{{friendlyId}}');
 	define('TERMS_URL', 'http://myrespond.com/page/terms-of-service');
 	define('PRICING_URL', 'http://myrespond.com/page/terms-of-service');
-	
 	// Webhooks URL
 	define('WEBHOOKS_URL', '');
 
@@ -247,5 +246,7 @@
 	
 	// Set default as UTC
 	date_default_timezone_set('UTC');
-	
+
+	{% endraw %}
+
 ?>
