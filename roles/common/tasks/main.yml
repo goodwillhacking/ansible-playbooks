@@ -6,3 +6,11 @@
     - vim
     - git
 
+- name: Deploy Code from Bitbucket
+  git: repo=git@bitbucket.org:lorenzbi/{{ item }}.git
+    dest={{ doc_root }}{{ item }}
+    accept_hostkey=yes
+  notify: Fix permissions
+  with_items:
+    - ahornblume
+    - maplesplendor

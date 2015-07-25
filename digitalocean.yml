@@ -17,17 +17,14 @@
             {{ include_nginx_hhvm }}
         maplesplendor:
           - |
-            server_name maplesplendor.ca maplesplendor.vagrant.dev app.maplesplendor.vagrant.dev;
-            try_files $uri $uri/ index.php?$args;
-            location /api/ { try_files $uri $uri/ $uri.php /api/dispatch.php$args; }
+            server_name maplesplendor.ca maplesplendor.vagrant.dev;
+            root /var/www/vhosts/maplesplendor/sites/maplesplendor;
+            try_files $uri $uri/ $uri.html;
             {{ include_nginx_hhvm }}
-
-  tasks:
-    - name: Deploy Code from Bitbucket
-      git: repo=git@bitbucket.org:lorenzbi/{{ item }}.git
-           dest={{ doc_root }}{{ item }}
-           accept_hostkey=yes
-      with_items:
-        - ahornblume
-        - maplesplendor
-      when: ansible_hostname == "production"
+        respond:
+          - |
+            server_name app.maplesplendor.ca app.maplesplendor.vagrant.dev;
+            root "/var/www/vhosts/maplesplendor/";
+            location /api/ { try_files $uri $uri/ $uri.php /api/dispatch.php$args; }
+            location / { try_files $uri $uri/ /index.html; }
+            {{ include_nginx_hhvm }}

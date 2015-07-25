@@ -3,7 +3,6 @@ doc_root: /var/www/vhosts/
 
 include_nginx_hhvm: |
     listen 80;
-    root "{{ doc_root }}{{ item }}";
     index index.php index.html index.htm;
     location ~ \.(hh|php)$ {
         try_files     $uri =404;

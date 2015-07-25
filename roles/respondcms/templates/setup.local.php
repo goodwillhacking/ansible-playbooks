@@ -84,14 +84,14 @@
 	define('API_URL', APP_URL.'/api');
 	define('SITES_URL', APP_URL.'/sites');
 	define('SITE_URL', APP_URL.'/sites/{{friendlyId}}');
-	define('LOGIN_URL', APP_URL.'/#/login/{{friendlyId}}');
+	define('LOGIN_URL', APP_URL.'/login/{{friendlyId}}');
 	define('TERMS_URL', 'http://myrespond.com/page/terms-of-service');
 	define('PRICING_URL', 'http://myrespond.com/page/terms-of-service');
 	// Webhooks URL
 	define('WEBHOOKS_URL', '');
 
 	// Default URL mode for the application (#, html5)
-	define('URL_MODE', '#');
+	define('URL_MODE', 'html5');
 	
 	// Image prefix (the protocol to use for accessing images, prefixes the domain name)
 	define('IMAGE_PREFIX', 'http://');
@@ -144,10 +144,10 @@
 	/************************************/
 	
 	// Default account status (Trial for subscription based sites, or Active for non-subscription based sites)
-	define('DEFAULT_STATUS', 'Trial');
+	define('DEFAULT_STATUS', 'Active');
 	
 	// Default plan (Typically Trial or blank for non-subscription based sites)
-	define('DEFAULT_PLAN', 'Trial');
+	define('DEFAULT_PLAN', '');
 	
 	// Trial length
 	define('TRIAL_LENGTH', 30);
