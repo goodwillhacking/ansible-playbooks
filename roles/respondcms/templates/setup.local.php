@@ -168,7 +168,8 @@
 	
 	// Cross Origin Resource Sharing (CORS)
 	define ('CORS', serialize (array (
-	    'http://sites.myrespond.com'
+	    'http://maplesplendor.vagrant.dev',
+	    'http://maplesplendor.ca'
 	    )));
 	    
 	    
