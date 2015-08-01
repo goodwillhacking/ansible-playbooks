@@ -11,6 +11,7 @@
     dest={{ doc_root }}{{ item }}
     accept_hostkey=yes
   notify: Fix permissions
+  when: ansible_hostname == "production"
   with_items:
     - ahornblume
     - maplesplendor

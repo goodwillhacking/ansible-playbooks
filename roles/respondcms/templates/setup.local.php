@@ -37,7 +37,7 @@
 	define('BRAND', 'Respond');
 	
 	// Location of custom css for your brand (e.g. css/custom.css)
-	define('BRAND_CSS', '');
+	define('BRAND_CSS', 'css/custom.css');
 	
 	// Brand logos (should be fully qualified (e.g. http://) to support emails, paypal)
 	define('BRAND_LOGO', 'images/respond-icon.png');

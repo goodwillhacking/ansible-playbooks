@@ -9,6 +9,8 @@
     - pcextreme.mariadb
     - respondcms
     - role: jdauphant.nginx
+      nginx_http_params:
+        - sendfile off
       nginx_sites:
         ahornblume:
           - |
