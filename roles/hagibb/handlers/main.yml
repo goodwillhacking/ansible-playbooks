@@ -1,6 +1,0 @@
----
-
-- name: insert initial data
-  shell: sqlite3 public/hagibb.sqlite < sql/create_tables.sql
-  args:
-    chdir: "{{doc_root}}/hagibb"

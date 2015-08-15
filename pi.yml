@@ -7,26 +7,7 @@
   roles:
     - common
     - raspberrypi
-    - role: kyl191.openvpn
+    - role: openvpn
       clients:
         - client
-    - role: jdauphant.nginx
-      nginx_sites:
-        hagibb:
-          - |
-            server_name hagibb.lorenzz.ch;
-            root "{{ doc_root }}{{ item }}/public";
-            {{include_nginx_fpm}}
-          
-    - hagibb
-    - kosssi.composer
-    - role: nbz4live.php-fpm
-      php_fpm_pools:
-        - name: foo
-          user: www-data
-          group: www-data
-          listen: /var/run/php5-fpm.sock
-          listen.owner: www-data
-          listen.group: www-data
-          chdir: /
 

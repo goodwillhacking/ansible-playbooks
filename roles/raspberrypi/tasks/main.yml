@@ -3,13 +3,3 @@
 - name: Install wake on lan script
   copy: src=pc.sh dest=/usr/local/bin/pc mode=o+x
 
-# We need to load this because of a bug in iptables-persist:
-# https://bugs.launchpad.net/ubuntu/+source/iptables-persistent/+bug/1412979
-- name: Enable ipv6 kernel module 
-  modprobe: name=ipv6 state=present
-
-- name: Create the SSH private key file
-  copy: content="{{ private_key }}"
-        dest=.ssh/id_rsa
-        mode=0600
-        owner=pi

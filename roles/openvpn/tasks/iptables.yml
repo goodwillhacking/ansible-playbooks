@@ -31,11 +31,11 @@
   sudo: true
   when: ipnattablesrules.stdout.find("Perform NAT readdressing") == -1
 
-- name: iptables - save everything (CentOS/RHEL/Fedora)
-  shell: iptables-save > /etc/sysconfig/iptables
-  sudo: yes
-  when: ansible_os_family == 'RedHat'
+# We need to load this because of a bug in iptables-persist:
+# https://bugs.launchpad.net/ubuntu/+source/iptables-persistent/+bug/1412979
+- name: Enable ipv6 kernel module 
+  modprobe: name=ipv6 state=present
 
-- name: iptables - save everything (Debian/Ubuntu)
+- name: iptables - save everything
   command: /etc/init.d/iptables-persistent save
-  when: ansible_os_family == 'Debian'
+  changed_when: false  # Never report as changed

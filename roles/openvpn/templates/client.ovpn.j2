@@ -1,0 +1,34 @@
+client
+tls-client
+dev tun
+proto {{openvpn_proto}}
+remote {{ansible_fqdn}} {{openvpn_port}}
+resolv-retry infinite
+nobind
+persist-key
+persist-tun
+cipher AES-256-CBC
+remote-cert-tls server
+comp-lzo
+verb 3
+keepalive 10 120
+route-method exe
+route-delay 2
+register-dns
+key-direction 1
+
+<ca>
+{{ lookup('file', "/tmp/ansible/" + item + "/" + ansible_fqdn + "/ca.crt") }}
+</ca>
+
+<cert>
+{{ lookup('file', "/tmp/ansible/" + item + "/" + ansible_fqdn + "/" + item + ".crt") }}
+</cert>
+
+<key>
+{{ lookup('file', "/tmp/ansible/" + item + "/" + ansible_fqdn + "/" + item + ".key") }}
+</key>
+
+<tls-auth>
+{{ lookup('file', "/tmp/ansible/" + item + "/" + ansible_fqdn + "/ta.key") }}
+</tls-auth>
