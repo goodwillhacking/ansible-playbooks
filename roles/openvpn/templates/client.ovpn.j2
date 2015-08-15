@@ -2,7 +2,7 @@ client
 tls-client
 dev tun
 proto {{openvpn_proto}}
-remote {{ansible_fqdn}} {{openvpn_port}}
+remote {{external_ip.stdout}} {{openvpn_port}}
 resolv-retry infinite
 nobind
 persist-key

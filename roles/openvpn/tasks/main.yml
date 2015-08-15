@@ -7,7 +7,6 @@
     - openvpn
     - iptables-persistent
 
-# RHEL has the group 'nobody', 'Debian/Ubuntu' have 'nogroup'
 - name: Ensure group 'nogroup' is present
   group: name=nogroup state=present
 
@@ -29,11 +28,16 @@
   tags:
     - firewall
 
+- name: Get public ip
+  shell: wget -qO- http://ipecho.net/plain
+  register: external_ip
+  changed_when: False
+
 - name: generate client configs
   include: client_keys.yml
   when: clients
   tags:
     - client_keys
 
-- name: setup openvpn auto-start (init-style) & start
+- name: setup openvpn auto-start & start
   service: name=openvpn enabled=yes state=started
