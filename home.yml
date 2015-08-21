@@ -1,0 +1,14 @@
+---
+- name: Setup home pc
+  hosts: 127.0.0.1
+  sudo_user: root
+
+  vars_prompt:
+  - name: "ansible_sudo_pass"
+    prompt: "Sudo password"
+    private: yes
+
+  roles:
+    - common
+    - rvm_io.rvm1-ruby
+
