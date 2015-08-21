@@ -5,6 +5,7 @@
   with_items:
     - vim
     - git
+    - tmux
 
 - name: Deploy Code from Bitbucket
   git: repo=git@bitbucket.org:lorenzbi/{{ item }}.git
