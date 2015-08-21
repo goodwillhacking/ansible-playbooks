@@ -1,0 +1,11 @@
+---
+- name: Install Sup dependencies
+  apt: name={{item}} state=present
+  with_items:
+    - uuid-dev
+    - libncursesw5-dev
+
+- name: Install Sup
+  gem: name=sup state=latest
+
+
