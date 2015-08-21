@@ -7,6 +7,10 @@
     - git
     - tmux
 
+- name: Deploy tmux config
+  copy: src=tmux.conf dest='~/.tmux.conf'
+  sudo: False
+
 - name: Deploy Code from Bitbucket
   git: repo=git@bitbucket.org:lorenzbi/{{ item }}.git
     dest={{ doc_root }}{{ item }}
