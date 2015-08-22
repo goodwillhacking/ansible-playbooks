@@ -6,6 +6,7 @@
 
   roles:
     - common
+    - tmux
     - raspberrypi
     - rvm_io.rvm1-ruby
     - sup

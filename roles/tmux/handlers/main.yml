@@ -1,0 +1,5 @@
+---
+
+- name: Update tmux config
+  shell: tmux source-file ~/.tmux.conf
+  sudo: False

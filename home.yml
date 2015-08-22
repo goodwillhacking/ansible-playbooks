@@ -1,7 +1,7 @@
 ---
 - name: Setup home pc
   hosts: 127.0.0.1
-  sudo_user: root
+  sudo: yes
 
   vars_prompt:
   - name: "ansible_sudo_pass"
@@ -10,5 +10,6 @@
 
   roles:
     - common
+    - tmux
     - rvm_io.rvm1-ruby
 
