@@ -4,8 +4,16 @@
   with_items:
     - uuid-dev
     - libncursesw5-dev
+    - offlineimap
+    - msmtp
 
 - name: Install Sup
-  gem: name=sup state=latest
+  gem: name={{item}} state=latest user_install=no
+  with_items:
+    - xapian-ruby
+    - gpgme
+    - sup
 
-
+- name: Copy sup hooks
+  copy: src=hooks dest='~/.sup'
+  sudo: False
