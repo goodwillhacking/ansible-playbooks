@@ -1,0 +1,22 @@
+[general]
+ui = ttyui
+accounts = Puzzle
+fsync = False
+pythonfile = ~/.offlineimap.py
+
+[Account Puzzle]
+localrepository = Puzzle-Local
+remoterepository = Puzzle-Remote
+status_backend = sqlite
+
+[Repository Puzzle-Local]
+type = Maildir
+localfolders = ~/.mail/puzzle
+
+[Repository Puzzle-Remote]
+type = IMAP
+remotehost = mail.puzzle.ch
+remoteuser = bischof@puzzle.ch
+remotepasseval = subprocess.check_output(["pass", "show", "work/email"]).strip()
+realdelete = no
+folderfilter = lambda folder: folder in ['INBOX']

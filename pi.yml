@@ -6,6 +6,7 @@
 
   roles:
     - common
+    - jnv.debian-backports
     - raspberrypi
     - rvm_io.rvm1-ruby
     - sup
