@@ -17,6 +17,6 @@ localfolders = ~/.mail/puzzle
 type = IMAP
 remotehost = mail.puzzle.ch
 remoteuser = bischof@puzzle.ch
-remotepasseval = subprocess.check_output(["pass", "show", "work/email"]).strip()
+remotepasseval = subprocess.check_output(["gpg", "-dq", ".passwd/puzzle.gpg"]).strip()
 realdelete = no
 folderfilter = lambda folder: folder in ['INBOX']
