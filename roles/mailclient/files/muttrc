@@ -1,0 +1,8 @@
+set mbox_type   = Maildir
+set sendmail    = /usr/bin/msmtp
+
+set folder      = ~/Mail
+set spoolfile   = "+puzzle/INBOX"
+source ~/.mutt-mailboxes
+set editor='vim'
+set text_flowed=yes

@@ -12,6 +12,7 @@
   with_items:
     - offlineimaprc
     - msmtprc
+    - muttrc
 
 - name: Copy offlineimap.py
   copy: src=offlineimap.py dest='~/.offlineimap.py'

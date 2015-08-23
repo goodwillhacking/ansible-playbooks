@@ -1,22 +1,30 @@
 [general]
 ui = ttyui
-accounts = Puzzle
+accounts = puzzle
 fsync = False
 pythonfile = ~/.offlineimap.py
 
-[Account Puzzle]
-localrepository = Puzzle-Local
-remoterepository = Puzzle-Remote
+[Account puzzle]
+localrepository = puzzle-local
+remoterepository = puzzle-remote
 status_backend = sqlite
 
-[Repository Puzzle-Local]
+[Repository puzzle-local]
 type = Maildir
-localfolders = ~/.mail/puzzle
+localfolders = ~/Mail/puzzle
 
-[Repository Puzzle-Remote]
+[Repository puzzle-remote]
 type = IMAP
 remotehost = mail.puzzle.ch
 remoteuser = bischof@puzzle.ch
 remotepasseval = subprocess.check_output(["gpg", "-dq", ".passwd/puzzle.gpg"]).strip()
 realdelete = no
 folderfilter = lambda folder: folder in ['INBOX']
+
+[mbnames]
+enabled = yes
+filename = ~/.mutt-mailboxes
+header = "mailboxes "
+peritem = "+%(accountname)s/%(foldername)s"
+sep = " "
+footer = "\n"
