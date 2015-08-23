@@ -11,9 +11,6 @@
   sudo: False
   with_items:
     - offlineimaprc
+    - offlineimap.py
     - msmtprc
     - muttrc
-
-- name: Copy offlineimap.py
-  copy: src=offlineimap.py dest='~/.offlineimap.py'
-  sudo: False
