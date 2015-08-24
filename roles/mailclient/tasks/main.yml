@@ -15,6 +15,14 @@
     - msmtprc
     - muttrc
 
+- name: Create mutt directory
+  file: path='~/.mutt' state=directory
+  sudo: False
+
+- name: Create cache directory
+  file: path='~/.mutt/headers' state=directory
+  sudo: False
+
 - name: Cron offlineimap
   cron: name='offlineimap' minute='*/5' hour='7-20' job='offlineimap -u quiet -q'
   sudo: False
