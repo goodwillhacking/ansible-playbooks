@@ -19,7 +19,6 @@ remotehost = mail.puzzle.ch
 remoteuser = bischof@puzzle.ch
 remotepasseval = subprocess.check_output(["gpg", "-dq", ".passwd/puzzle.gpg"]).strip()
 realdelete = no
-folderfilter = lambda folder: folder in ['INBOX']
 
 [mbnames]
 enabled = yes

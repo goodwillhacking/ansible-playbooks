@@ -14,3 +14,11 @@
     - offlineimap.py
     - msmtprc
     - muttrc
+
+- name: Cron offlineimap
+  cron: name='offlineimap' minute='*/5' hour='7-20' job='offlineimap -u quiet -q'
+  sudo: False
+
+- name: Cron offlineimap full sync
+  cron: name='offlineimap nightly' minute='0' hour='23' job='offlineimap -u quiet'
+  sudo: False

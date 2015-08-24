@@ -1,8 +1,16 @@
 set mbox_type   = Maildir
 set sendmail    = /usr/bin/msmtp
-
+set from        = "Lorenz Bischof <bischof@puzzle.ch>"
+set to_chars    = "- +CFL" # indicate mail not addressed to me directly
 set folder      = ~/Mail
 set spoolfile   = "+puzzle/INBOX"
+set editor      = 'vim'
+set text_flowed = yes
+set sort        = threads
+set timeout     = 30 # check new mail
+set trash       = "+puzzle/Archives"
+set auto_tag    = yes
+
+color normal default default
+
 source ~/.mutt-mailboxes
-set editor='vim'
-set text_flowed=yes
