@@ -2,15 +2,26 @@ set mbox_type   = Maildir
 set sendmail    = /usr/bin/msmtp
 set from        = "Lorenz Bischof <bischof@puzzle.ch>"
 set to_chars    = "- +CFL" # indicate mail not addressed to me directly
-set folder      = ~/Mail
-set spoolfile   = "+puzzle/INBOX"
+set folder      = ~/Mail/puzzle
+set spoolfile   = "+INBOX"
 set editor      = 'vim'
 set text_flowed = yes
 set sort        = threads
 set timeout     = 30 # check new mail
-set trash       = "+puzzle/Archives"
+set trash       = "+Archives"
 set auto_tag    = yes
+set pager_index_lines=10
 
 color normal default default
+color status blue default         # status lines in the folder index sed for the mini-help line
+color attachment default default
+color quoted default default
+color signature default default
+color tilde default default # seems to be color below messages (could be something else)
+color indicator black blue
+
+color header default default .
+#color header yellow black ^From
+#color header yellow black ^Subject
 
 source ~/.mutt-mailboxes
