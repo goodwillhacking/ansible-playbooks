@@ -11,5 +11,4 @@
   roles:
     - common
     - tmux
-    - rvm_io.rvm1-ruby
 
