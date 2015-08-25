@@ -5,3 +5,9 @@
   with_items:
     - vim
     - git
+
+- name: Deploy vimrc
+  copy: src={{item}} dest='~/.{{item}}'
+  sudo: False
+  with_items:
+    - vimrc
