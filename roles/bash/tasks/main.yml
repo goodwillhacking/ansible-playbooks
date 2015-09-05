@@ -1,0 +1,16 @@
+---
+
+- name: Create .bash directory
+  file: path="~/.bash" state=directory
+  sudo: False
+
+- name: Clone git aware prompt
+  git: repo=git://github.com/jimeh/git-aware-prompt.git dest="~/.bash/git-aware-prompt"
+  sudo: False
+
+- name: Deploy bash dotfiles
+  copy: src={{item}} dest="~/.{{item}}"
+  sudo: False
+  with_items:
+    - bashrc
+    - bash_aliases
