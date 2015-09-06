@@ -1,0 +1,33 @@
+---
+
+- name: Add repositories
+  apt_repository: repo={{ item }}
+  with_items:
+    - ppa:pi-rho/dev
+
+- name: Install apps
+  apt: name={{ item }} state=installed
+  with_items:
+    - tmux
+    - vim
+
+- name: Create hidden folder
+  file: path='~/.plugins' state=directory
+  sudo: False
+
+- name: Clone repositories
+  git: repo=https://github.com/{{ item }} dest="~/.plugins/{{ item.split('/')[1] }}"
+  sudo: False
+  with_items:
+    - tmux-plugins/tmux-copycat
+    - tmux-plugins/tmux-yank
+    - jimeh/git-aware-prompt
+
+- name: Deploy dotfiles
+  copy: src={{ item }} dest="~/.{{ item }}"
+  sudo: False
+  with_items:
+    - bashrc
+    - bash_aliases
+    - tmux.conf
+    - bash_profile

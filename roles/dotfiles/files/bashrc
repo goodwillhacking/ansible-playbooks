@@ -39,7 +39,7 @@ fi
 [[ -s "$NVM_DIR/nvm.sh" ]] && . "$HOME/.nvm/nvm.sh"  # This loads nvm
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
-export GITAWAREPROMPT=~/.bash/git-aware-prompt
+export GITAWAREPROMPT=~/.plugins/git-aware-prompt
 source "${GITAWAREPROMPT}/main.sh"
 
 export PS1="\${debian_chroot:+(\$debian_chroot)}\u@\h:\w \[$txtcyn\]\$git_branch\[$txtred\]\$git_dirty\[$txtrst\]\$ "

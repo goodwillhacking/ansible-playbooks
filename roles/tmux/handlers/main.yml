@@ -1,6 +1,0 @@
----
-
-- name: Update tmux config
-  shell: tmux source-file ~/.tmux.conf
-  ignore_errors: yes
-  sudo: False

@@ -10,7 +10,6 @@
 
   roles:
     - common
-    - tmux
-    - bash
+    - dotfiles
     - rvm_io.rvm1-ruby
 
