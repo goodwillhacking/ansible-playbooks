@@ -14,6 +14,17 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
+Plugin 'Raimondi/delimitMate'
+Plugin 'tpope/vim-surround'
+Plugin 'bling/vim-airline'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'junegunn/vim-easy-align'
+Plugin 'mattn/emmet-vim'
+Plugin 'tpope/vim-commentary'
+Plugin 'chase/vim-ansible-yaml'
+Plugin 'rodjek/vim-puppet'
+
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
