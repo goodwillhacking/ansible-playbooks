@@ -22,6 +22,7 @@
     - tmux-plugins/tmux-copycat
     - tmux-plugins/tmux-yank
     - jimeh/git-aware-prompt
+    - VundleVim/Vundle.vim
 
 - name: Deploy dotfiles
   copy: src={{ item }} dest="~/.{{ item }}"
@@ -31,3 +32,4 @@
     - bash_aliases
     - tmux.conf
     - bash_profile
+    - vimrc
