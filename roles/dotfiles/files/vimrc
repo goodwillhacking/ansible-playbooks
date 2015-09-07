@@ -1,7 +1,34 @@
+" Ensure vim isn't in vi mode
+set nocompatible
+
+set nowrap        " don't wrap lines
+set tabstop=4     " a tab is four spaces
+set autoindent    " always set autoindenting on
+set copyindent    " copy the previous indentation on autoindenting
+set shiftwidth=4  " number of spaces to use for autoindenting
+set shiftround    " use multiple of shiftwidth when indenting with '<' and '>'
+set expandtab     " convert tabs to spaces
+set showmatch     " set show matching parenthesis
+set ignorecase    " ignore case when searching
+set smarttab      " insert tabs on the start of a line according to
+set hlsearch      " highlight search terms
+set incsearch     " show search matches as you type
+highlight Search ctermbg=NONE ctermfg=yellow cterm=underline
+
+set history=1000         " remember more commands and search history
+set undolevels=1000      " use many muchos levels of undo
+set title                " change the terminal's title
+
+filetype plugin indent on
+
+
 set encoding=utf-8  " The encoding displayed.
 set fileencoding=utf-8  " The encoding written to file.
 syntax on
 
+cmap w!! w !sudo tee % > /dev/null<CR>:e!<CR><CR>
+" Clear last search highlighting
+nnoremap <silent> <Esc><Esc> :let @/=""<CR>
 
 " Vundle
 set nocompatible              " be iMproved, required
@@ -16,7 +43,6 @@ Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'Raimondi/delimitMate'
 Plugin 'tpope/vim-surround'
-Plugin 'bling/vim-airline'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'junegunn/vim-easy-align'
 Plugin 'mattn/emmet-vim'
