@@ -10,5 +10,5 @@
 
   roles:
     - common
-    - tmux
+    - dotfiles
 
