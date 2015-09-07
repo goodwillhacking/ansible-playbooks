@@ -1,0 +1,11 @@
+---
+
+- src: jnv.debian-backports
+
+- src: nbz4live.php-fpm
+
+- src: pcextreme.mariadb
+
+- src: jdauphant.nginx
+  
+- src: rvm_io.rvm1-ruby
