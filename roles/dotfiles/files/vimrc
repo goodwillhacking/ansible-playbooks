@@ -27,8 +27,12 @@ set fileencoding=utf-8  " The encoding written to file.
 syntax on
 
 cmap w!! w !sudo tee % > /dev/null<CR>:e!<CR><CR>
+
 " Clear last search highlighting
-nnoremap <silent> <Esc><Esc> :let @/=""<CR>
+map <silent> <Space> :noh<cr>
+
+" Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
+vmap <Enter> <Plug>(EasyAlign)
 
 " Vundle
 set nocompatible              " be iMproved, required
@@ -49,7 +53,8 @@ Plugin 'mattn/emmet-vim'
 Plugin 'tpope/vim-commentary'
 Plugin 'chase/vim-ansible-yaml'
 Plugin 'rodjek/vim-puppet'
-
+Plugin 'LaTeX-Box-Team/LaTeX-Box'
+Plugin 'ervandew/supertab'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
