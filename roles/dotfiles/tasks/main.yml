@@ -10,9 +10,14 @@
   with_items:
     - tmux
     - vim
+    - latexmk
 
 - name: Create hidden folder
   file: path='~/.plugins' state=directory
+  sudo: False
+
+- name: Copy vim dictionaries
+  copy: src='.dictionaries' dest='~/'
   sudo: False
 
 - name: Clone repositories
