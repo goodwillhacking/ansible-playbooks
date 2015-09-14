@@ -22,8 +22,8 @@ set title                " change the terminal's title
 filetype plugin indent on
 
 " LATEX
-let g:LatexBox_latexmk_options="-outdir=build -pdflatex='pdflatex -synctex=1 \%O \%S'"
-let g:LatexBox_build_dir="build"
+let g:vimtex_latexmk_build_dir="build"
+let g:vimtex_view_method="mupdf"
 autocmd BufRead,BufNewFile *.tex set filetype=tex
 
 set encoding=utf-8  " The encoding displayed.
@@ -62,7 +62,7 @@ Plugin 'mattn/emmet-vim'
 Plugin 'tpope/vim-commentary'
 Plugin 'chase/vim-ansible-yaml'
 Plugin 'rodjek/vim-puppet'
-Plugin 'LaTeX-Box-Team/LaTeX-Box'
+Plugin 'lervag/vimtex'
 Plugin 'ervandew/supertab'
 
 " All of your Plugins must be added before the following line
