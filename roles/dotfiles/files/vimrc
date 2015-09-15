@@ -64,6 +64,8 @@ Plugin 'chase/vim-ansible-yaml'
 Plugin 'rodjek/vim-puppet'
 Plugin 'lervag/vimtex'
 Plugin 'ervandew/supertab'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required

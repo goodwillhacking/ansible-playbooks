@@ -27,6 +27,10 @@
     - jimeh/git-aware-prompt
     - VundleVim/Vundle.vim
 
+- name: Deploy snippets
+  copy: src=UltiSnips dest="~/.vim"
+  sudo: False
+
 - name: Deploy dotfiles
   copy: src={{ item }} dest="~/.{{ item }}"
   sudo: False
