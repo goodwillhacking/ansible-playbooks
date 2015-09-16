@@ -13,6 +13,7 @@ set ignorecase    " ignore case when searching
 set smarttab      " insert tabs on the start of a line according to
 set hlsearch      " highlight search terms
 set incsearch     " show search matches as you type
+set hidden        " allows switching modified buffers
 highlight Search ctermbg=NONE ctermfg=yellow cterm=underline
 
 set history=1000         " remember more commands and search history
@@ -25,6 +26,13 @@ filetype plugin indent on
 let g:vimtex_latexmk_build_dir="build"
 let g:vimtex_view_method="mupdf"
 autocmd BufRead,BufNewFile *.tex set filetype=tex
+autocmd BufRead *.tex :VimtexCompile
+
+" Setup some default ignores
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/](\.(git|hg|svn)|\_site|build)$',
+  \ 'file': '\v\.(exe|so|dll|class|png|jpg|jpeg)$',
+\}
 
 set encoding=utf-8  " The encoding displayed.
 set fileencoding=utf-8  " The encoding written to file.
@@ -37,11 +45,6 @@ map <silent> <Space> :noh<cr>
 
 " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
 vmap <Enter> <Plug>(EasyAlign)
-
-" Dictionaries for autocompletion
-filetype on
-au FileType * exec("setlocal dictionary+=".$HOME."/.dictionaries/".expand('<amatch>'))
-set complete+=k
 
 " Vundle
 set nocompatible              " be iMproved, required
@@ -64,6 +67,8 @@ Plugin 'chase/vim-ansible-yaml'
 Plugin 'rodjek/vim-puppet'
 Plugin 'lervag/vimtex'
 Plugin 'SirVer/ultisnips'
+Plugin 'jeetsukumaran/vim-buffergator'
+Plugin 'kien/ctrlp.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
