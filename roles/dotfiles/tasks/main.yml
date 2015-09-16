@@ -13,6 +13,8 @@
     - latexmk
     - mupdf
     - xdotool
+    - python-unidecode
+    - texlive-lang-german
 
 - name: Create hidden folder
   file: path='~/.plugins' state=directory
