@@ -24,7 +24,7 @@ filetype plugin indent on
 
 " LATEX
 let g:vimtex_latexmk_build_dir="build"
-let g:vimtex_view_method="mupdf"
+let g:vimtex_view_method="zathura"
 autocmd BufRead,BufNewFile *.tex set filetype=tex
 autocmd BufRead *.tex :VimtexCompile
 
