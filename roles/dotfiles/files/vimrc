@@ -38,7 +38,13 @@ set encoding=utf-8  " The encoding displayed.
 set fileencoding=utf-8  " The encoding written to file.
 syntax on
 
-cmap w!! w !sudo tee % > /dev/null<CR>:e!<CR><CR>
+" Show unsaved changes
+command! Diff w !diff % -
+
+" Save file with root permissions
+command! -bar Sudo exec 'w !sudo tee % > /dev/null' <bar> e! <bar> redraw! <bar> echo "Sudo has granted you your wish"
+cabbrev w!! Sudo
+cabbrev wq!! Sudo <bar> q
 
 " Clear last search highlighting
 map <silent> <Space> :noh<cr>
