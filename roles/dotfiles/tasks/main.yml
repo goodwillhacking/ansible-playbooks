@@ -9,7 +9,7 @@
   apt: name={{ item }} state=installed
   with_items:
     - tmux
-    - vim
+    - vim-gnome
     - latexmk
     - xdotool
     - python-unidecode

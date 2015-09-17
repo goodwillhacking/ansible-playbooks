@@ -11,7 +11,7 @@ if [[ $? -eq 1 ]]; then
     apt-get update
     apt-get install gcc-4.9
     update-alternatives --remove-all gcc
-    update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.9
+    update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.9 20
     update-alternatives --config gcc
 fi
 
