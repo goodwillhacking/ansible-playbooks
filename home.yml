@@ -1,6 +1,6 @@
 ---
 - name: Setup home pc
-  hosts: 127.0.0.1
+  hosts: localhost
   sudo: yes
 
   vars_prompt:
@@ -12,4 +12,5 @@
     - common
     - dotfiles
     - rvm_io.rvm1-ruby
+    - pablocrivella.nvm
 
