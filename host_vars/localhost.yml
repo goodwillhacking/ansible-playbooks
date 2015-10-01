@@ -1,0 +1,5 @@
+---
+
+nvm_env: user
+nvm_users: [ "{{ ansible_ssh_user }}" ]
+

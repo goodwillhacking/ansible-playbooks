@@ -1,6 +1,6 @@
 ---
 - name: Setup work laptop
-  hosts: 127.0.0.1
+  hosts: localhost
   sudo: yes
 
   vars_prompt:

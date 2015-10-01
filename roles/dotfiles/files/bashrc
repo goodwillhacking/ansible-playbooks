@@ -36,7 +36,7 @@ if ! shopt -oq posix; then
   fi
 fi
 
-[[ -s "$NVM_DIR/nvm.sh" ]] && . "$HOME/.nvm/nvm.sh"  # This loads nvm
+[[ -s "$HOME/.nvm/nvm.sh" ]] && . "$HOME/.nvm/nvm.sh"  # This loads nvm
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
 export GITAWAREPROMPT=~/.plugins/git-aware-prompt
