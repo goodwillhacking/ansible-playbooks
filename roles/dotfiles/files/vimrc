@@ -75,6 +75,7 @@ Plugin 'lervag/vimtex'
 Plugin 'SirVer/ultisnips'
 Plugin 'jeetsukumaran/vim-buffergator'
 Plugin 'kien/ctrlp.vim'
+Plugin 'digitaltoad/vim-jade'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
