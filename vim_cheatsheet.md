@@ -34,3 +34,5 @@
 | ctX (X = any key)                                | delete up to X and switch to insert mode               |
 | :fold                                            | folds selected content                                 |
 | za                                               | toggle fold                                            |
+| gcc                                              | comment line (commentary)                              |
+| cs({, ds"                                        | change or delete brackets (surround)                   |

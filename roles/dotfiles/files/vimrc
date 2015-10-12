@@ -52,30 +52,33 @@ map <silent> <Space> :noh<cr>
 " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
 vmap <Enter> <Plug>(EasyAlign)
 
-" Vundle
-set nocompatible              " be iMproved, required
-filetype off                  " required
+" Load vim-plug
+if empty(glob("~/.vim/autoload/plug.vim"))
+    execute '!curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.github.com/junegunn/vim-plug/master/plug.vim'
+endif
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.plugins/Vundle.vim
-call vundle#begin()
+call plug#begin('~/.vim/plugged')
 
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+Plug 'Raimondi/delimitMate'
+" Replace and add brackets and quotes
+Plug 'tpope/vim-surround'
+" Show git signs in gutter
+Plug 'airblade/vim-gitgutter'
+" Align common seperators
+Plug 'junegunn/vim-easy-align'
+" Make commenting easy
+Plug 'tpope/vim-commentary'
+" Syntax highlight ansible playbooks
+Plug 'chase/vim-ansible-yaml'
+" Puppet syntax highlighting
+Plug 'rodjek/vim-puppet'
+" Latex compiler
+Plug 'lervag/vimtex'
+" Snippets
+Plug 'SirVer/ultisnips'
+" List buffers
+Plug 'jeetsukumaran/vim-buffergator'
+" Fuzzy file opener
+Plug 'ctrlpvim/ctrlp.vim'
 
-Plugin 'Raimondi/delimitMate'
-Plugin 'tpope/vim-surround'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'junegunn/vim-easy-align'
-Plugin 'mattn/emmet-vim'
-Plugin 'tpope/vim-commentary'
-Plugin 'chase/vim-ansible-yaml'
-Plugin 'rodjek/vim-puppet'
-Plugin 'lervag/vimtex'
-Plugin 'SirVer/ultisnips'
-Plugin 'jeetsukumaran/vim-buffergator'
-Plugin 'kien/ctrlp.vim'
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
+call plug#end()
