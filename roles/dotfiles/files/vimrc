@@ -55,6 +55,10 @@ vmap <Enter> <Plug>(EasyAlign)
 " Toggle Undotree
 nnoremap <F5> :UndotreeToggle<cr>
 
+" Copy and paste
+vnoremap <C-c> "+y
+inoremap <C-v> <C-r><C-o>"+p
+
 " Load vim-plug
 if empty(glob("~/.vim/autoload/plug.vim"))
     execute '!curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.github.com/junegunn/vim-plug/master/plug.vim'
