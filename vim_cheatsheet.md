@@ -5,6 +5,7 @@
 | SHIFT + v                                        | select row(s)                                          |
 | CTRL + v                                         | select blocks (columns)                                |
 | vip                                              | select block                                           |
+| gv                                               | reselect last selection                                |
 | >>                                               | indent                                                 |
 | <<                                               | unindent                                               |
 | :ls                                              | list buffers                                           |
@@ -33,4 +34,3 @@
 | ctX (X = any key)                                | delete up to X and switch to insert mode               |
 | :fold                                            | folds selected content                                 |
 | za                                               | toggle fold                                            |
-
