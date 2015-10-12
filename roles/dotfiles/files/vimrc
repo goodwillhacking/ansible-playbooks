@@ -69,11 +69,11 @@ Plug 'junegunn/vim-easy-align'
 " Make commenting easy
 Plug 'tpope/vim-commentary'
 " Syntax highlight ansible playbooks
-Plug 'chase/vim-ansible-yaml'
+Plug 'chase/vim-ansible-yaml', { 'for': 'ansible' }
 " Puppet syntax highlighting
-Plug 'rodjek/vim-puppet'
+Plug 'rodjek/vim-puppet', { 'for': 'puppet' }
 " Latex compiler
-Plug 'lervag/vimtex'
+Plug 'lervag/vimtex', { 'for': 'tex' }
 " Snippets
 Plug 'SirVer/ultisnips'
 " List buffers
