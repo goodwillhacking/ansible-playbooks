@@ -69,16 +69,20 @@ Plug 'junegunn/vim-easy-align'
 " Make commenting easy
 Plug 'tpope/vim-commentary'
 " Syntax highlight ansible playbooks
-Plug 'chase/vim-ansible-yaml', { 'for': 'ansible' }
+Plug 'pearofducks/ansible-vim', { 'for': 'ansible' }
 " Puppet syntax highlighting
 Plug 'rodjek/vim-puppet', { 'for': 'puppet' }
 " Latex compiler
 Plug 'lervag/vimtex', { 'for': 'tex' }
+" Improved javascript indentation and syntax
+Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 " Snippets
 Plug 'SirVer/ultisnips'
 " List buffers
 Plug 'jeetsukumaran/vim-buffergator'
 " Fuzzy file opener
 Plug 'ctrlpvim/ctrlp.vim'
+" Undo tree visualizer
+Plug 'mbbill/undotree'
 
 call plug#end()
