@@ -6,13 +6,17 @@
 | CTRL + v                                         | select blocks (columns)                                |
 | vip                                              | select block                                           |
 | gv                                               | reselect last selection                                |
+| gf                                               | open file under cursor                                 |
+| gi                                               | move to last insert location and switch to insert mode |
+| g;                                               | move to last insert location                           |
+| g,                                               | opposite of g;                                         |
+| gg=G                                             | indent whole file                                      |
 | >>                                               | indent                                                 |
 | <<                                               | unindent                                               |
 | :ls                                              | list buffers                                           |
 | :bN (N = buffer number)                          | open buffer                                            |
 | :sort                                            | sort selected rows                                     |
 | *                                                | search for word under cursor                           |
-| gf                                               | open file under cursor                                 |
 | qX (X = key to assign macro to)                  | start recording a macro                                |
 | q                                                | stop recording a macro                                 |
 | @X (X = key macro was assigned to)               | playback macro                                         |
@@ -23,10 +27,6 @@
 | :delm X (X = bookmark key)                       | delete a bookmark                                      |
 | :delm!                                           | delete all bookmarks                                   |
 | :only                                            | close all other windows                                |
-| gg=G                                             | indent whole file                                      |
-| gi                                               | move to last insert location and switch to insert mode |
-| g;                                               | move to last insert location                           |
-| g,                                               | opposite of g;                                         |
 | cw, dw                                           | change or delete rest of word                          |
 | caw, daw                                         | change or delete the whole word                        |
 | ciX (X = brackets, parentheses, quotation marks) | change inner                                           |
@@ -36,3 +36,4 @@
 | za                                               | toggle fold                                            |
 | gcc                                              | comment line (commentary)                              |
 | cs({, ds"                                        | change or delete brackets (surround)                   |
+| :TOhtml                                          | Creates html with syntax highlighting                  |
