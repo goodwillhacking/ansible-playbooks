@@ -47,17 +47,17 @@ cabbrev w!! Sudo
 cabbrev wq!! Sudo <bar> q
 
 " Clear last search highlighting
-map <silent> <Space> :noh<cr>
+noremap <silent> <Space> :noh<cr>
 
 " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
-vmap <Enter> <Plug>(EasyAlign)
+vnoremap <Enter> <Plug>(EasyAlign)
 
 " Toggle Undotree
 nnoremap <F5> :UndotreeToggle<cr>
 
 " Copy and paste
 vnoremap <C-c> "+y
-inoremap <C-v> <C-r><C-o>"+p
+inoremap <C-v> <esc>"+pa
 
 " Load vim-plug
 if empty(glob("~/.vim/autoload/plug.vim"))
