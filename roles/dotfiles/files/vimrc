@@ -50,7 +50,7 @@ cabbrev wq!! Sudo <bar> q
 noremap <silent> <Space> :noh<cr>
 
 " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
-vnoremap <Enter> <Plug>(EasyAlign)
+vmap <Enter> <Plug>(EasyAlign)
 
 " Toggle Undotree
 nnoremap <F5> :UndotreeToggle<cr>
@@ -58,6 +58,10 @@ nnoremap <F5> :UndotreeToggle<cr>
 " Copy and paste
 vnoremap <C-c> "+y
 inoremap <C-v> <esc>"+pa
+
+" Highlight trailing whitespace
+highlight TrailingWhitespace ctermbg=red guibg=red
+autocmd Syntax * syn match TrailingWhitespace /\s\+$/
 
 " Load vim-plug
 if empty(glob("~/.vim/autoload/plug.vim"))
