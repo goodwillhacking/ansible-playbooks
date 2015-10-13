@@ -12,7 +12,7 @@
     - vim-gnome
     - latexmk
     - xdotool
-    - python-unidecode
+    - python3-unidecode
     - texlive-lang-german
 
 - name: Create hidden folder
