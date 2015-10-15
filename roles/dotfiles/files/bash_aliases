@@ -16,6 +16,6 @@ alias gitc='git commit -m'
 alias gita='git add'
 alias gitp='git pull'
 alias gitd='git diff'
-alias vim='vim --servername VIM'
+alias vim='vim' #add --servername VIM
 
 alias gibb="sshfs lorenz.bischof@sftp.iet-gibb.ch: $HOME/gibb/ -o reconnect"

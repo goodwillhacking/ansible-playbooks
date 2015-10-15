@@ -1,24 +1,15 @@
-" Ensure vim isn't in vi mode
-set nocompatible
-
 set nowrap        " don't wrap lines
 set tabstop=4     " a tab is four spaces
-set autoindent    " always set autoindenting on
-set copyindent    " copy the previous indentation on autoindenting
 set shiftwidth=4  " number of spaces to use for autoindenting
 set shiftround    " use multiple of shiftwidth when indenting with '<' and '>'
 set expandtab     " convert tabs to spaces
 set showmatch     " set show matching parenthesis
 set ignorecase    " ignore case when searching
-set smarttab      " insert tabs on the start of a line according to
-set hlsearch      " highlight search terms
-set incsearch     " show search matches as you type
 set hidden        " allows switching modified buffers
+set mouse-=a      " disable mouse
 highlight Search ctermbg=NONE ctermfg=yellow cterm=underline
 
-set history=1000         " remember more commands and search history
 set undolevels=1000      " use many muchos levels of undo
-set title                " change the terminal's title
 
 filetype plugin indent on
 
@@ -64,8 +55,8 @@ highlight TrailingWhitespace ctermbg=red guibg=red
 autocmd Syntax * syn match TrailingWhitespace /\s\+$/
 
 " Load vim-plug
-if empty(glob("~/.vim/autoload/plug.vim"))
-    execute '!curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.github.com/junegunn/vim-plug/master/plug.vim'
+if empty(glob("~/.nvim/autoload/plug.vim"))
+    execute '!curl -fLo ~/.nvim/autoload/plug.vim --create-dirs https://raw.github.com/junegunn/vim-plug/master/plug.vim'
 endif
 
 " Snippets

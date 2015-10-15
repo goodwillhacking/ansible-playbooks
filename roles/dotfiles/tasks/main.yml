@@ -4,16 +4,20 @@
   apt_repository: repo={{ item }}
   with_items:
     - ppa:pi-rho/dev
+    - ppa:neovim-ppa/unstable
 
 - name: Install apps
   apt: name={{ item }} state=installed
   with_items:
     - tmux
-    - vim-gnome
+    - neovim
     - latexmk
     - xdotool
     - python3-unidecode
     - texlive-lang-german
+
+- name: Set neovim as default vim
+  alternatives: name=vim path=/usr/bin/nvim
 
 - name: Create hidden folder
   file: path='~/.plugins' state=directory
@@ -40,5 +44,5 @@
     - bash_aliases
     - tmux.conf
     - bash_profile
-    - vimrc
+    - nvimrc
     - latexmkrc
