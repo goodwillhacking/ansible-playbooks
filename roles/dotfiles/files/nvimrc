@@ -54,15 +54,27 @@ inoremap <C-v> <esc>"+pa
 highlight TrailingWhitespace ctermbg=red guibg=red
 autocmd Syntax * syn match TrailingWhitespace /\s\+$/
 
-" Load vim-plug
-if empty(glob("~/.nvim/autoload/plug.vim"))
-    execute '!curl -fLo ~/.nvim/autoload/plug.vim --create-dirs https://raw.github.com/junegunn/vim-plug/master/plug.vim'
-endif
+tnoremap <esc> <c-\><c-n>
+
+" Split movement
+tnoremap <C-h> <C-\><C-n><C-w>h
+tnoremap <C-j> <C-\><C-n><C-w>j
+tnoremap <C-k> <C-\><C-n><C-w>k
+tnoremap <C-l> <C-\><C-n><C-w>l
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
 
 " Snippets
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+
+" Load vim-plug
+if empty(glob("~/.nvim/autoload/plug.vim"))
+    execute '!curl -fLo ~/.nvim/autoload/plug.vim --create-dirs https://raw.github.com/junegunn/vim-plug/master/plug.vim'
+endif
 
 call plug#begin('~/.vim/plugged')
 
@@ -95,6 +107,6 @@ Plug 'mbbill/undotree'
 " Enable repeating support for plugins
 Plug 'tpope/vim-repeat'
 " Seamless navigation between tmux panes and vim splits
-Plug 'christoomey/vim-tmux-navigator'
+" Plug 'christoomey/vim-tmux-navigator'
 
 call plug#end()
