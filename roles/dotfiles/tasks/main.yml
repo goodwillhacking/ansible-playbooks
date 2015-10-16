@@ -16,6 +16,8 @@
     - python3-unidecode
     - python3-pip
     - texlive-lang-german
+    - rxvt-unicode-256color
+    - fonts-dejavu-core
 
 - name: Install python neovim
   pip: name=neovim
@@ -50,3 +52,4 @@
     - bash_profile
     - nvimrc
     - latexmkrc
+    - Xresources
