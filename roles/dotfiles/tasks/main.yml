@@ -14,7 +14,11 @@
     - latexmk
     - xdotool
     - python3-unidecode
+    - python3-pip
     - texlive-lang-german
+
+- name: Install python neovim
+  pip: name=neovim
 
 - name: Set neovim as default vim
   alternatives: name=vim path=/usr/bin/nvim
