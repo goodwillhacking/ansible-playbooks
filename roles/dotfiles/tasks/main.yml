@@ -42,6 +42,9 @@
   copy: src=UltiSnips dest="~/.vim"
   sudo: False
 
+- name: Deploy urxvt perl scripts
+  copy: src=urxvt/perl/ dest=/usr/lib/urxvt/perl/
+
 - name: Deploy dotfiles
   copy: src={{ item }} dest="~/.{{ item }}"
   sudo: False

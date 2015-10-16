@@ -1,9 +1,15 @@
-urxvt*font: xft:DejaVu Sans Mono:size=12:antialias=true
-urxvt*boldFont: xft:DejaVu Sans Mono:size=12:antialias=true
+urxvt.font:            xft:DejaVu Sans Mono:size=12:antialias=true
+urxvt.boldFont:        xft:DejaVu Sans Mono:size=12:antialias=true
 urxvt.intensityStyles: false
-URxvt*scrollBar: false
-URxvt.saveLines: 32767
-urxvt*termName:        rxvt-unicode-256color
+urxvt.scrollBar:       false
+urxvt.saveLines:       32767
+urxvt.termName:        rxvt-unicode-256color
+urxvt.iso14755:        false
+
+! Clipboard
+URxvt.perl-ext-common: clipboard
+URxvt.keysym.C-C:      perl:clipboard:copy
+URxvt.keysym.C-V:      perl:clipboard:paste
 
 ! Solarized color scheme for the X Window System
 !
