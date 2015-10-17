@@ -2,7 +2,7 @@ urxvt.font:            xft:DejaVu Sans Mono:size=12:antialias=true
 urxvt.boldFont:        xft:DejaVu Sans Mono:size=12:antialias=true
 urxvt.intensityStyles: false
 urxvt.scrollBar:       false
-urxvt.saveLines:       32767
+urxvt.saveLines:       0
 urxvt.termName:        rxvt-unicode-256color
 urxvt.iso14755:        false
 
