@@ -39,7 +39,8 @@ fi
 [[ -s "$HOME/.nvm/nvm.sh" ]] && . "$HOME/.nvm/nvm.sh"  # This loads nvm
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
+eval `dircolors $HOME/.dircolors.256dark`
+
 export GITAWAREPROMPT=~/.plugins/git-aware-prompt
 source "${GITAWAREPROMPT}/main.sh"
-
 export PS1="\${debian_chroot:+(\$debian_chroot)}\u@\h:\w \[$txtcyn\]\$git_branch\[$txtred\]\$git_dirty\[$txtrst\]\$ "

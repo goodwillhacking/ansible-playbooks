@@ -27,7 +27,6 @@ let g:ctrlp_custom_ignore = {
 
 set encoding=utf-8  " The encoding displayed.
 set fileencoding=utf-8  " The encoding written to file.
-syntax on
 
 " Show unsaved changes
 command! Diff w !diff % -
@@ -96,5 +95,12 @@ Plug 'mbbill/undotree'
 Plug 'tpope/vim-repeat'
 " Seamless navigation between tmux panes and vim splits
 Plug 'christoomey/vim-tmux-navigator'
+" Solarized colors
+Plug 'altercation/vim-colors-solarized'
 
 call plug#end()
+
+" Must load after plugins: https://github.com/altercation/vim-colors-solarized/issues/104
+syntax enable
+set background=dark
+colorscheme solarized

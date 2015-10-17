@@ -56,3 +56,4 @@
     - nvimrc
     - latexmkrc
     - Xresources
+    - dircolors.256dark
