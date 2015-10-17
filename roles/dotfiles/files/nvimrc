@@ -49,9 +49,9 @@ nnoremap <F5> :UndotreeToggle<cr>
 vnoremap <C-c> "+y
 inoremap <C-v> <esc>"+pa
 
-" Highlight trailing whitespace
-highlight TrailingWhitespace ctermbg=red guibg=red
-autocmd Syntax * syn match TrailingWhitespace /\s\+$/
+let g:neomake_tex_enabled_makers = ['chktex']
+let g:neomake_puppet_enabled_makers = ['puppet-lint']
+autocmd! BufWritePost * Neomake
 
 " Snippets
 let g:UltiSnipsExpandTrigger="<tab>"
@@ -97,6 +97,8 @@ Plug 'tpope/vim-repeat'
 Plug 'christoomey/vim-tmux-navigator'
 " Solarized colors
 Plug 'altercation/vim-colors-solarized'
+" Async syntax checker
+Plug 'benekastah/neomake'
 
 call plug#end()
 

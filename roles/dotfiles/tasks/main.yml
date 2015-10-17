@@ -18,6 +18,8 @@
     - texlive-lang-german
     - rxvt-unicode-256color
     - fonts-dejavu-core
+    - chktex
+    - puppet-lint
 
 - name: Install python neovim
   pip: name=neovim
