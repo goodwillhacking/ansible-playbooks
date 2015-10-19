@@ -27,12 +27,9 @@
 - name: Set neovim as default vim
   alternatives: name=vim path=/usr/bin/nvim
 
-- name: Create folders
-  file: path=~/{{ item }} state=directory
+- name: Create plugins folders
+  file: path=~/.plugins state=directory
   sudo: False
-  with_items:
-    - .plugins
-    - .i3
 
 - name: Clone repositories
   git: repo=https://github.com/{{ item }} dest="~/.plugins/{{ item.split('/')[1] }}"
@@ -41,7 +38,6 @@
     - tmux-plugins/tmux-copycat
     - tmux-plugins/tmux-yank
     - jimeh/git-aware-prompt
-    - VundleVim/Vundle.vim
 
 - name: Deploy snippets
   copy: src=UltiSnips dest="~/.vim"
@@ -62,4 +58,3 @@
     - latexmkrc
     - Xresources
     - dircolors.256dark
-    - i3/config
