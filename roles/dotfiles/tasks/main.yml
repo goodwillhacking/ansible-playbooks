@@ -62,3 +62,4 @@
     - latexmkrc
     - Xresources        # rxvt
     - dircolors.256dark # solarized dircolors
+    - xsessionrc

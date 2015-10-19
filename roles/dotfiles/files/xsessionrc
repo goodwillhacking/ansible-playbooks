@@ -1,0 +1,4 @@
+#!/bin/bash
+xrandr --output HDMI2 --auto --right-of VGA1
+xrandr --output VGA1 --primary
+setxkbmap de adnw
