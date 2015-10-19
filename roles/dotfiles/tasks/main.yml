@@ -44,7 +44,11 @@
   sudo: False
 
 - name: Deploy urxvt perl scripts # clipboard support
-  copy: src=urxvt/perl/ dest=/usr/lib/urxvt/perl/
+  copy: src=urxvt/ dest=/usr/lib/urxvt/
+
+- name: Deploy awesome config
+  copy: src=awesome/ dest=~/.config/awesome/
+  sudo: False
 
 - name: Deploy dotfiles
   copy: src={{ item }} dest="~/.{{ item }}"
@@ -52,9 +56,9 @@
   with_items:
     - bashrc
     - bash_aliases
-    - tmux.conf
     - bash_profile
+    - tmux.conf
     - nvimrc
     - latexmkrc
-    - Xresources
-    - dircolors.256dark
+    - Xresources        # rxvt
+    - dircolors.256dark # solarized dircolors
