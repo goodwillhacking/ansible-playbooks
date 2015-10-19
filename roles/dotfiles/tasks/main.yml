@@ -3,31 +3,31 @@
 - name: Add repositories
   apt_repository: repo={{ item }}
   with_items:
-    - ppa:pi-rho/dev
-    - ppa:neovim-ppa/unstable
+    - ppa:pi-rho/dev          # tmux, vim, rxvt
+    - ppa:neovim-ppa/unstable # neovim
 
 - name: Install apps
   apt: name={{ item }} state=installed
   with_items:
-    - tmux
-    - neovim
-    - latexmk
-    - xdotool
-    - python3-unidecode
-    - python3-pip
-    - texlive-lang-german
-    - rxvt-unicode-256color
-    - fonts-dejavu-core
-    - chktex
-    - puppet-lint
+    - tmux                  # terminal multiplexer
+    - neovim                # fork of vim
+    - latexmk               # compile latex
+    - xdotool               # so vimtex knows if the pdf viewer is already open
+    - python3-unidecode     # for ultisnips vim plugin
+    - python3-pip           # to install neovim python compatibility
+    - texlive-lang-german   # add german latex packages
+    - rxvt-unicode-256color # terminal umulator
+    - fonts-dejavu-core     # terminal fonts
+    - chktex                # latex syntax checker
+    - puppet-lint           # puppet syntax checker
 
 - name: Install python neovim
-  pip: name=neovim
+  pip: name=neovim          # so python plugins work
 
 - name: Set neovim as default vim
   alternatives: name=vim path=/usr/bin/nvim
 
-- name: Create plugins folders
+- name: Create plugins folder # for tmux plugins
   file: path=~/.plugins state=directory
   sudo: False
 
@@ -43,7 +43,7 @@
   copy: src=UltiSnips dest="~/.vim"
   sudo: False
 
-- name: Deploy urxvt perl scripts
+- name: Deploy urxvt perl scripts # clipboard support
   copy: src=urxvt/perl/ dest=/usr/lib/urxvt/perl/
 
 - name: Deploy dotfiles
