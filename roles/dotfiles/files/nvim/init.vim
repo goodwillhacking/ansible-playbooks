@@ -59,11 +59,11 @@ let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 " Load vim-plug
-if empty(glob("~/.nvim/autoload/plug.vim"))
-    execute '!curl -fLo ~/.nvim/autoload/plug.vim --create-dirs https://raw.github.com/junegunn/vim-plug/master/plug.vim'
+if empty(glob("~/.config/nvim/autoload/plug.vim"))
+    execute '!curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.github.com/junegunn/vim-plug/master/plug.vim'
 endif
 
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.config/nvim/plugged')
 
 Plug 'Raimondi/delimitMate'
 " Replace and add brackets and quotes

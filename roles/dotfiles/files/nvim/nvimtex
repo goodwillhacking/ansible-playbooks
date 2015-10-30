@@ -1,0 +1,12 @@
+#!/usr/bin/env python
+import sys
+from neovim import attach
+
+if __name__ == '__main__':
+    try:
+        nvim = attach('socket', path='/tmp/nvim.sock')
+    except Exception as e:
+        print e
+        sys.exit(1) 
+    
+    nvim.eval("vimtex#latexmk#callback({0})".format(sys.argv[1]))
