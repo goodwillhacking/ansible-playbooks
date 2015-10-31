@@ -30,8 +30,8 @@
     - neovim          # so python plugins work
     - frosted         # python syntax checker
 
-# - name: Install robocop
-#   gem: name=robocop   # ruby static code analyzer
+- name: Install robocop
+  gem: name=robocop   # ruby static code analyzer
 
 - name: Set neovim as default vim
   alternatives: name=vim path=/usr/bin/nvim
