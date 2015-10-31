@@ -7,6 +7,7 @@ set showmatch     " set show matching parenthesis
 set ignorecase    " ignore case when searching
 set hidden        " allows switching modified buffers
 set mouse-=a      " disable mouse
+set undofile      " enable persistent undo
 highlight Search ctermbg=NONE ctermfg=yellow cterm=underline
 
 set undolevels=1000      " use many muchos levels of undo
@@ -49,9 +50,16 @@ nnoremap <F5> :UndotreeToggle<cr>
 vnoremap <C-c> "+y
 inoremap <C-v> <esc>"+pa
 
-let g:neomake_tex_enabled_makers = ['chktex']
-let g:neomake_puppet_enabled_makers = ['puppet-lint']
-autocmd! BufWritePost * Neomake
+let g:neomake_tex_enabled_makers        = ['chktex']
+let g:neomake_puppet_enabled_makers     = ['puppet','puppet-lint']
+let g:neomake_javascript_enabled_makers = ['eslint']
+let g:neomake_json_enabled_makers       = ['jsonlint']
+let g:neomake_python_enabled_makers     = ['frosted']
+let g:neomake_ruby_enabled_makers       = ['robocop']
+
+if exists(":Neomake")
+    autocmd! BufWritePost * Neomake 
+endif
 
 " Snippets
 let g:UltiSnipsExpandTrigger="<tab>"
@@ -98,7 +106,7 @@ Plug 'christoomey/vim-tmux-navigator'
 " Solarized colors
 Plug 'altercation/vim-colors-solarized'
 " Async syntax checker
-Plug 'benekastah/neomake'
+Plug 'benekastah/neomake', { 'for': ['javascript', 'json', 'python', 'ruby', 'tex', 'puppet']}
 
 call plug#end()
 

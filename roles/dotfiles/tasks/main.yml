@@ -21,8 +21,15 @@
     - chktex                # latex syntax checker
     - puppet-lint           # puppet syntax checker
 
-- name: Install python neovim
-  pip: name=neovim          # so python plugins work
+
+- name: Install python packages
+  pip: name={{ item }}
+  with_items:
+    - neovim          # so python plugins work
+    - frosted         # python syntax checker
+
+- name: Install robocop
+  gem: name=robocop   # ruby static code analyzer
 
 - name: Set neovim as default vim
   alternatives: name=vim path=/usr/bin/nvim
