@@ -50,7 +50,6 @@
   copy: src={{ item }} dest=~/.config/
   sudo: False
   with_items:
-  - awesome
   - nvim
 
 - name: Deploy dotfiles
