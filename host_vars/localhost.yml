@@ -1,5 +1,6 @@
 ---
 
-nvm_env: user
-nvm_users: [ "{{ ansible_ssh_user }}" ]
-
+nvm:
+  user: '{{ ansible_user_id }}'
+  version: v0.29.0
+  node_version: 5.0.0

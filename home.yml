@@ -1,7 +1,6 @@
 ---
 - name: Setup home pc
   hosts: localhost
-  sudo: yes
 
   vars_prompt:
   - name: "ansible_sudo_pass"
@@ -12,5 +11,5 @@
     - common
     - dotfiles
     - rvm_io.rvm1-ruby
-    - pablocrivella.nvm
+    - nvm
 
