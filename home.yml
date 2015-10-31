@@ -10,6 +10,6 @@
   roles:
     - common
     - dotfiles
-    - rvm_io.rvm1-ruby
-    - nvm
+    - { role: rvm_io.rvm1-ruby, tags: ruby, sudo: True }
+    - leonidas.nvm
 

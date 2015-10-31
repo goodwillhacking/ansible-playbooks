@@ -1,6 +1,13 @@
 ---
 
 nvm:
-  user: '{{ ansible_user_id }}'
+  user: '{{ ansible_ssh_user }}'
   version: v0.29.0
   node_version: 5.0.0
+
+rvm1_rubies:
+  - 'ruby-2.2.3'
+
+rvm1_user: '{{ ansible_ssh_user }}'
+rvm1_install_path: /home/{{ ansible_ssh_user }}/.rvm
+rvm1_install_flags: '--auto-dotfiles --user-install'
