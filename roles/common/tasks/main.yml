@@ -2,6 +2,7 @@
 
 - name: Install some basic packages like vim
   apt: name={{ item }} state=installed
+  sudo: True
   with_items:
     - git
 

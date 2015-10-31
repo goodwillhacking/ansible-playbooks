@@ -2,12 +2,14 @@
 
 - name: Add repositories
   apt_repository: repo={{ item }}
+  sudo: True
   with_items:
     - ppa:pi-rho/dev          # tmux, vim, rxvt
     - ppa:neovim-ppa/unstable # neovim
 
 - name: Install apps
   apt: name={{ item }} state=installed
+  sudo: True
   with_items:
     - tmux                  # terminal multiplexer
     - neovim                # fork of vim
@@ -28,19 +30,17 @@
     - neovim          # so python plugins work
     - frosted         # python syntax checker
 
-- name: Install robocop
-  gem: name=robocop   # ruby static code analyzer
+# - name: Install robocop
+#   gem: name=robocop   # ruby static code analyzer
 
 - name: Set neovim as default vim
   alternatives: name=vim path=/usr/bin/nvim
 
 - name: Create plugins folder # for tmux plugins
   file: path=~/.plugins state=directory
-  sudo: False
 
 - name: Clone repositories
   git: repo=https://github.com/{{ item }} dest="~/.plugins/{{ item.split('/')[1] }}"
-  sudo: False
   with_items:
     - tmux-plugins/tmux-copycat
     - tmux-plugins/tmux-yank
@@ -48,20 +48,18 @@
 
 - name: Deploy snippets
   copy: src=UltiSnips dest="~/.vim"
-  sudo: False
 
 - name: Deploy urxvt perl scripts # clipboard support
   copy: src=urxvt/ dest=/usr/lib/urxvt/
+  sudo: True
 
 - name: Deploy config files
   copy: src={{ item }} dest=~/.config/
-  sudo: False
   with_items:
   - nvim
 
 - name: Deploy dotfiles
   copy: src={{ item }} dest="~/.{{ item }}"
-  sudo: False
   with_items:
     - bashrc
     - bash_aliases
