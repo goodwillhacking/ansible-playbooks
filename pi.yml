@@ -6,7 +6,6 @@
 
   roles:
     - common
-    - jnv.debian-backports
     - raspberrypi
     - mailclient
     - role: openvpn
