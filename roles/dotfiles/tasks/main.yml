@@ -37,16 +37,6 @@
 - name: Set neovim as default vim
   alternatives: name=vim path=/usr/bin/nvim
 
-- name: Create plugins folder # for tmux plugins
-  file: path=~/.plugins state=directory
-
-- name: Clone repositories
-  git: repo=https://github.com/{{ item }} dest="~/.plugins/{{ item.split('/')[1] }}"
-  with_items:
-    - tmux-plugins/tmux-copycat
-    - tmux-plugins/tmux-yank
-    - jimeh/git-aware-prompt
-
 - name: Deploy snippets
   copy: src=UltiSnips dest="~/.vim"
 
@@ -69,3 +59,11 @@
     - latexmkrc
     - Xresources        # rxvt
     - dircolors.256dark # solarized dircolors
+
+- name: install tpm
+  git: repo=https://github.com/tmux-plugins/tpm dest=~/.tmux/plugins/tpm
+
+- name: Install tmux plugins
+  shell: ~/.tmux/plugins/tpm/scripts/install_plugins.sh
+  register: tpm_install_output
+  changed_when: "'Installing' in tpm_install_output.stdout"
