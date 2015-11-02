@@ -22,6 +22,7 @@
     - fonts-dejavu-core     # terminal fonts
     - chktex                # latex syntax checker
     - puppet-lint           # puppet syntax checker
+    - xclip                 # cli clipboard management
 
 
 - name: Install python packages
