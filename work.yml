@@ -1,7 +1,6 @@
 ---
 - name: Setup work laptop
   hosts: localhost
-  sudo: yes
 
   vars_prompt:
   - name: "ansible_sudo_pass"
@@ -11,4 +10,6 @@
   roles:
     - common
     - dotfiles
+    - { role: rvm_io.rvm1-ruby, tags: ruby, sudo: True }
+    - pgilad.nvm
 

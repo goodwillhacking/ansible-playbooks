@@ -11,5 +11,5 @@
     - common
     - dotfiles
     - { role: rvm_io.rvm1-ruby, tags: ruby, sudo: True }
-    - leonidas.nvm
+    - pgilad.nvm
 

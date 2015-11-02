@@ -1,10 +1,5 @@
 ---
 
-nvm:
-  user: '{{ ansible_ssh_user }}'
-  version: v0.29.0
-  node_version: 5.0.0
-
 rvm1_rubies:
   - 'ruby-2.2.3'
 
