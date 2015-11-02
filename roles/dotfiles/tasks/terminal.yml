@@ -14,6 +14,7 @@
 
 - name: Deploy config
   copy: src=Xresources dest=~/.Xresources
+  notify: reload rxvt
 
 - name: Deploy dircolors
   copy: src=dircolors.256dark dest=~/.dircolors.256dark

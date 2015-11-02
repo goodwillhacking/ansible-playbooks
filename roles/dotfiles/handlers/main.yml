@@ -1,0 +1,4 @@
+---
+
+- name: reload rxvt
+  command: xrdb -load ~/.Xresources
