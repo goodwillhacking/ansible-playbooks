@@ -5,67 +5,18 @@
   sudo: True
   with_items:
     - ppa:pi-rho/dev          # tmux, vim, rxvt
-    - ppa:neovim-ppa/unstable # neovim
     - ppa:git-core/ppa        # git
 
 - name: Install apps
   apt: name={{ item }} state=installed
   sudo: True
   with_items:
-    - tmux                  # terminal multiplexer
-    - neovim                # fork of vim
-    - latexmk               # compile latex
     - xdotool               # so vimtex knows if the pdf viewer is already open
-    - python3-unidecode     # for ultisnips vim plugin
-    - python3-pip           # to install neovim python compatibility
-    - texlive-lang-german   # add german latex packages
-    - rxvt-unicode-256color # terminal umulator
-    - fonts-dejavu-core     # terminal fonts
-    - chktex                # latex syntax checker
-    - puppet-lint           # puppet syntax checker
     - xclip                 # cli clipboard management
     - git                   # commit everything
 
+- include: nvim.yml
+- include: latex.yml
+- include: tmux.yml
+- include: terminal.yml
 
-- name: Install python packages
-  pip: name={{ item }}
-  with_items:
-    - neovim          # so python plugins work
-    - frosted         # python syntax checker
-
-- name: Install robocop
-  gem: name=robocop   # ruby static code analyzer
-
-- name: Set neovim as default vim
-  alternatives: name=vim path=/usr/bin/nvim
-
-- name: Deploy snippets
-  copy: src=UltiSnips dest="~/.vim"
-
-- name: Deploy urxvt perl scripts # clipboard support
-  copy: src=urxvt/ dest=/usr/lib/urxvt/
-  sudo: True
-
-- name: Deploy config files
-  copy: src={{ item }} dest=~/.config/
-  with_items:
-  - nvim
-
-- name: Deploy dotfiles
-  copy: src={{ item }} dest="~/.{{ item }}"
-  with_items:
-    - bashrc
-    - bash_aliases
-    - bash_profile
-    - tmux.conf
-    - latexmkrc
-    - Xresources        # rxvt
-    - dircolors.256dark # solarized dircolors
-
-- name: install tpm
-  git: repo=https://github.com/tmux-plugins/tpm dest=~/.tmux/plugins/tpm
-
-- name: Install tmux plugins
-  shell: ~/.tmux/plugins/tpm/scripts/install_plugins.sh
-  register: tpm_install_output
-  changed_when: "'Installing' in tpm_install_output.stdout"

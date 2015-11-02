@@ -1,0 +1,11 @@
+---
+
+- name: Install latex
+  apt: name={{ item }}
+  sudo: True
+  with_items:
+    - latexmk
+    - texlive-lang-german
+
+- name: Deploy latex config
+  copy: src=latexmkrc dest=~/.latexmkrc

@@ -1,0 +1,41 @@
+---
+
+- name: Add neovim repository
+  apt_repository: repo=ppa:neovim-ppa/unstable
+  sudo: True
+
+- name: Install neovim
+  apt: name=neovim
+  sudo: True
+
+- name: Install neovim python dependencies
+  apt: name={{ item }}
+  sudo: True
+  with_items:
+    - python3-unidecode
+    - python3-pip
+
+- name: Install neovim syntax checkers
+  apt: name={{ item }}
+  sudo: True
+  with_items:
+    - chktex
+    - puppet-lint
+
+- name: Install neovim python packages
+  pip: name={{ item }}
+  with_items:
+    - neovim        # so python plugins work
+    - frosted       # python syntax checker
+
+- name: Install robocop
+  gem: name=robocop # ruby static code analyzer
+
+- name: Set neovim as default vim
+  alternatives: name=vim path=/usr/bin/nvim
+
+- name: Deploy snippets
+  copy: src=UltiSnips dest="~/.vim"
+
+- name: Deploy neovim config files
+  copy: src=nvim dest=~/.config

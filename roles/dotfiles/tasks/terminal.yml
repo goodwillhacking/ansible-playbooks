@@ -1,0 +1,26 @@
+---
+
+- name: Install terminal
+  apt: name=rxvt-unicode-256color
+  sudo: True
+
+- name: Install terminal font
+  apt: name=fonts-dejavu-core
+  sudo: True
+
+- name: Deploy urxvt perl scripts
+  copy: src=urxvt/ dest=/usr/lib/urxvt/
+  sudo: True
+
+- name: Deploy config
+  copy: src=Xresources dest=~/.Xresources
+
+- name: Deploy dircolors
+  copy: src=dircolors.256dark dest=~/.dircolors.256dark
+
+- name: Deploy bash files
+  copy: src={{ item }} dest=~/.{{ item }}
+  with_items:
+    - bashrc
+    - bash_aliases
+    - bash_profile
