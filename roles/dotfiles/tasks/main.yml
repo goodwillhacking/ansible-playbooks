@@ -6,6 +6,7 @@
   with_items:
     - ppa:pi-rho/dev          # tmux, vim, rxvt
     - ppa:neovim-ppa/unstable # neovim
+    - ppa:git-core/ppa        # git
 
 - name: Install apps
   apt: name={{ item }} state=installed
@@ -23,6 +24,7 @@
     - chktex                # latex syntax checker
     - puppet-lint           # puppet syntax checker
     - xclip                 # cli clipboard management
+    - git                   # commit everything
 
 
 - name: Install python packages
