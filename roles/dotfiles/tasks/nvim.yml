@@ -22,6 +22,12 @@
     - chktex
     - puppet-lint
 
+- name: Install neovim npm packages
+  npm: name={{ item }} global=yes
+  with_items:
+    - eslint
+    - jsonlint
+
 - name: Install neovim python packages
   pip: name={{ item }}
   with_items:
