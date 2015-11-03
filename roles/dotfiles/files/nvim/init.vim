@@ -8,7 +8,6 @@ set ignorecase    " ignore case when searching
 set hidden        " allows switching modified buffers
 set mouse-=a      " disable mouse
 set undofile      " enable persistent undo
-highlight Search ctermbg=NONE ctermfg=yellow cterm=underline
 
 set undolevels=1000      " use many muchos levels of undo
 
@@ -25,6 +24,8 @@ let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/](\.(git|hg|svn)|\_site|build)$',
   \ 'file': '\v\.(exe|so|dll|class|png|jpg|jpeg)$',
 \}
+
+let g:vim_search_pulse_mode = 'pattern'
 
 set encoding=utf-8  " The encoding displayed.
 set fileencoding=utf-8  " The encoding written to file.
@@ -120,6 +121,8 @@ Plug 'benekastah/neomake', { 'for': ['javascript', 'json', 'python', 'ruby', 'te
 Plug 'reedes/vim-pencil'
 " Distraction free writing
 Plug 'junegunn/goyo.vim'
+" Pulse search result
+Plug 'inside/vim-search-pulse'
 
 call plug#end()
 
@@ -127,3 +130,4 @@ call plug#end()
 syntax enable
 set background=dark
 colorscheme solarized
+highlight Search ctermbg=NONE ctermfg=106 cterm=underline
