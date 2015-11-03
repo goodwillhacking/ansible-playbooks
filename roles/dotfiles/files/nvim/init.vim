@@ -63,9 +63,7 @@ let g:neomake_json_enabled_makers       = ['jsonlint']
 let g:neomake_python_enabled_makers     = ['frosted']
 let g:neomake_ruby_enabled_makers       = ['robocop']
 
-if exists(":Neomake")
-    autocmd! BufWritePost * Neomake 
-endif
+autocmd BufWritePost * silent! Neomake
 
 " Snippets
 let g:UltiSnipsExpandTrigger="<tab>"
