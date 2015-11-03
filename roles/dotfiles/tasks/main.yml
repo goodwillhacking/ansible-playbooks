@@ -19,4 +19,4 @@
 - include: latex.yml
 - include: tmux.yml
 - include: terminal.yml
-
+- include: todo.yml

@@ -36,6 +36,7 @@ if ! shopt -oq posix; then
   fi
 fi
 
+complete -F _todo t
 export rvm_path=$HOME/.rvm
 [[ -s "$HOME/.nvm/nvm.sh" ]] && . "$HOME/.nvm/nvm.sh"  # This loads nvm
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"

@@ -19,6 +19,7 @@ alias gitd='git diff'
 alias vim='NVIM_LISTEN_ADDRESS=/tmp/nvim.sock vim'
 
 alias gibb="sshfs lorenz.bischof@sftp.iet-gibb.ch: $HOME/gibb/ -o reconnect"
+alias t='todo.sh -d $HOME/.todo/todo.cfg'
 
 volume() {
     if [ $1 ]; then

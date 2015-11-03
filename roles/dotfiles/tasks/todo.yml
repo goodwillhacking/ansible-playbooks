@@ -1,0 +1,12 @@
+---
+
+- name: Install todo.txt
+  copy: src=todo/todo.sh dest=/usr/local/bin/ mode=0775
+  sudo: True
+
+- name: Deploy todo config
+  copy: src=todo/ dest=~/.todo/
+
+- name: Install todo bash completion
+  copy: src=todo/todo_completion dest=/etc/bash_completion.d/todo
+  sudo: True
