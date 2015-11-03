@@ -50,6 +50,12 @@ nnoremap <F5> :UndotreeToggle<cr>
 vnoremap <C-c> "+y
 inoremap <C-v> <esc>"+pa
 
+" Tmux navigation
+inoremap <C-h> <C-o>:TmuxNavigateLeft<cr>
+inoremap <C-l> <C-o>:TmuxNavigateRight<cr>
+inoremap <C-j> <C-o>:TmuxNavigateDown<cr>
+inoremap <C-k> <C-o>:TmuxNavigateUp<cr>
+
 let g:neomake_tex_enabled_makers        = ['chktex']
 let g:neomake_puppet_enabled_makers     = ['puppet','puppet-lint']
 let g:neomake_javascript_enabled_makers = ['eslint']
