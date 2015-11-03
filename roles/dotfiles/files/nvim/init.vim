@@ -8,7 +8,6 @@ set ignorecase    " ignore case when searching
 set hidden        " allows switching modified buffers
 set mouse-=a      " disable mouse
 set undofile      " enable persistent undo
-highlight Search ctermbg=NONE ctermfg=yellow cterm=underline
 
 set undolevels=1000      " use many muchos levels of undo
 
@@ -36,9 +35,6 @@ command! Diff w !diff % -
 command! -bar Sudo exec 'w !sudo tee % > /dev/null' <bar> e! <bar> redraw! <bar> echo "Sudo has granted you your wish"
 cabbrev w!! Sudo
 cabbrev wq!! Sudo <bar> q
-
-" Clear last search highlighting
-noremap <silent> <Space> :noh<cr>
 
 " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
 vmap <Enter> <Plug>(EasyAlign)
@@ -120,6 +116,9 @@ Plug 'benekastah/neomake', { 'for': ['javascript', 'json', 'python', 'ruby', 'te
 Plug 'reedes/vim-pencil'
 " Distraction free writing
 Plug 'junegunn/goyo.vim'
+" Better search
+Plug 'junegunn/vim-pseudocl'
+Plug 'junegunn/vim-oblique'
 
 call plug#end()
 
