@@ -11,3 +11,5 @@
 - src: rvm_io.rvm1-ruby
 
 - src: pgilad.nvm
+
+- src: angstwad.docker_ubuntu
