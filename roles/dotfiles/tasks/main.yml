@@ -1,5 +1,15 @@
 ---
 
+- name: Fix lsb-release for ansible
+  copy: src=lsb-release-trusty dest=/etc/lsb-release
+  sudo: True
+  register: lsb_release
+  when: ansible_distribution_release == 'freya'
+
+- name: Reload facts
+  action: setup
+  when: lsb_release|changed
+
 - name: Add repositories
   apt_repository: repo={{ item }}
   sudo: True
