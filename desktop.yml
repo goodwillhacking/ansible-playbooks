@@ -1,5 +1,5 @@
 ---
-- name: Setup home pc
+- name: Setup desktop pc
   hosts: localhost
 
   vars_prompt:
@@ -8,7 +8,7 @@
     private: yes
 
   roles:
-    - dotfiles
+    - desktop
     - { role: rvm_io.rvm1-ruby, tags: ruby, sudo: True }
     - { role: pgilad.nvm, tags: nvm }
     - { role: angstwad.docker_ubuntu, tags: docker, sudo: True }
