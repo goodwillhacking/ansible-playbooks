@@ -7,6 +7,9 @@
 - name: Deploy todo config
   copy: src=todo/ dest=~/.todo/
 
+- name: Make todo plugins executable
+  file: path=~/.todo/plugins mode=0744 recurse=yes state=directory
+
 - name: Install todo bash completion
   copy: src=todo/todo_completion dest=/etc/bash_completion.d/todo
   sudo: True
