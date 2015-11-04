@@ -10,5 +10,6 @@
   roles:
     - dotfiles
     - { role: rvm_io.rvm1-ruby, tags: ruby, sudo: True }
-    - pgilad.nvm
+    - { role: pgilad.nvm, tags: nvm }
+    - { role: angstwad.docker_ubuntu, tags: docker, sudo: True }
 
