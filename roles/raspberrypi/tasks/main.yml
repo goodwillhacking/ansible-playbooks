@@ -1,9 +1,0 @@
----
-
-- name: Install wake on lan script
-  copy: src=pc.sh dest=/usr/local/bin/pc mode=o+x
-
-- name: Remove ruby deb
-  apt: name={{ item }} state=removed
-  with_items:
-    - ruby1.9.1

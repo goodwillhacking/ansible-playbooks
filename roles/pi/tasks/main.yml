@@ -1,0 +1,4 @@
+---
+
+- name: Install wake on lan script
+  copy: src=pc.sh dest=/usr/local/bin/pc mode=o+x
