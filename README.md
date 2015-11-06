@@ -14,4 +14,4 @@ sudo service dnsmasq restart
 Configures a desktop environment. Uses localhost.
 
 ## pi
-Configures my raspberry pi.
+Configures my raspberry pi. distro: https://github.com/debian-pi/raspbian-ua-netinst
