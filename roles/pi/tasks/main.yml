@@ -3,6 +3,9 @@
 - name: Install wake on lan script
   copy: src=pc.sh dest=/usr/local/bin/pc mode=o+x
 
+- name: Install fail2ban
+  apt: name=fail2ban
+
 - name: Install docker-py
   pip: name=docker-py
 
