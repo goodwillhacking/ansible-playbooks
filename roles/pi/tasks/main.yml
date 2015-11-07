@@ -17,6 +17,7 @@
   sudo: True
   with_items:
     - mutt
+    - offlineimap
 
 - name: Run data container
   docker:

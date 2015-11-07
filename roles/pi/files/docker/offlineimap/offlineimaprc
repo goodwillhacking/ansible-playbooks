@@ -1,0 +1,22 @@
+[general]
+ui = ttyui
+accounts = work
+fsync = False
+metadata = /home/mutt/mail/offlineimap
+
+[Account work]
+localrepository = work-local
+remoterepository = work-remote
+status_backend = sqlite
+
+[Repository work-local]
+type = Maildir
+localfolders = /home/mutt/mail/work
+
+[Repository work-remote]
+type = IMAP
+remotehost = mail.puzzle.ch
+remoteuser = bischof@puzzle.ch
+realdelete = no
+folderfilter = lambda folder: folder not in ['Trash','otrs','spam','train/ham','train/spam']
+
