@@ -2,3 +2,26 @@
 
 - name: Install wake on lan script
   copy: src=pc.sh dest=/usr/local/bin/pc mode=o+x
+
+- name: Install docker-py
+  pip: name=docker-py
+
+- name: Copy bash aliases
+  copy: src=bash_aliases dest=~/.bash_aliases
+
+- name: Copy dockerfiles
+  copy: src=docker/ dest=~/docker/
+
+- name: Build images
+  docker_image: path=/root/docker/{{ item }} name=lbischof/{{ item }}
+  sudo: True
+  with_items:
+    - mutt
+
+- name: Run data container
+  docker:
+    image: lbischof/mutt
+    name: mutt_data
+    state: present
+    volumes:
+      - /home/mutt/mail

@@ -16,5 +16,6 @@
 
       - action: setup
   roles:
+      - bobbyrenwick.pip
       - pi
       # - mailclient

@@ -1,0 +1,1 @@
+alias mutt='docker run --rm -it --volumes-from mutt_data lbischof/mutt'
