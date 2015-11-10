@@ -3,4 +3,4 @@
   sudo: yes
   tasks:
     # Using github url as key source
-    - authorized_key: user=root key=https://github.com/lorenzbi.keys
+    - authorized_key: user=root key=https://github.com/lbischof.keys
