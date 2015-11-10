@@ -1,0 +1,5 @@
+---
+
+sshd:
+  X11Forwarding: no
+  PasswordAuthentication: no
