@@ -1,0 +1,31 @@
+[general]
+ui = ttyui
+accounts = work
+fsync = False
+pythonfile = ~/.offlineimap.py
+
+[Account work]
+localrepository = work-local
+remoterepository = work-remote
+status_backend = sqlite
+
+[Repository work-local]
+type = Maildir
+localfolders = ~/Mail/work
+
+[Repository work-remote]
+type = IMAP
+remotehost = mail.puzzle.ch
+remoteuser = bischof@puzzle.ch
+remotepasseval = subprocess.check_output(["gpg", "-dq", ".passwd/puzzle.gpg"]).strip()
+realdelete = no
+folderfilter = lambda folder: folder not in ['Trash','spam','train/ham','train/spam']
+
+
+[mbnames]
+enabled = yes
+filename = ~/.mutt/mailboxes
+header = "mailboxes "
+peritem = "+%(accountname)s/%(foldername)s"
+sep = " "
+footer = "\n"

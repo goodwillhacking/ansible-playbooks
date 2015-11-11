@@ -1,0 +1,43 @@
+set mbox_type         = Maildir
+set sendmail          = /usr/bin/msmtp
+set from              = "Lorenz Bischof <bischof@puzzle.ch>"
+set to_chars          = "- +CFL"                               # indicate mail not addressed to me directly
+set folder            = ~/Mail
+set spoolfile         = "+work/INBOX"
+set trash             = "+work/Archives"
+set record            = "+work/Sent"
+set postponed         = "+work/Drafts"
+set editor            = "vim +star +/^$ ++1"                   # make vim position the cursor after the headers
+set sort              = threads
+set timeout           = 30                                     # check new mail
+set pager_index_lines = 10                                     # show 10 index page while in pager
+set charset           = "utf-8"
+
+set text_flowed
+set auto_tag                                                   # apply actions on all tagged messages
+set include                                                    # always include the message in replies
+set fast_reply		                                       # skip initial prompts when replying
+set edit_headers
+
+# headers to show
+ignore *                                                       # ignore all headers
+unignore from: to: cc: date: subject:                          # show only these
+
+set header_cache      = "~/.mutt/headers"
+set alias_file        = "~/.mutt/aliases"
+set signature         = "~/.signature"
+
+color normal default default
+color status blue default                                      # status lines in the folder index sed for the mini-help line
+color attachment default default
+color quoted default default
+color signature default default
+color tilde default default                                    # fill empty space below message
+color indicator black blue
+
+color header default default .
+#color header yellow black ^From
+#color header yellow black ^Subject
+
+source ~/.mutt/mailboxes
+source ~/.mutt/aliases
