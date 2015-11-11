@@ -11,13 +11,13 @@ status_backend = sqlite
 
 [Repository work-local]
 type = Maildir
-localfolders = ~/Mail/work
+localfolders = ~/Mail/
 
 [Repository work-remote]
 type = IMAP
 remotehost = mail.puzzle.ch
 remoteuser = bischof@puzzle.ch
-remotepasseval = subprocess.check_output(["gpg", "-dq", ".passwd/puzzle.gpg"]).strip()
+remotepasseval = subprocess.check_output(["gpg", "-dq", "~/.passwd.gpg"]).strip()
 realdelete = no
 folderfilter = lambda folder: folder not in ['Trash','spam','train/ham','train/spam']
 

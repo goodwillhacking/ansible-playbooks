@@ -19,4 +19,4 @@
       - bobbyrenwick.pip
       - pi
       - mattwillsher.sshd
-      # - mailclient
+      - mailclient
