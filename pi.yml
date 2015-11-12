@@ -6,4 +6,4 @@
       - bobbyrenwick.pip
       - pi
       - { role: mattwillsher.sshd, tags: sshd, sudo: True }
-      - mailclient
+      - mutt
