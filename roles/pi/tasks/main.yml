@@ -7,3 +7,7 @@
 - name: Install fail2ban
   apt: name=fail2ban
   sudo: True
+
+- name: Install vim
+  apt: name=vim
+  sudo: True

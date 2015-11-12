@@ -17,9 +17,9 @@ localfolders = ~/Mail/
 type = IMAP
 remotehost = mail.puzzle.ch
 remoteuser = bischof@puzzle.ch
-remotepasseval = subprocess.check_output(["gpg", "-dq", "~/.passwd.gpg"]).strip()
+remotepasseval = get_password()
 realdelete = no
-folderfilter = lambda folder: folder not in ['Trash','spam','train/ham','train/spam']
+folderfilter = lambda folder: folder not in ['Trash','spam','otrs','train/ham','train/spam']
 
 
 [mbnames]

@@ -16,6 +16,12 @@
     - muttrc
     - signature
 
+- locale_gen: name=de_CH.UTF-8
+  sudo: True
+
+- locale_gen: name=en_US.UTF-8
+  sudo: True
+
 - name: Create mutt directory
   file: path='~/.mutt' state=directory
 
