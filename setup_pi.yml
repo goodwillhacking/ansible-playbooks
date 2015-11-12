@@ -39,6 +39,9 @@
       - name: Add public key
         authorized_key: user=lbischof key=https://github.com/lbischof.keys
 
+      - name: Import gpg key
+        local_action: command gpg --export-secret-key AFBA32A6 | ssh lbischof@{{ ansible_ssh_host }} gpg --import
+
       - name: Lock root account
         command: passwd -l root
       
