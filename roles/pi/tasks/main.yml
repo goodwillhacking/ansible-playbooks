@@ -2,6 +2,8 @@
 
 - name: Install wake on lan script
   copy: src=pc.sh dest=/usr/local/bin/pc mode=o+x
+  sudo: True
 
 - name: Install fail2ban
   apt: name=fail2ban
+  sudo: True

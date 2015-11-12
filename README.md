@@ -14,4 +14,6 @@ sudo service dnsmasq restart
 Configures a desktop environment. Uses localhost.
 
 ## pi
-Configures my raspberry pi. distro: Hypriot Hector
+Configures my raspberry pi. 
+image: https://github.com/debian-pi/raspbian-ua-netinst
+firstboot: ansible-playbook setup_pi.yml
