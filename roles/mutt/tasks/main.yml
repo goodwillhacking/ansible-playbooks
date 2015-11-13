@@ -25,6 +25,9 @@
 - name: Create mutt directory
   file: path='~/.mutt' state=directory
 
+- name: Create empty aliases file
+  command: touch ~/.mutt/aliases creates=~/.mutt/aliases
+
 - name: Cron offlineimap
   cron: name='offlineimap' minute='*/5' hour='7-20' job='offlineimap -u quiet -q'
 
