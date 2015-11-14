@@ -11,3 +11,6 @@
 - name: Install vim
   apt: name=vim
   sudo: True
+
+- name: Copy vim config
+  copy: src=vimrc dest=~/.vimrc
