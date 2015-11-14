@@ -14,7 +14,6 @@
     - offlineimap.py
     - msmtprc
     - muttrc
-    - signature
 
 - locale_gen: name=de_CH.UTF-8
   sudo: True

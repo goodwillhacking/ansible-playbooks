@@ -23,9 +23,18 @@ set edit_headers
 ignore *                                                       # ignore all headers
 unignore from: to: cc: date: subject:                          # show only these
 
+# PGP
+set crypt_autosign = yes
+set crypt_replyencrypt = yes
+set crypt_replysign = yes
+set crypt_replysignencrypted = yes
+set crypt_verify_sig = yes
+set pgp_auto_decode = yes
+set pgp_autoinline = yes
+set pgp_sign_as = 'AFBA32A6'
+
 set header_cache      = "~/.mutt/headers"
 set alias_file        = "~/.mutt/aliases"
-set signature         = "~/.signature"
 
 color normal default default
 color status blue default                                      # status lines in the folder index sed for the mini-help line
