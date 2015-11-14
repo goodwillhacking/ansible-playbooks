@@ -20,7 +20,6 @@
   sudo: True
   with_items:
     - chktex
-    - puppet-lint
 
 - name: Install neovim npm packages
   npm: name={{ item }} global=yes
@@ -34,8 +33,20 @@
     - neovim        # so python plugins work
     - frosted       # python syntax checker
 
-- name: Install robocop
-  gem: name=robocop # ruby static code analyzer
+- name: Check installed gems
+  command: gem list -i {{ item }}
+  register: neovim_gems
+  changed_when: False
+  ignore_errors: True
+  no_log: True
+  with_items:
+    - robocop
+    - puppet-lint
+
+- name: Install neovim gems
+  command: gem install {{ item }}
+  with_items:
+    neovim_gems.results|selectattr('rc','odd')|map(attribute='item')|list
 
 - name: Set neovim as default vim
   alternatives: name=vim path=/usr/bin/nvim
