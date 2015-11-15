@@ -1,16 +1,23 @@
 ---
 
 - name: Install wake on lan script
-  copy: src=pc.sh dest=/usr/local/bin/pc mode=o+x
+  copy: src=pc.sh dest=/usr/local/bin/pc mode=0755
   sudo: True
 
-- name: Install fail2ban
-  apt: name=fail2ban
+- name: Install ip_changed script
+  copy: src=ip_changed.sh dest=/usr/local/bin/ip_changed mode=0755
   sudo: True
-
-- name: Install vim
-  apt: name=vim
+  
+- name: Install apps
+  apt: name={{ item }}
   sudo: True
+  with_items:
+    - fail2ban
+    - vim
+    - dnsutils
 
 - name: Copy vim config
   copy: src=vimrc dest=~/.vimrc
+
+
+- cron: name="check ip" minute="*/10" job="ip_changed"
