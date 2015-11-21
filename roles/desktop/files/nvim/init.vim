@@ -41,6 +41,10 @@ cabbrev wq!! Sudo <bar> q
 " Clear last search highlighting
 noremap <silent> <Space> :noh<cr>
 
+" Spell checking
+set spell
+autocmd FileType mail,tex set spelllang=de
+
 " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
 vmap <Enter> <Plug>(EasyAlign)
 
