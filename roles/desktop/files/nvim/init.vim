@@ -66,11 +66,6 @@ let g:neomake_ruby_enabled_makers       = ['robocop']
 
 autocmd! BufWritePost * silent! Neomake
 
-augroup pencil
-    autocmd!
-    autocmd FileType markdown,tex call pencil#init()
-augroup END
-
 " Snippets
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
@@ -117,8 +112,6 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'altercation/vim-colors-solarized'
 " Async syntax checker
 Plug 'benekastah/neomake', { 'for': ['javascript', 'json', 'python', 'ruby', 'tex', 'puppet']}
-" Better line wrapping for prose
-Plug 'reedes/vim-pencil'
 " Distraction free writing
 Plug 'junegunn/goyo.vim'
 " Pulse search result
