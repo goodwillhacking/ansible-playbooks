@@ -1,7 +1,5 @@
 ---
 
-- src: jnv.debian-backports
-
 - src: nbz4live.php-fpm
 
 - src: pcextreme.mariadb

@@ -21,7 +21,8 @@
   tags: nvm
 
 - name: ensure nvm installs requested versions
-  shell: . {{ nvm_install_path }}/nvm.sh && nvm install {{ item }}
+  sudo: yes
+  shell: . {{ nvm_install_path}}/nvm.sh && nvm install {{ item }}
   with_items: nvm_install_versions
   register: install_output
   changed_when: not (install_output.stderr | search('already installed'))
