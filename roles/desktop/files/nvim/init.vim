@@ -57,15 +57,6 @@ inoremap <C-l> <C-o>:TmuxNavigateRight<cr>
 inoremap <C-j> <C-o>:TmuxNavigateDown<cr>
 inoremap <C-k> <C-o>:TmuxNavigateUp<cr>
 
-let g:neomake_tex_enabled_makers        = ['chktex']
-let g:neomake_puppet_enabled_makers     = ['puppet','puppet-lint']
-let g:neomake_javascript_enabled_makers = ['eslint']
-let g:neomake_json_enabled_makers       = ['jsonlint']
-let g:neomake_python_enabled_makers     = ['frosted']
-let g:neomake_ruby_enabled_makers       = ['robocop']
-
-autocmd! BufWritePost * silent! Neomake
-
 " Snippets
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
@@ -110,8 +101,6 @@ Plug 'tpope/vim-repeat'
 Plug 'christoomey/vim-tmux-navigator'
 " Solarized colors
 Plug 'altercation/vim-colors-solarized'
-" Async syntax checker
-Plug 'benekastah/neomake', { 'for': ['javascript', 'json', 'python', 'ruby', 'tex', 'puppet']}
 " Distraction free writing
 Plug 'junegunn/goyo.vim'
 " Pulse search result

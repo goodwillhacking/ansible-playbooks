@@ -15,38 +15,8 @@
     - python3-unidecode
     - python3-pip
 
-- name: Install neovim syntax checkers
-  apt: name={{ item }}
-  sudo: True
-  with_items:
-    - chktex
-
-- name: Install neovim npm packages
-  npm: name={{ item }} global=yes
-  with_items:
-    - eslint
-    - jsonlint
-
 - name: Install neovim python packages
-  pip: name={{ item }}
-  with_items:
-    - neovim        # so python plugins work
-    - frosted       # python syntax checker
-
-- name: Check installed gems
-  command: gem list -i {{ item }}
-  register: neovim_gems
-  changed_when: False
-  ignore_errors: True
-  no_log: True
-  with_items:
-    - robocop
-    - puppet-lint
-
-- name: Install neovim gems
-  command: gem install {{ item }}
-  with_items:
-    neovim_gems.results|selectattr('rc','odd')|map(attribute='item')|list
+  pip: name=neovim
 
 - name: Set neovim as default vim
   alternatives: name=vim path=/usr/bin/nvim
