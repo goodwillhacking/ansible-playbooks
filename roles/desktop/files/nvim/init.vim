@@ -116,6 +116,8 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'junegunn/goyo.vim'
 " Pulse search result
 Plug 'inside/vim-search-pulse'
+" Grammar checking
+Plug 'rhysd/vim-grammarous'
 
 call plug#end()
 
