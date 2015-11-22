@@ -10,7 +10,6 @@ set mouse-=a      " disable mouse
 set undofile      " enable persistent undo
 
 set undolevels=1000      " use many muchos levels of undo
-
 filetype plugin indent on
 
 " LATEX
@@ -37,6 +36,9 @@ command! Diff w !diff % -
 command! -bar Sudo exec 'w !sudo tee % > /dev/null' <bar> e! <bar> redraw! <bar> echo "Sudo has granted you your wish"
 cabbrev w!! Sudo
 cabbrev wq!! Sudo <bar> q
+
+" Remove trailing whitespace
+autocmd BufWritePre * :%s/\s\+$//e
 
 " Clear last search highlighting
 noremap <silent> <Space> :noh<cr>
