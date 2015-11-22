@@ -9,6 +9,11 @@ set hidden        " allows switching modified buffers
 set mouse-=a      " disable mouse
 set undofile      " enable persistent undo
 
+" Enforce text width
+set textwidth=79
+autocmd BufEnter * highlight OverLength ctermbg=black
+autocmd BufEnter * match OverLength /\%80v.*/
+
 set undolevels=1000      " use many muchos levels of undo
 filetype plugin indent on
 
