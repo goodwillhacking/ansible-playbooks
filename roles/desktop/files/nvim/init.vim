@@ -13,6 +13,7 @@ set undofile      " enable persistent undo
 set textwidth=79
 autocmd BufEnter * highlight OverLength ctermbg=black
 autocmd BufEnter * match OverLength /\%80v.*/
+autocmd FileType markdown,tex,mail set fo+=t
 
 set undolevels=1000      " use many muchos levels of undo
 filetype plugin indent on
