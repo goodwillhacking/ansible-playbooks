@@ -8,22 +8,27 @@ set ignorecase    " ignore case when searching
 set hidden        " allows switching modified buffers
 set mouse-=a      " disable mouse
 set undofile      " enable persistent undo
-
+set textwidth=79  " set max text width for formatting
+set formatoptions=cqnj
 set undolevels=1000
 filetype plugin indent on
 
-" Enforce text width
-set textwidth=79
-autocmd BufEnter * highlight OverLength ctermbg=black
-autocmd BufEnter * match OverLength /\%80v.*/
-set fo=cqnj
-autocmd! FileType markdown,tex setlocal fo=qnatj
+augroup format_text
+    autocmd!
+    autocmd FileType markdown,tex setlocal fo=qnatj  " Wrap long lines
+    autocmd BufEnter * highlight OverLength ctermbg=black
+    autocmd BufEnter * match OverLength /\%80v.*/
+    autocmd BufWritePre * :%s/\s\+$//e               " Remove trailing whitespace
+augroup END
 
 " LATEX
 let g:vimtex_latexmk_build_dir="build"
 let g:vimtex_view_method="zathura"
-autocmd BufRead,BufNewFile *.tex set filetype=tex
-autocmd BufRead *.tex :VimtexCompile
+augroup latex
+    autocmd!
+    autocmd BufRead,BufNewFile *.tex set filetype=tex
+    autocmd BufRead *.tex :VimtexCompile
+augroup END
 
 " Setup some default ignores
 let g:ctrlp_custom_ignore = {
@@ -44,15 +49,15 @@ command! -bar Sudo exec 'w !sudo tee % > /dev/null' <bar> e! <bar> redraw! <bar>
 cabbrev w!! Sudo
 cabbrev wq!! Sudo <bar> q
 
-" Remove trailing whitespace
-autocmd BufWritePre * :%s/\s\+$//e
-
 " Clear last search highlighting
 noremap <silent> <Space> :noh<cr>
 
 " Spell checking
-autocmd FileType markdown,tex set spell
-autocmd FileType tex set spelllang=de
+augroup spell_check
+    autocmd!
+    autocmd FileType markdown,tex set spell
+    autocmd FileType tex set spelllang=de
+augroup END
 
 " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
 vmap <Enter> <Plug>(EasyAlign)
