@@ -9,14 +9,15 @@ set hidden        " allows switching modified buffers
 set mouse-=a      " disable mouse
 set undofile      " enable persistent undo
 
+set undolevels=1000
+filetype plugin indent on
+
 " Enforce text width
 set textwidth=79
 autocmd BufEnter * highlight OverLength ctermbg=black
 autocmd BufEnter * match OverLength /\%80v.*/
-autocmd FileType markdown,tex,mail set fo+=t
-
-set undolevels=1000      " use many muchos levels of undo
-filetype plugin indent on
+set fo=cqnj
+autocmd! FileType markdown,tex setlocal fo=qnatj
 
 " LATEX
 let g:vimtex_latexmk_build_dir="build"
@@ -32,7 +33,7 @@ let g:ctrlp_custom_ignore = {
 
 let g:vim_search_pulse_mode = 'pattern'
 
-set encoding=utf-8  " The encoding displayed.
+set encoding=utf-8      " The encoding displayed.
 set fileencoding=utf-8  " The encoding written to file.
 
 " Show unsaved changes
@@ -50,8 +51,8 @@ autocmd BufWritePre * :%s/\s\+$//e
 noremap <silent> <Space> :noh<cr>
 
 " Spell checking
-set spell
-autocmd FileType mail,tex set spelllang=de
+autocmd FileType markdown,tex set spell
+autocmd FileType tex set spelllang=de
 
 " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
 vmap <Enter> <Plug>(EasyAlign)
