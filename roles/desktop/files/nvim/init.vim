@@ -1,3 +1,4 @@
+set nowrap        " disable wrapping
 set tabstop=4     " a tab is four spaces
 set shiftwidth=4  " number of spaces to use for autoindenting
 set shiftround    " use multiple of shiftwidth when indenting with '<' and '>'
@@ -11,13 +12,11 @@ set undolevels=1000
 
 filetype plugin indent on
 
-augroup format_text
+augroup autocmds
     autocmd!
-    autocmd BufWritePre * :%s/\s\+$//e               " Remove trailing whitespace
+    autocmd BufWritePre * :%s/\s\+$//e                " Remove trailing whitespace
+    autocmd BufRead,BufNewFile *.tex set filetype=tex " set latex filetype
 augroup END
-
-" latex (more in ftplugin)
-autocmd BufRead,BufNewFile *.tex set filetype=tex
 
 " Setup some default ignores
 let g:ctrlp_custom_ignore = {
