@@ -21,8 +21,5 @@
 - name: Set neovim as default vim
   alternatives: name=vim path=/usr/bin/nvim
 
-- name: Deploy snippets
-  copy: src=UltiSnips dest="~/.vim"
-
 - name: Deploy neovim config files
   copy: src=nvim dest=~/.config
