@@ -1,4 +1,3 @@
-set nowrap        " don't wrap lines
 set tabstop=4     " a tab is four spaces
 set shiftwidth=4  " number of spaces to use for autoindenting
 set shiftround    " use multiple of shiftwidth when indenting with '<' and '>'
@@ -8,27 +7,17 @@ set ignorecase    " ignore case when searching
 set hidden        " allows switching modified buffers
 set mouse-=a      " disable mouse
 set undofile      " enable persistent undo
-set textwidth=79  " set max text width for formatting
-set formatoptions=cqnj
 set undolevels=1000
+
 filetype plugin indent on
 
 augroup format_text
     autocmd!
-    autocmd FileType markdown,tex setlocal fo=qnatj  " Wrap long lines
-    autocmd BufEnter * highlight OverLength ctermbg=black
-    autocmd BufEnter * match OverLength /\%80v.*/
     autocmd BufWritePre * :%s/\s\+$//e               " Remove trailing whitespace
 augroup END
 
-" LATEX
-let g:vimtex_latexmk_build_dir="build"
-let g:vimtex_view_method="zathura"
-augroup latex
-    autocmd!
-    autocmd BufRead,BufNewFile *.tex set filetype=tex
-    autocmd BufRead *.tex :VimtexCompile
-augroup END
+" latex (more in ftplugin)
+autocmd BufRead,BufNewFile *.tex set filetype=tex
 
 " Setup some default ignores
 let g:ctrlp_custom_ignore = {
@@ -51,13 +40,6 @@ cabbrev wq!! Sudo <bar> q
 
 " Clear last search highlighting
 noremap <silent> <Space> :noh<cr>
-
-" Spell checking
-augroup spell_check
-    autocmd!
-    autocmd FileType markdown,tex set spell
-    autocmd FileType tex set spelllang=de
-augroup END
 
 " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
 vmap <Enter> <Plug>(EasyAlign)
