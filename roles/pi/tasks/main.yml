@@ -7,7 +7,7 @@
 - name: Install ip_changed script
   copy: src=ip_changed.sh dest=/usr/local/bin/ip_changed mode=0755
   sudo: True
-  
+
 - name: Install apps
   apt: name={{ item }}
   sudo: True
@@ -15,6 +15,8 @@
     - fail2ban
     - vim
     - dnsutils
+    - wakeonlan
+    - netcat
 
 - name: Copy vim config
   copy: src=vimrc dest=~/.vimrc
