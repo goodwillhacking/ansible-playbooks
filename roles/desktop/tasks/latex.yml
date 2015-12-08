@@ -5,6 +5,8 @@
   sudo: True
   with_items:
     - latexmk
+    - texlive
+    - texlive-latex-extra
     - texlive-lang-german
 
 - name: Deploy latex config
