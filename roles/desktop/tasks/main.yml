@@ -24,6 +24,7 @@
     - xdotool               # so vimtex knows if the pdf viewer is already open
     - xclip                 # cli clipboard management
     - git                   # commit everything
+    - dtrx                  # do the right extraction
 
 - include: nvim.yml
 - include: latex.yml
