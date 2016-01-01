@@ -32,3 +32,4 @@
 - include: terminal.yml
 - include: todo.yml
 - include: adnw.yml
+- include: gpg.yml
