@@ -1,0 +1,4 @@
+---
+- name: Copy default keyboard config
+  copy: src=keyboard dest=/etc/default/
+  sudo: yes

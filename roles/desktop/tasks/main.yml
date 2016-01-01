@@ -31,3 +31,4 @@
 - include: tmux.yml
 - include: terminal.yml
 - include: todo.yml
+- include: adnw.yml
