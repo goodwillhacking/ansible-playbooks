@@ -26,6 +26,10 @@
     - git                   # commit everything
     - dtrx                  # do the right extraction
 
+- name: Remove gtk modules
+  file: path=/etc/profile.d/pantheon-filechooser-module.sh state=absent
+  sudo: True
+
 - include: nvim.yml
 - include: latex.yml
 - include: tmux.yml

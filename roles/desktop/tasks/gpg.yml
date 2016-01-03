@@ -4,12 +4,17 @@
   copy: src=gpg-with-sec.sh dest=/usr/local/bin/gpg-with-sec mode=0755
   sudo: yes
 
+- name: Copy configuration files
+  copy: src=gnupg/ dest=~/.gnupg/
+
 - name: Disable Gnome-keyring
   file: path={{item}} state=absent
   sudo: yes
   with_items:
     - /etc/xdg/autostart/gnome-keyring-gpg.desktop
     - /etc/xdg/autostart/gnome-keyring-gpg-pantheon.desktop
+    - /etc/xdg/autostart/gnome-keyring-ssh.desktop
+    - /etc/xdg/autostart/gnome-keyring-ssh-pantheon.desktop
 
 - name: Install gpg software
   apt: name={{item}} state=installed
