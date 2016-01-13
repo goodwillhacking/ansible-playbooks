@@ -2,11 +2,6 @@
 - name: Setup desktop pc
   hosts: localhost
 
-  vars_prompt:
-  - name: "ansible_sudo_pass"
-    prompt: "Sudo password"
-    private: yes
-
   roles:
     - desktop
     - { role: rvm_io.rvm1-ruby, tags: ruby, sudo: True }
