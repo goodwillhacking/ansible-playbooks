@@ -1,5 +1,0 @@
-[webservers:children]
-digitalocean
-
-[digitalocean]
-production ansible_ssh_host=188.166.102.248
