@@ -1,3 +1,1 @@
 $pdflatex = 'pdflatex -synctex=1 %O %S';
-$success_cmd = "python ~/.config/nvim/nvimtex 1";
-$failure_cmd = "python ~/.config/nvim/nvimtex 0";

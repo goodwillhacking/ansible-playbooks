@@ -18,6 +18,7 @@ inoremap <Up> <C-o>gk
 
 let g:vimtex_latexmk_build_dir="build"
 let g:vimtex_view_method="zathura"
+let g:vimtex_latexmk_progname="nvr"
 augroup latex
     autocmd!
     autocmd FileType tex :VimtexCompile
