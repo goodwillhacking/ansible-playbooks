@@ -14,12 +14,18 @@
   with_items:
     - python3-unidecode
     - python3-pip
+    - python3-dev
 
 - name: Install neovim python packages
-  pip: name=neovim
+  pip: name=neovim executable=pip3
+  sudo: True
 
 - name: Set neovim as default vim
   alternatives: name=vim path=/usr/bin/nvim
 
 - name: Deploy neovim config files
   copy: src=nvim dest=~/.config
+
+- name: Install neovim-remote script
+  get_url: url=https://raw.githubusercontent.com/mhinz/neovim-remote/master/nvr dest=/usr/local/bin/ mode=0775
+  sudo: True
