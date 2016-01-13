@@ -1,1 +1,1 @@
-$pdflatex = 'pdflatex -synctex=1 %O %S';
+$pdflatex = 'pdflatex -synctex=1 -shell-escape %O %S';
