@@ -22,3 +22,7 @@
   with_items:
     - libccid
     - gpgsm
+
+- name: Start pcscd service
+  service: name=pcscd state=started enabled=yes
+  sudo: yes
