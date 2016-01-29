@@ -1,1 +1,3 @@
+setxkbmap adnw de
+
 . ~/.bashrc
