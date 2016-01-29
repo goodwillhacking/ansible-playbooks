@@ -2,3 +2,6 @@
 
 - name: reload rxvt
   command: xrdb -load ~/.Xresources
+
+- name: Set adnw keyboard layout
+  command: setxkbmap de adnw

@@ -1,4 +1,11 @@
 ---
-- name: Copy default keyboard config
-  copy: src=keyboard dest=/etc/default/
-  sudo: yes
+
+- name: Check if gnome settings manages keyboard
+  command: gsettings get org.gnome.settings-daemon.plugins.keyboard active
+  changed_when: False
+  register: gnome_keyboard_plugin
+
+- name: Disable gnome settings keyboard plugin
+  command: gsettings set org.gnome.settings-daemon.plugins.keyboard active false
+  when: gnome_keyboard_plugin.stdout.find('false')
+  notify: Set adnw keyboard layout
