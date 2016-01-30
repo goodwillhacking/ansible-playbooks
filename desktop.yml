@@ -4,6 +4,7 @@
 
   roles:
     - desktop
+    - { role: lbischof.pass, tags: pass }
     - { role: rvm_io.rvm1-ruby, tags: ruby, sudo: True }
     - { role: pgilad.nvm, tags: nvm }
     - { role: angstwad.docker_ubuntu, tags: docker, sudo: True }
