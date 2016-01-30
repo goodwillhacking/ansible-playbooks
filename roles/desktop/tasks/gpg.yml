@@ -7,6 +7,10 @@
 - name: Copy configuration files
   copy: src=gnupg/ dest=~/.gnupg/
 
+- name: Copy udev rules
+  copy: src=40-nitrokey.rules dest=/etc/udev/rules.d
+  sudo: yes
+
 - name: Disable Gnome-keyring
   file: path={{item}} state=absent
   sudo: yes
