@@ -29,11 +29,11 @@
 
 - name: Disable ssh-agent
   file: path=/etc/X11/Xsession.d/90x11-common_ssh-agent state=absent
-  sudo:yes
+  sudo: yes
 
 - name: Install libccid drivers
   file: src=libccid_Info.plist dest=/etc/libccid_Info.plist
-  sudo:yes
+  sudo: yes
 
 - name: Install gpg software
   apt: name={{item}} state=installed
