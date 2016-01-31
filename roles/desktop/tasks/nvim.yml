@@ -26,6 +26,7 @@
 
 - name: Set neovim as default vim
   alternatives: name=vim path=/usr/bin/nvim
+  sudo: True
 
 - name: Deploy neovim config files
   copy: src=nvim dest=~/.config
