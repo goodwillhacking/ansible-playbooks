@@ -8,6 +8,10 @@
   apt: name=neovim
   sudo: True
 
+- name: Install vim
+  apt: name=vim
+  sudo: True
+
 - name: Install neovim python dependencies
   apt: name={{ item }}
   sudo: True
