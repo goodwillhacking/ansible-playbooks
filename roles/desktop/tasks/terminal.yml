@@ -8,10 +8,6 @@
   apt: name=fonts-dejavu-core
   sudo: True
 
-- name: Deploy urxvt perl scripts
-  copy: src=urxvt/ dest=/usr/lib/urxvt/
-  sudo: True
-
 - name: Deploy config
   copy: src=Xresources dest=~/.Xresources
   notify: reload rxvt
