@@ -9,3 +9,5 @@
     renames = copies
 [help]
     autocorrect = 1
+[push]
+    default = current
