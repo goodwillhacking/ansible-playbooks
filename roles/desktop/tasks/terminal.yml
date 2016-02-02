@@ -2,11 +2,11 @@
 
 - name: Install terminal
   apt: name=rxvt-unicode-256color
-  sudo: True
+  become: yes
 
 - name: Install terminal font
   apt: name=fonts-dejavu-core
-  sudo: True
+  become: yes
 
 - name: Deploy config
   copy: src=Xresources dest=~/.Xresources

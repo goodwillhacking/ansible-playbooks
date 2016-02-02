@@ -2,19 +2,19 @@
 
 - name: Add neovim repository
   apt_repository: repo=ppa:neovim-ppa/unstable
-  sudo: True
+  become: yes
 
 - name: Install neovim
-  apt: name=neovim
-  sudo: True
+  apt: name=neovim state=installed
+  become: yes
 
 - name: Install vim
-  apt: name=vim
-  sudo: True
+  apt: name=vim state=installed
+  become: yes
 
 - name: Install neovim python dependencies
-  apt: name={{ item }}
-  sudo: True
+  apt: name={{ item }} state=installed
+  become: yes
   with_items:
     - python3-unidecode
     - python3-pip
@@ -22,15 +22,15 @@
 
 - name: Install neovim python packages
   pip: name=neovim executable=pip3
-  sudo: True
+  become: yes
 
 - name: Set neovim as default vim
   alternatives: name=vim path=/usr/bin/nvim
-  sudo: True
+  become: yes
 
 - name: Deploy neovim config files
   copy: src=nvim dest=~/.config
 
 - name: Install neovim-remote script
   get_url: url=https://raw.githubusercontent.com/mhinz/neovim-remote/master/nvr dest=/usr/local/bin/ mode=0775
-  sudo: True
+  become: yes

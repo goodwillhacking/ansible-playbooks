@@ -2,7 +2,7 @@
 
 - name: Fix lsb-release for ansible
   copy: src=lsb-release-trusty dest=/etc/lsb-release
-  sudo: True
+  become: yes
   register: lsb_release
   when: ansible_distribution_release == 'freya'
 
@@ -12,14 +12,14 @@
 
 - name: Add repositories
   apt_repository: repo={{ item }}
-  sudo: True
+  become: yes
   with_items:
     - ppa:pi-rho/dev          # tmux, vim, rxvt
     - ppa:git-core/ppa        # git
 
 - name: Install apps
   apt: name={{ item }} state=installed
-  sudo: True
+  become: yes
   with_items:
     - xdotool               # so vimtex knows if the pdf viewer is already open
     - xclip                 # cli clipboard management
@@ -28,7 +28,7 @@
 
 - name: Remove gtk modules
   file: path=/etc/profile.d/pantheon-filechooser-module.sh state=absent
-  sudo: True
+  become: yes
 
 - include: nvim.yml
 - include: latex.yml

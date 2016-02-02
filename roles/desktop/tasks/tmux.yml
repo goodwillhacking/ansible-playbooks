@@ -1,15 +1,15 @@
 ---
 
 - name: Install tmux
-  apt: name=tmux
-  sudo: True
+  apt: name=tmux state=installed
+  become: yes
 
 - name: Deploy tmux config
   copy: src=tmux.conf dest=~/.tmux.conf
 
 - name: install tpm
   git: repo=https://github.com/tmux-plugins/tpm dest=~/.tmux/plugins/tpm
-  
+
 - name: Install tmux plugins
   shell: ~/.tmux/plugins/tpm/scripts/install_plugins.sh
   register: tpm_install_output

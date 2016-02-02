@@ -1,8 +1,8 @@
 ---
 
 - name: Install latex
-  apt: name={{ item }}
-  sudo: True
+  apt: name={{ item }} state=installed
+  become: yes
   with_items:
     - latexmk
     - texlive

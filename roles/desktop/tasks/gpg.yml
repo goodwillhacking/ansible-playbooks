@@ -2,7 +2,7 @@
 
 - name: Copy gpg-with-sec script
   copy: src=gpg-with-sec.sh dest=/usr/local/bin/gpg-with-sec mode=0755
-  sudo: yes
+  become: yes
 
 - name: Create gnupg directory
   file: path=~/.gnupg state=directory mode=0700
@@ -16,11 +16,11 @@
 
 - name: Copy udev rules
   copy: src=40-nitrokey.rules dest=/etc/udev/rules.d
-  sudo: yes
+  become: yes
 
 - name: Disable Gnome-keyring
   file: path={{item}} state=absent
-  sudo: yes
+  become: yes
   with_items:
     - /etc/xdg/autostart/gnome-keyring-gpg.desktop
     - /etc/xdg/autostart/gnome-keyring-gpg-pantheon.desktop
@@ -29,15 +29,15 @@
 
 - name: Disable ssh-agent
   file: path=/etc/X11/Xsession.d/90x11-common_ssh-agent state=absent
-  sudo: yes
+  become: yes
 
 - name: Install libccid drivers
   file: src=libccid_Info.plist dest=/etc/libccid_Info.plist
-  sudo: yes
+  become: yes
 
 - name: Install gpg software
   apt: name={{item}} state=installed
-  sudo: yes
+  become: yes
   with_items:
     - gnupg2
     - libccid
@@ -46,4 +46,4 @@
 
 - name: Start pcscd service
   service: name=pcscd state=started enabled=yes
-  sudo: yes
+  become: yes
