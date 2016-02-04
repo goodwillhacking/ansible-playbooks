@@ -3,5 +3,5 @@
 - name: reload rxvt
   command: xrdb -load ~/.Xresources
 
-- name: Set adnw keyboard layout
-  command: setxkbmap de adnw
+- name: Compile glib schemas
+  command: glib-compile-schemas /usr/share/glib-2.0/schemas

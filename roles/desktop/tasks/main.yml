@@ -37,3 +37,4 @@
 - include: todo.yml
 - include: adnw.yml
 - include: gpg.yml
+- include: gsettings.yml

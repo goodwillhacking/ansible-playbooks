@@ -1,0 +1,6 @@
+---
+
+- name: Copy gsettings
+  copy: src=gsettings.gschema.override dest=/usr/share/glib-2.0/schemas
+  become: yes
+  notify: Compile glib schemas
