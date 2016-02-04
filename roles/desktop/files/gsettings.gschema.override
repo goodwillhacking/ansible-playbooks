@@ -1,2 +1,4 @@
 [org.gnome.settings-daemon.plugins.keyboard]
 active=false
+[org.gnome.desktop.wm.preferences]
+audible-bell=false
