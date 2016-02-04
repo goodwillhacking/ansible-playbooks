@@ -2,3 +2,6 @@
 active=false
 [org.gnome.desktop.wm.preferences]
 audible-bell=false
+[org.gnome.desktop.screensaver]
+lock-enabled=false
+ubuntu-lock-on-suspend=false
