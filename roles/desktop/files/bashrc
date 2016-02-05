@@ -43,6 +43,8 @@ export rvm_path=$HOME/.rvm
 
 eval `dircolors $HOME/.dircolors.256dark`
 
+export EDITOR=vim
+
 export GIT_PS1_SHOWDIRTYSTATE=1
 export GIT_PS1_SHOWUNTRACKEDFILES=1
 export GIT_PS1_SHOWCOLORHINTS=1
