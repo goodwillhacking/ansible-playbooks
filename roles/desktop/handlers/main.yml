@@ -2,7 +2,3 @@
 
 - name: reload rxvt
   command: xrdb -load ~/.Xresources
-
-- name: Compile glib schemas
-  command: glib-compile-schemas /usr/share/glib-2.0/schemas
-  become: yes

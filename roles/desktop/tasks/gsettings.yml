@@ -1,6 +1,22 @@
 ---
 
-- name: Copy gsettings
-  copy: src=gsettings.gschema.override dest=/usr/share/glib-2.0/schemas
-  become: yes
-  notify: Compile glib schemas
+- name: Disable gnome keyboard plugin
+  gsetting: key=active value=false schema=org.gnome.settings-daemon.plugins.keyboard
+
+- name: Disable audible bell
+  gsetting: key=audible-bell value=false schema=org.gnome.desktop.wm.preferences
+
+- name: Add custom keyboard shortcut
+  gsetting: key={{item.key}} value={{item.value}} schema=org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/
+  with_items:
+    - { key: binding, value: "'<super>n'" }
+    - { key: command, value: "'i3lock -c 000000'" }
+
+- name: Enable custom shortcuts
+  gsetting: key=custom-keybindings value="['/org/gnome/settings-daemon/plugins/media-keys/custom-keybinds/custom0/']" schema=org.gnome.settings-daemon.plugins.media-keys
+
+- name: Disable light locker
+  gsetting: key={{item.key}} value={{item.value}} schema=apps.light-locker
+  with_items:
+    - { key: lock-after-screensaver, value: 0 }
+    - { key: lock-on-suspend, value: 'false' }
