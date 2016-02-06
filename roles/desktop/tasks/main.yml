@@ -25,8 +25,6 @@
     - xclip                 # cli clipboard management
     - git                   # commit everything
     - dtrx                  # do the right extraction
-    - xscreensaver
-    - xscreensaver-screensaver-bsod
 
 - name: Remove gtk modules
   file: path=/etc/profile.d/pantheon-filechooser-module.sh state=absent
@@ -40,3 +38,4 @@
 - include: adnw.yml
 - include: gpg.yml
 - include: gsettings.yml
+- include: lock.yml

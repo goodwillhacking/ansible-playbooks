@@ -1,0 +1,15 @@
+---
+
+- name: Install i3lock
+  apt: name={{ item }} state=installed
+  become: yes
+  with_items:
+    - i3lock
+    - xautolock
+
+- name: Create autostart directory
+  file: path=~/.config/autostart state=directory
+
+- name: Autostart i3lock
+  copy: src=i3lock.desktop dest=~/.config/autostart
+
