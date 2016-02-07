@@ -13,6 +13,17 @@ set tls = 1
 # hide offline buddies
 set roster_display_filter = ofdna
 
+# Key bindings
+# Ctlr-q (17) bound to /roster unread_next
+bind 17 = roster unread_next
+# Ctlr-x (24) bound to /roster alternate
+bind 24 = roster alternate
+# F12 (276) bound to /roster toggle
+bind 276 = roster toggle
+# Ctrl-Up/Ctrl-Down bound to /buffer up/down  (like Ctrl-p/Ctrl-n)
+bind 521 = buffer up
+bind 514 = buffer down
+
 # notify upon new message
 set events_command = ~/.mcabber/eventcmd
 set events_ignore_active_window = 0
@@ -36,3 +47,6 @@ set color_readmark     = 10
 
 #set nick_colors = yellow brightred magenta brightmagenta blue cyan green brightcyan
 set nick_colors = 3 9 5 13 4 6 2 14
+
+#enable colors in muc
+color muc * on
