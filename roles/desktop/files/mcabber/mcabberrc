@@ -13,6 +13,13 @@ set tls = 1
 # hide offline buddies
 set roster_display_filter = ofdna
 
+# move log window to top and make it small
+set log_win_on_top = 1
+set log_win_height = 1
+
+# remove leading space before buddies in roster
+set roster_no_leading_space = 1
+
 # Key bindings
 # Ctlr-q (17) bound to /roster unread_next
 bind 17 = roster unread_next
