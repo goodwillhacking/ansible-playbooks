@@ -1,7 +1,4 @@
-# Please provide your Jabber (XMPP) identifier:
 set jid = lbischof@jabber.puzzle.ch
-
-# To automatically append the server to the JID in say_to, use this option:
 set default_server = jabber.puzzle.ch
 
 # hide self from roster
@@ -19,6 +16,12 @@ set log_win_height = 1
 
 # remove leading space before buddies in roster
 set roster_no_leading_space = 1
+
+# reduce delay after hitting esc
+set escdelay = 50
+
+# Aliases
+alias rs = roster search
 
 # Key bindings
 # Ctlr-q (17) bound to /roster unread_next
@@ -52,8 +55,8 @@ set color_rosterselmsg = 9
 set color_rosternewmsg = 9
 set color_readmark     = 10
 
-#set nick_colors = yellow brightred magenta brightmagenta blue cyan green brightcyan
+# set nick_colors = yellow brightred magenta brightmagenta blue cyan green brightcyan
 set nick_colors = 3 9 5 13 4 6 2 14
 
-#enable colors in muc
+# enable colors in muc
 color muc * on
