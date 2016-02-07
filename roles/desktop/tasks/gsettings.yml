@@ -10,8 +10,8 @@
   gsetting: key={{item.key}} value={{item.value}} schema=org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybinds/custom0/
   with_items:
     - { key: binding, value: "'<super>n'" }
-    - { key: command, value: "'i3lock -c 000000'" }
-    - { key: name, value: "'i3lock -c 000000'" }
+    - { key: command, value: "'i3lock -dc 000000'" }
+    - { key: name, value: "'i3lock -dc 000000'" }
 
 - name: Enable custom shortcuts
   gsetting: key=custom-keybindings value="['/org/gnome/settings-daemon/plugins/media-keys/custom-keybinds/custom0/']" schema=org.gnome.settings-daemon.plugins.media-keys

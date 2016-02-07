@@ -5,15 +5,7 @@
   become: yes
   with_items:
     - i3lock
-    - xautolock
 
 - name: Disable light-locker
   file: path=/etc/xdg/autostart/light-locker.desktop state=absent
   become: yes
-
-- name: Create autostart directory
-  file: path=~/.config/autostart state=directory
-
-- name: Autostart i3lock
-  copy: src=i3lock.desktop dest=~/.config/autostart
-

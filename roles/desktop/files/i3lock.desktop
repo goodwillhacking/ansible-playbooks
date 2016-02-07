@@ -1,7 +1,0 @@
-[Desktop Entry]
-Name=i3lock
-Comment=Lock screen after inactivity
-Exec=xautolock -detectsleep -time 1 -locker "i3lock -dc 000000"
-Icon=application-default-icon
-X-GNOME-Autostart-enabled=true
-Type=Application
