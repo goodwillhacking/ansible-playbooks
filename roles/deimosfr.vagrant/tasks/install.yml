@@ -2,7 +2,7 @@
 
 # Install Vagrant
 - name: Download Vagrant
-  get_url: url=https://dl.bintray.com/mitchellh/vagrant/vagrant_{{ vagrant_version }}_{{ vagrant_arch }}.deb
+  get_url: url=https://releases.hashicorp.com/vagrant/{{ vagrant_version }}/vagrant_{{ vagrant_version }}_{{ vagrant_arch }}.deb
            dest=/var/cache/apt/archives/vagrant_{{ vagrant_version }}_{{ vagrant_arch }}.deb
   when: >
     vagrant_installed.stat.exists == False
