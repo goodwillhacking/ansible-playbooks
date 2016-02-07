@@ -8,5 +8,8 @@
   file: path=~/.mcabber state=directory mode=0700
 
 - name: Copy mcabber configuration
-  copy: src=mcabberrc dest=~/.mcabber mode=0600
+  copy: src=mcabber/mcabberrc dest=~/.mcabber mode=0600
+
+- name: Copy mcabber eventcmd script
+  copy: src=mcabber/eventcmd dest=~/.mcabber mode=0700
 
