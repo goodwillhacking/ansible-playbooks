@@ -1,0 +1,11 @@
+# Please provide your Jabber (XMPP) identifier:
+set jid = lbischof@jabber.puzzle.ch
+
+# To automatically append the server to the JID in say_to, use this option:
+set default_server = jabber.puzzle.ch
+
+# hide self from roster
+set ignore_self_presence = 1
+
+# require tls
+set tls = 1
