@@ -1,0 +1,13 @@
+---
+
+- name: Check if Vagrant is already installed
+  stat: path=/usr/bin/vagrant
+  register: vagrant_installed
+  tags: vagrant
+
+- name: Get Vagrant current version
+  shell: "vagrant --version | awk '{print $2}'"
+  register: vagrant_current_version
+  when: vagrant_installed.stat.exists == True
+  changed_when: false
+  tags: vagrant

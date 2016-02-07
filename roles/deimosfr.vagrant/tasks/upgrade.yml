@@ -1,0 +1,24 @@
+---
+
+# Upgrade Vagrant
+- name: Check Vagrant latest version
+  shell: "vagrant version | awk '/^Latest/{print $3}'"
+  register: vagrant_latest_version
+  changed_when: false
+  when: vagrant_installed.stat.exists == True
+  tags: vagrant
+
+- name: Download latest Vagrant version
+  get_url: url=https://dl.bintray.com/mitchellh/vagrant/vagrant_{{ vagrant_latest_version.stdout }}_{{ vagrant_arch }}.deb
+           dest=/var/cache/apt/archives/vagrant_{{ vagrant_latest_version.stdout }}_{{ vagrant_arch }}.deb
+  when: >
+    vagrant_installed.stat.exists == False
+    or vagrant_current_version.stdout != vagrant_latest_version.stdout
+  tags: vagrant
+
+- name: Install latest Vagrant version
+  apt: deb=/var/cache/apt/archives/vagrant_{{ vagrant_latest_version.stdout }}_{{ vagrant_arch }}.deb state=installed
+  when: >
+    vagrant_installed.stat.exists == False
+    or vagrant_current_version.stdout != vagrant_latest_version.stdout
+  tags: vagrant

@@ -1,0 +1,7 @@
+---
+# Install minimum version
+vagrant_version: "1.7.2"
+# # Set arch
+vagrant_arch: "x86_64"
+# Upgrade to the latest version
+vagrant_upgrade: False
