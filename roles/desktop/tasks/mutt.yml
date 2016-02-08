@@ -1,0 +1,8 @@
+---
+
+- name: Install mutt
+  apt: name=mutt state=installed
+  become: yes
+
+- name: Copy mutt config
+  copy: src=muttrc dest=~/.muttrc

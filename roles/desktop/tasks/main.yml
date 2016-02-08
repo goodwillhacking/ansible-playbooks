@@ -40,3 +40,4 @@
 - include: gsettings.yml
 - include: lock.yml
 - include: jabber.yml
+- include: mutt.yml
