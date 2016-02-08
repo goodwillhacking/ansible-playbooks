@@ -24,11 +24,11 @@ set escdelay = 50
 alias rs = roster search
 
 # Key bindings
-# Ctlr-q (17) bound to /roster unread_next
-bind 17 = roster unread_next
-# Ctlr-x (24) bound to /roster alternate
-bind 24 = roster alternate
-# F12 (276) bound to /roster toggle
+# Ctlr-x bound to /roster unread_next
+bind 24 = roster unread_next
+# Ctlr-y bound to /roster alternate
+bind 25 = roster alternate
+# F12 bound to /roster toggle
 bind 276 = roster toggle
 # Ctrl-Up/Ctrl-Down bound to /buffer up/down  (like Ctrl-p/Ctrl-n)
 bind 521 = buffer up
