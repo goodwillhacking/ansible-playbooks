@@ -35,8 +35,9 @@ bind 521 = buffer up
 bind 514 = buffer down
 
 # notify upon new message
+set beep_on_message = 1
 set events_command = ~/.mcabber/eventcmd
-set events_ignore_active_window = 0
+set events_ignore_active_window = 1
 set eventcmd_use_nickname = 1
 
 set color_background   = default

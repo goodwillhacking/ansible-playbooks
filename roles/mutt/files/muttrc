@@ -12,6 +12,7 @@ set sort              = threads
 set timeout           = 30                                     # check new mail
 set pager_index_lines = 10                                     # show 10 index page while in pager
 set charset           = "utf-8"
+set beep_new          = yes
 
 set text_flowed
 set auto_tag                                                   # apply actions on all tagged messages
