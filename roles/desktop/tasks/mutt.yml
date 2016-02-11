@@ -4,11 +4,8 @@
   apt: name=mutt state=installed
   become: yes
 
-- name: Copy mutt config
-  copy: src=muttrc dest=~/.muttrc
-
-- name: Create mutt directory
-  file: path=~/.mutt state=directory
+- name: Copy mutt directory
+  copy: src=mutt/ dest=~/.mutt/
 
 - name: Copy mutt aliases
   copy: content={{ mutt_aliases }} dest=~/.mutt/aliases
