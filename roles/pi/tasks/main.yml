@@ -18,8 +18,4 @@
     - wakeonlan
     - netcat
 
-- name: Copy vim config
-  copy: src=vimrc dest=~/.vimrc
-
-
 - cron: name="check ip" minute="*/10" job="ip_changed"
