@@ -6,3 +6,9 @@
 
 - name: Copy mutt config
   copy: src=muttrc dest=~/.muttrc
+
+- name: Create mutt directory
+  file: path=~/.mutt state=directory
+
+- name: Copy mutt aliases
+  copy: content={{ mutt_aliases }} dest=~/.mutt/aliases

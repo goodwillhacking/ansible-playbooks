@@ -36,8 +36,8 @@ set pgp_autoinline = yes
 set pgp_use_gpg_agent = yes
 set pgp_sign_as = 'AFBA32A6'
 
-# set header_cache      = "~/.mutt/headers"
-# set alias_file        = "~/.mutt/aliases"
+set header_cache      = "~/.mutt/headers"
+set alias_file        = "~/.mutt/aliases"
 
 color normal default default
 color status blue default                # status lines in the folder index sed for the mini-help line
@@ -51,6 +51,5 @@ color header default default .
 #color header yellow black ^From
 #color header yellow black ^Subject
 
-# source ~/.mutt/mailboxes
-# source ~/.mutt/aliases
+source $alias_file
 source "pass puzzle/mutt |"
