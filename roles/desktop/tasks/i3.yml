@@ -14,3 +14,7 @@
 - name: Enable autologin
   copy: src=getty@tty1.service.d dest=/etc/systemd/system
   become: yes
+
+- name: Setup monitors
+  copy: src=10-monitor.conf dest=/etc/X11/xorg.conf.d
+  become: yes
