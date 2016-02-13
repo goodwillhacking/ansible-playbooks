@@ -4,21 +4,20 @@
   pacman: name={{ item }} state=present
   become: yes
   with_items:
-#    - xdotool               # so vimtex knows if the pdf viewer is already open
+    - xdotool               # so vimtex knows if the pdf viewer is already open
     - xclip                 # cli clipboard management
     - git                   # commit everything
     - vlc
     - transmission-gtk
     - zathura
     - pass
-#    - dtrx                  # do the right extraction
+    - dunst
 
 - name: Install apps from aur
   packer: name={{ item }} state=present
   become: yes
   with_items:
     - dtrx
-    - xcape-git
 
 - include: nvim.yml
 #- include: latex.yml
