@@ -23,3 +23,7 @@
     - bash_profile
     - xinitrc
     - gitconfig
+
+- name: Disable pc speaker beep
+  copy: src=nobeep.conf dest=/etc/modprobe.d
+  become: yes
