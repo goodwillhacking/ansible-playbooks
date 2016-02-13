@@ -9,6 +9,7 @@
     - git                   # commit everything
     - vlc
     - transmission-gtk
+    - zathura
 #    - dtrx                  # do the right extraction
 
 
