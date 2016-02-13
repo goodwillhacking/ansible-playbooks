@@ -8,14 +8,14 @@
   pacman: name=ttf-dejavu
   become: yes
 
-- name: Deploy config
+- name: Copy Xresources
   copy: src=Xresources dest=~/.Xresources
   notify: reload rxvt
 
-- name: Deploy dircolors
+- name: Copy dircolors
   copy: src=dircolors.256dark dest=~/.dircolors.256dark
 
-- name: Deploy bash files
+- name: Copy bash files
   copy: src={{ item }} dest=~/.{{ item }}
   with_items:
     - bashrc
