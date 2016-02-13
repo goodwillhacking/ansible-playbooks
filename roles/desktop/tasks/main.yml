@@ -10,8 +10,15 @@
     - vlc
     - transmission-gtk
     - zathura
+    - pass
 #    - dtrx                  # do the right extraction
 
+- name: Install apps from aur
+  packer: name={{ item }} state=present
+  become: yes
+  with_items:
+    - dtrx
+    - xcape
 
 - include: nvim.yml
 #- include: latex.yml
