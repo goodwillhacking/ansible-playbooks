@@ -5,8 +5,10 @@
   become: yes
   with_items:
 #    - xdotool               # so vimtex knows if the pdf viewer is already open
-#    - xclip                 # cli clipboard management
+    - xclip                 # cli clipboard management
     - git                   # commit everything
+    - vlc
+    - transmission-gtk
 #    - dtrx                  # do the right extraction
 
 
