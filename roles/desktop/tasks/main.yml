@@ -1,43 +1,22 @@
 ---
 
-- name: Fix lsb-release for ansible
-  copy: src=lsb-release-trusty dest=/etc/lsb-release
-  become: yes
-  register: lsb_release
-  when: ansible_distribution_release == 'freya'
-
-- name: Reload facts
-  action: setup
-  when: lsb_release|changed
-
-- name: Add repositories
-  apt_repository: repo={{ item }}
-  become: yes
-  with_items:
-    - ppa:pi-rho/dev          # tmux, vim, rxvt
-    - ppa:git-core/ppa        # git
-
 - name: Install apps
-  apt: name={{ item }} state=installed
+  pacman: name={{ item }} state=present
   become: yes
   with_items:
-    - xdotool               # so vimtex knows if the pdf viewer is already open
-    - xclip                 # cli clipboard management
+#    - xdotool               # so vimtex knows if the pdf viewer is already open
+#    - xclip                 # cli clipboard management
     - git                   # commit everything
-    - dtrx                  # do the right extraction
+#    - dtrx                  # do the right extraction
 
-- name: Remove gtk modules
-  file: path=/etc/profile.d/pantheon-filechooser-module.sh state=absent
-  become: yes
 
 - include: nvim.yml
-- include: latex.yml
-- include: tmux.yml
+#- include: latex.yml
+#- include: tmux.yml
 - include: terminal.yml
-- include: todo.yml
-- include: adnw.yml
+#- include: todo.yml
 - include: gpg.yml
-- include: gsettings.yml
-- include: lock.yml
-- include: jabber.yml
-- include: mutt.yml
+#- include: gsettings.yml
+#- include: lock.yml
+#- include: jabber.yml
+#- include: mutt.yml

@@ -2,11 +2,11 @@
 # tasks file for ansible-role-pass
 
 - name: Install tree
-  apt: name=tree
+  pacman: name=tree
   become: yes
 
 - name: Install git
-  apt: name=git
+  pacman: name=git
   become: yes
   when: pass_git_remote is defined
 

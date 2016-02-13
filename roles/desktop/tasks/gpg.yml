@@ -8,7 +8,7 @@
   file: path=~/.gnupg state=directory mode=0700
 
 - name: Copy configuration files
-  file: src=gnupg/{{item}} dest=~/.gnupg/{{item}} mode=0600
+  copy: src=gnupg/{{item}} dest=~/.gnupg/{{item}} mode=0600
   with_items:
     - gpg.conf
     - gpg-agent.conf
@@ -31,18 +31,13 @@
   file: path=/etc/X11/Xsession.d/90x11-common_ssh-agent state=absent
   become: yes
 
-- name: Install libccid drivers
-  file: src=libccid_Info.plist dest=/etc/libccid_Info.plist
-  become: yes
 
 - name: Install gpg software
-  apt: name={{item}} state=installed
+  pacman: name={{item}} state=present
   become: yes
   with_items:
-    - gnupg2
-    - libccid
-    - pcscd
-    - gpgsm
+    - pcsclite
+    - libusb-compat
 
 - name: Start pcscd service
   service: name=pcscd state=started enabled=yes

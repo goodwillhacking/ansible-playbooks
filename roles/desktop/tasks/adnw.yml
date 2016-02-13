@@ -1,9 +1,0 @@
----
-
-- name: Copy xkb-data package
-  copy: src=xkb-data_2.12-1ubuntu1_all.deb dest=/root/
-  become: yes
-
-- name: Install xkb-data
-  apt: deb=/root/xkb-data_2.12-1ubuntu1_all.deb
-  become: yes

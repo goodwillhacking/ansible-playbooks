@@ -1,11 +1,11 @@
 ---
 
 - name: Install terminal
-  apt: name=rxvt-unicode-256color
+  pacman: name=rxvt-unicode
   become: yes
 
 - name: Install terminal font
-  apt: name=fonts-dejavu-core
+  pacman: name=ttf-dejavu
   become: yes
 
 - name: Deploy config
