@@ -18,7 +18,7 @@
   become: yes
   with_items:
     - dtrx
-    - xcape
+    - xcape-git
 
 - include: nvim.yml
 #- include: latex.yml
