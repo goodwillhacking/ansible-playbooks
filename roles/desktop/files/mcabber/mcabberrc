@@ -1,6 +1,8 @@
 set jid = lbischof@jabber.puzzle.ch
 set default_server = jabber.puzzle.ch
 
+set password_eval = "pass puzzle/ldap"
+
 # hide self from roster
 set ignore_self_presence = 1
 
