@@ -3,7 +3,7 @@
 - name: Install i3
   pacman: name={{ item }} state=present
   become: yes
-  with_item:
+  with_items:
     - i3-wm
     - i3lock
     - i3status
