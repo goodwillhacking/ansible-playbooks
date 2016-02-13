@@ -45,11 +45,10 @@ eval `dircolors $HOME/.dircolors.256dark`
 
 export EDITOR=vim
 
+source /usr/share/git/completion/git-prompt.sh
 export GIT_PS1_SHOWDIRTYSTATE=1
 export GIT_PS1_SHOWUNTRACKEDFILES=1
 export GIT_PS1_SHOWCOLORHINTS=1
 PROMPT_COMMAND='__git_ps1 "\u@\h:\w" "\\\$ "'
-
-eval `gpg-agent --daemon`
 
 setxkbmap de adnw
