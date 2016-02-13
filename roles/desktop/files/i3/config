@@ -148,7 +148,6 @@ bar {
         #status_command i3status
 }
 
-exec --no-startup-id /usr/bin/setxkbmap de adnw
 exec --no-startup-id /usr/bin/xset m 1 4
 exec --no-startup-id /usr/bin/gpg-agent --daemon
 
