@@ -1,7 +1,7 @@
 ---
 
 - name: Install mutt
-  apt: name=mutt state=installed
+  pacman: name=mutt state=present
   become: yes
 
 - name: Copy mutt directory

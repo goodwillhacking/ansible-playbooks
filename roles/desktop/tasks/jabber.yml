@@ -1,7 +1,7 @@
 ---
 
 - name: Install mcabber
-  apt: name=mcabber state=installed
+  pacman: name=mcabber state=present
   become: yes
 
 - name: Create mcabber directory

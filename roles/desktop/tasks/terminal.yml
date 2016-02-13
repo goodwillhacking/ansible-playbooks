@@ -21,4 +21,5 @@
     - bashrc
     - bash_aliases
     - bash_profile
+    - xinitrc
     - gitconfig

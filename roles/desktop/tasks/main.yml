@@ -18,5 +18,5 @@
 - include: gpg.yml
 #- include: gsettings.yml
 #- include: lock.yml
-#- include: jabber.yml
-#- include: mutt.yml
+- include: jabber.yml
+- include: mutt.yml
