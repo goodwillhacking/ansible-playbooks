@@ -10,6 +10,7 @@
     - dunst
     - libnotify
     - compton
+    - feh
 
 - name: Copy i3 config
   copy: src=i3 dest=~/.config
@@ -20,6 +21,9 @@
 - name: Enable autologin
   copy: src=getty@tty1.service.d dest=/etc/systemd/system
   become: yes
+
+- name: Copy wallpapers
+  copy: src=wallpapers dest=~/.config
 
 - name: Copy xorg config
   copy: src=xorg.conf.d dest=/etc/X11
