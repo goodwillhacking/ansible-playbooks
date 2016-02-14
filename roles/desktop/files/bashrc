@@ -52,3 +52,4 @@ export GIT_PS1_SHOWCOLORHINTS=1
 PROMPT_COMMAND='__git_ps1 "\u@\h:\w" "\\\$ "'
 
 export SSH_AUTH_SOCK=/home/lbischof/.gnupg/S.gpg-agent.ssh
+export PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
