@@ -6,7 +6,5 @@
     - desktop
 #    - { role: deimosfr.vagrant, tags: vagrant, become: yes }
 #    - { role: tersmitten.virtualbox, tags: virtualbox, become: yes }
-#    - { role: rvm_io.rvm1-ruby, tags: ruby, become: yes }
-#    - { role: pgilad.nvm, tags: nvm }
 #    - { role: angstwad.docker_ubuntu, tags: docker, become: yes }
 

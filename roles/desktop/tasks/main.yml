@@ -12,12 +12,17 @@
     - xclip                 # cli clipboard management
     - xdotool               # so vimtex knows if the pdf viewer is already open
     - zathura
+    - ruby
 
 - name: Install apps from aur
   packer: name={{ item }} state=present
   become: yes
   with_items:
     - dtrx
+
+- name: Copy mirrorlist
+  copy: src=mirrorlist dest=/etc/pacman.d
+  become: yes
 
 - include: nvim.yml
 #- include: latex.yml
