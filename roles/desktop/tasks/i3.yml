@@ -7,9 +7,14 @@
     - i3-wm
     - i3lock
     - i3status
+    - dunst
+    - libnotify
 
 - name: Copy i3 config
   copy: src=i3 dest=~/.config
+
+- name: Copy i3status config
+  copy: src=i3status dest=~/.config
 
 - name: Enable autologin
   copy: src=getty@tty1.service.d dest=/etc/systemd/system
