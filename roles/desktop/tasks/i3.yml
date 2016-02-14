@@ -9,6 +9,7 @@
     - i3status
     - dunst
     - libnotify
+    - compton
 
 - name: Copy i3 config
   copy: src=i3 dest=~/.config
