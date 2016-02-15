@@ -17,12 +17,6 @@
     - python-pip
     - task
 
-- name: Install apps from aur
-  packer: name={{ item }} state=present
-  become: yes
-  with_items:
-    - dtrx
-
 - name: Copy mirrorlist
   copy: src=mirrorlist dest=/etc/pacman.d
   become: yes
