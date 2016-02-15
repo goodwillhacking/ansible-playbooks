@@ -18,6 +18,7 @@ bindsym $mod+Q kill
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+bindsym $mod+c exec --no-startup-id chromium
 
 # change focus, vim
 bindsym Control+h focus left
