@@ -4,16 +4,13 @@
   pacman: name=neovim state=present
   become: yes
 
-- name: Install neovim python dependencies
-  pacman: name={{ item }} state=present
+- name: Install neovim python packages
+  pip: name={{ item }}
   become: yes
   with_items:
-    - python-unidecode
-    - python-pip
-
-- name: Install neovim python packages
-  pip: name=neovim
-  become: yes
+    - neovim
+    - unidecode
+    - neovim-remote
 
 - name: Set neovim as default vim
   file: src=/usr/bin/nvim dest=/usr/bin/vim state=link
@@ -21,7 +18,3 @@
 
 - name: Deploy neovim config files
   copy: src=nvim dest=~/.config
-
-#- name: Install neovim-remote script
-#  get_url: url=https://raw.githubusercontent.com/mhinz/neovim-remote/master/nvr dest=/usr/local/bin/ mode=0775
-#  become: yes
