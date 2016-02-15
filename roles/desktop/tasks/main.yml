@@ -12,7 +12,9 @@
     - xclip                 # cli clipboard management
     - xdotool               # so vimtex knows if the pdf viewer is already open
     - zathura
+    - zathura-pdf-mupdf
     - ruby
+    - python-pip
 
 - name: Install apps from aur
   packer: name={{ item }} state=present
