@@ -1,17 +1,3 @@
 ---
 
-- src: nbz4live.php-fpm
-
-- src: jdauphant.nginx
-
-- src: rvm_io.rvm1-ruby
-
-- src: pgilad.nvm
-
-- src: angstwad.docker_ubuntu
-
-- src: bobbyrenwick.pip
-
 - src: mattwillsher.sshd
-
-- src: lbischof.pass

@@ -1,6 +1,0 @@
----
-- hosts: all
-  gather_facts: no
-  remote_user: root
-  roles:
-    - ansible-role-nvm
