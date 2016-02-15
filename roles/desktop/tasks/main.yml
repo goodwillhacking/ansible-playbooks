@@ -15,6 +15,7 @@
     - zathura-pdf-mupdf
     - ruby
     - python-pip
+    - task
 
 - name: Install apps from aur
   packer: name={{ item }} state=present
@@ -28,9 +29,8 @@
 
 - include: nvim.yml
 - include: latex.yml
-#- include: tmux.yml
+- include: tmux.yml
 - include: terminal.yml
-#- include: todo.yml
 - include: gpg.yml
 #- include: gsettings.yml
 #- include: lock.yml

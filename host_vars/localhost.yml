@@ -1,12 +1,3 @@
 ---
 
-rvm1_rubies:
-  - 'ruby-2.2.3'
-
-rvm1_user: '{{ ansible_user_id }}'
-rvm1_install_path: /home/{{ ansible_user_id }}/.rvm
-rvm1_install_flags: '--auto-dotfiles --user-install'
-nvm_install_path: /home/{{ ansible_user_id }}/.nvm
-pass_git_remote: git@bitbucket.org:lorenzbi/pass.git
-vagrant_version: '1.8.1'
 ansible_python_interpreter: /usr/bin/python2

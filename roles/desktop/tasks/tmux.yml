@@ -1,7 +1,7 @@
 ---
 
 - name: Install tmux
-  apt: name=tmux state=installed
+  pacman: name=tmux state=present
   become: yes
 
 - name: Deploy tmux config
