@@ -1,8 +1,0 @@
----
-- name: Configure Raspberry Pi
-  hosts: pi
-  remote_user: lbischof
-  roles:
-      - bobbyrenwick.pip
-      - pi
-      - { role: mattwillsher.sshd, tags: sshd, sudo: True }

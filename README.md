@@ -4,8 +4,3 @@ Playbooks that are customized for my own infrastructure.
 
 ## desktop
 Configures a desktop environment. Uses localhost.
-
-## pi
-Configures my raspberry pi.
-image: https://github.com/debian-pi/raspbian-ua-netinst
-firstboot: ansible-playbook setup_pi.yml
