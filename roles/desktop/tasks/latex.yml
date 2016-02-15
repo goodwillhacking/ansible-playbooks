@@ -1,13 +1,14 @@
 ---
 
 - name: Install latex
-  apt: name={{ item }} state=installed
+  pacman: name={{ item }} state=present
   become: yes
   with_items:
-    - latexmk
-    - texlive
-    - texlive-latex-extra
-    - texlive-lang-german
+    - texlive-core
+    - texlive-bin
+    - texlive-latexextra
+    - texlive-langextra
+    - python-pygments
 
 - name: Deploy latex config
   copy: src=latexmkrc dest=~/.latexmkrc
