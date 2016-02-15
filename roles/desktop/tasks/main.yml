@@ -32,7 +32,6 @@
 - include: tmux.yml
 - include: terminal.yml
 - include: gpg.yml
-#- include: gsettings.yml
 #- include: lock.yml
 - include: jabber.yml
 - include: mutt.yml
