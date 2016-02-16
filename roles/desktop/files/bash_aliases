@@ -5,9 +5,6 @@ alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
-alias py='python3.4'
-alias python='python3.4'
-
 alias ..='cd ..'
 alias ...='cd ../..'
 
@@ -19,13 +16,10 @@ alias gitd='git diff'
 alias vim='NVIM_LISTEN_ADDRESS=/tmp/nvim.sock vim'
 
 alias gibb="sshfs lorenz.bischof@sftp.iet-gibb.ch: $HOME/gibb/ -o reconnect"
-alias t='todo.sh -d $HOME/.todo/todo.cfg'
-alias x='dtrx'
 
-volume() {
+vol() {
     if [ $1 ]; then
-        pactl set-sink-volume 0 -- $1
+        amixer set Master -Mq $1
     fi
-    echo $(pactl list sinks | grep 'Volume: 0:' | awk '{print $3}')
+    amixer get Master -M | sed -n "$ p" | awk '{print $4}' | sed "s/[^0-9]//g" | awk '{print $1"%"}'
 }
-alias vol=volume
