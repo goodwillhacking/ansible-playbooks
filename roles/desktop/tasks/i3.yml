@@ -32,6 +32,9 @@
 - name: Copy wallpapers
   copy: src=wallpapers dest=~/.config
 
+- name: Copy dunst config
+  copy: src=dunst dest=~/.config
+
 - name: Copy xorg config
   copy: src=xorg.conf.d dest=/etc/X11
   become: yes
