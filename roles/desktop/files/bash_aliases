@@ -23,3 +23,11 @@ vol() {
     fi
     amixer get Master -M | sed -n "$ p" | awk '{print $4}' | sed "s/[^0-9]//g" | awk '{print $1"%"}'
 }
+
+vid() {
+    xrandr --output HDMI2 --off
+    killall -SIGUSR1 redshift
+    mpv $@
+    xrandr --output HDMI2 --auto --right-of VGA1
+    killall -SIGUSR1 redshift
+}
