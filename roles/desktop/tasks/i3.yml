@@ -12,9 +12,10 @@
     - libnotify
     - compton
     - feh
+    - redshift
     - xorg-server
     - xorg-server-utils
-    - xorg-init
+    - xorg-xinit
     - xf86-video-intel
     - mesa-libgl
 
