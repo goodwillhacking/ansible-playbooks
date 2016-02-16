@@ -7,10 +7,16 @@
     - i3-wm
     - i3lock
     - i3status
+    - dmenu
     - dunst
     - libnotify
     - compton
     - feh
+    - xorg-server
+    - xorg-server-utils
+    - xorg-init
+    - xf86-video-intel
+    - mesa-libgl
 
 - name: Copy i3 config
   copy: src=i3 dest=~/.config

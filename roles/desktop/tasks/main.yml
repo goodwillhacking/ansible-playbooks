@@ -16,9 +16,15 @@
     - ruby
     - python-pip
     - task
+    - openssh
+    - chromium
 
 - name: Copy mirrorlist
   copy: src=mirrorlist dest=/etc/pacman.d
+  become: yes
+
+- name: Start dhcpcd service
+  service: name=dhcpcd state=started enabled=yes
   become: yes
 
 - include: nvim.yml
