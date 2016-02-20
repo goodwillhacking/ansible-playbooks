@@ -138,6 +138,7 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
     output VGA1
+    output eDP1
     status_command i3status
     position top
 }
