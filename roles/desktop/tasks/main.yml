@@ -18,6 +18,8 @@
     - task
     - openssh
     - chromium
+    - vagrant
+    - virtualbox
     - xf86-input-synaptics
 
 - name: Copy mirrorlist
