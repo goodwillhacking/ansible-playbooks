@@ -1,7 +1,11 @@
 ---
 
+- name: Copy mirrorlist
+  copy: src=mirrorlist dest=/etc/pacman.d
+  become: yes
+
 - name: Install apps
-  pacman: name={{ item }} state=present
+  pacman: name={{ item }} state=present update_cache=yes
   become: yes
   with_items:
     - bash-completion
@@ -21,10 +25,6 @@
     - vagrant
     - virtualbox
     - xf86-input-synaptics
-
-- name: Copy mirrorlist
-  copy: src=mirrorlist dest=/etc/pacman.d
-  become: yes
 
 - name: Start dhcpcd service
   service: name=dhcpcd state=started enabled=yes
