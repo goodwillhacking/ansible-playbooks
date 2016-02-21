@@ -1,5 +1,5 @@
 Vagrant.configure(2) do |config|
-  config.vm.box = "ubuntu/trusty64"
+  config.vm.box = "terrywang/archlinux"
 
   config.vm.define "localhost" do |localhost|
     localhost.vm.hostname = "localhost"
