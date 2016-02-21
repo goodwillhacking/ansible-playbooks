@@ -4,9 +4,16 @@ general {
         interval = 5
 }
 
+order += "battery 0"
 order += "tztime local"
 
 
 tztime local {
-        format = "%Y-%m-%d %H:%M:%S"
+    format = "%H:%M"
+}
+
+battery 0 {
+    format = "%status %percentage %remaining (%emptytime %consumption)"
+    hide_seconds = true
+    integer_battery_capacity = true
 }
