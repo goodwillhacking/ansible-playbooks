@@ -25,9 +25,14 @@
     - vagrant
     - virtualbox
     - xf86-input-synaptics
+    - tlp
 
 - name: Start dhcpcd service
   service: name=dhcpcd state=started enabled=yes
+  become: yes
+
+- name: Start tlp service
+  service: name=tlp state=started enabled=yes
   become: yes
 
 - include: nvim.yml
