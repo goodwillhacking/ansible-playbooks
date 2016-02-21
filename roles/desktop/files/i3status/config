@@ -14,6 +14,7 @@ tztime local {
 
 battery 0 {
     format = "%status %percentage %remaining (%emptytime %consumption)"
+    format_down = ""
     hide_seconds = true
     integer_battery_capacity = true
 }
