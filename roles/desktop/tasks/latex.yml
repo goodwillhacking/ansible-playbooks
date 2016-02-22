@@ -8,7 +8,7 @@
     - texlive-bin
     - texlive-latexextra
     - texlive-langextra
-    - python-pygments
+    - pygmentize
 
 - name: Deploy latex config
   copy: src=latexmkrc dest=~/.latexmkrc
