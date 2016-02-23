@@ -23,20 +23,10 @@ HISTFILESIZE=2000
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
-
-# enable programmable completion features
-if ! shopt -oq posix; then
-  if [ -f /usr/share/bash-completion/bash_completion ]; then
+if [ -f /usr/share/bash-completion/bash_completion ]; then
     . /usr/share/bash-completion/bash_completion
-  elif [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion
-  fi
 fi
 
-complete -F _todo t
 export rvm_path=$HOME/.rvm
 [[ -s "$HOME/.nvm/nvm.sh" ]] && . "$HOME/.nvm/nvm.sh"  # This loads nvm
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
@@ -45,6 +35,7 @@ eval `dircolors $HOME/.dircolors.256dark`
 
 export EDITOR=vim
 
+source /usr/share/git/completion/git-completion.bash
 source /usr/share/git/completion/git-prompt.sh
 export GIT_PS1_SHOWDIRTYSTATE=1
 export GIT_PS1_SHOWUNTRACKEDFILES=1
@@ -53,3 +44,7 @@ PROMPT_COMMAND='__git_ps1 "\u@\h:\w" "\\\$ "'
 
 export SSH_AUTH_SOCK=/home/lbischof/.gnupg/S.gpg-agent.ssh
 export PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
+
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi

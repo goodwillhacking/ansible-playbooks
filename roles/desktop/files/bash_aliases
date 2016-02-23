@@ -8,14 +8,33 @@ alias egrep='egrep --color=auto'
 alias ..='cd ..'
 alias ...='cd ../..'
 
-alias gits='git status'
-alias gitc='git commit -m'
-alias gita='git add'
-alias gitp='git pull'
-alias gitd='git diff'
+alias g='git'
+__git_complete g _git
+
+alias gs='git status'
+__git_complete gs _git_status
+
+alias gc='git commit -m'
+__git_complete gc _git_commit
+
+alias gco='git checkout'
+__git_complete gco _git_checkout
+
+alias ga='git add'
+__git_complete ga _git_add
+
+alias gp='git pull'
+__git_complete gp _git_pull
+
+alias gd='git diff'
+__git_complete gd _git_diff
+
 alias vim='NVIM_LISTEN_ADDRESS=/tmp/nvim.sock vim'
 
 alias gibb="sshfs lorenz.bischof@sftp.iet-gibb.ch: $HOME/gibb/ -o reconnect"
+
+alias t="task"
+complete -F _task t
 
 vol() {
     if [ $1 ]; then
