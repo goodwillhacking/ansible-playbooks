@@ -19,6 +19,9 @@
     - xf86-video-intel
     - mesa-libgl
 
+- name: Copy xinitrc
+  copy: src=xinitrc dest=~/.xinitrc
+
 - name: Copy i3 config
   copy: src=i3 dest=~/.config
 

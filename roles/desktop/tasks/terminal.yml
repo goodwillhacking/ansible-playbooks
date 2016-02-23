@@ -4,14 +4,6 @@
   pacman: name=rxvt-unicode
   become: yes
 
-- name: Install terminal font
-  pacman: name=ttf-dejavu
-  become: yes
-
-- name: Copy Xresources
-  copy: src=Xresources dest=~/.Xresources
-  notify: reload rxvt
-
 - name: Copy dircolors
   copy: src=dircolors.256dark dest=~/.dircolors.256dark
 
@@ -21,8 +13,7 @@
     - bashrc
     - bash_aliases
     - bash_profile
-    - xinitrc
-    - gitconfig
+    - Xresources
 
 - name: Disable pc speaker beep
   copy: src=nobeep.conf dest=/etc/modprobe.d

@@ -1,5 +1,9 @@
 ---
 
+- name: Install terminal font
+  pacman: name=ttf-dejavu
+  become: yes
+
 - name: Create fontconfig directory
   file: path=~/.config/fontconfig state=directory
 

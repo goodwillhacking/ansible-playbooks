@@ -25,6 +25,9 @@
     - xf86-input-synaptics
     - tlp
 
+- name: Copy git config
+  copy: src=gitconfig dest=~/.gitconfig
+
 - name: Start dhcpcd service
   service: name=dhcpcd state=started enabled=yes
   become: yes
