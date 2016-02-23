@@ -1,0 +1,20 @@
+---
+
+- name: Install Vagrant and Virtualbox
+  pacman: name={{ item }} state=present
+  become: yes
+  with_items:
+    - vagrant
+    - virtualbox
+    - net-tools
+
+- name: Load kernel modules
+  modprobe: name={{ item }} state=present
+  with_items:
+    - vboxdrv
+    - vboxnetadp
+    - vboxnetflt
+
+- name: Load kernel modules on boot
+  copy: src=modules-load.d dest=/etc
+  become: yes

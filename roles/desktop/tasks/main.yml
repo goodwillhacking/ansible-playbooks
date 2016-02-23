@@ -22,8 +22,6 @@
     - task
     - openssh
     - chromium
-    - vagrant
-    - virtualbox
     - xf86-input-synaptics
     - tlp
 
@@ -46,4 +44,5 @@
 - include: jabber.yml
 - include: mutt.yml
 - include: i3.yml
+- include: vagrant.yml
 - include: fonts.yml
