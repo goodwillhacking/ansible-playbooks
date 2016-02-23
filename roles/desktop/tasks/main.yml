@@ -38,7 +38,6 @@
 
 - include: nvim.yml
 - include: latex.yml
-- include: tmux.yml
 - include: terminal.yml
 - include: gpg.yml
 - include: jabber.yml
