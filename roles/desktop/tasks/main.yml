@@ -24,6 +24,8 @@
     - chromium
     - xf86-input-synaptics
     - tlp
+    - pkgfile
+    - sshfs
 
 - name: Copy git config
   copy: src=gitconfig dest=~/.gitconfig
