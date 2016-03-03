@@ -31,7 +31,9 @@ export rvm_path=$HOME/.rvm
 [[ -s "$HOME/.nvm/nvm.sh" ]] && . "$HOME/.nvm/nvm.sh"  # This loads nvm
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
-eval `dircolors $HOME/.dircolors.256dark`
+# Base16 Shell
+BASE16_SHELL="$HOME/.config/base16-shell/base16-eighties.dark.sh"
+[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 
 export EDITOR=vim
 

@@ -98,8 +98,8 @@ Plug 'mbbill/undotree'
 Plug 'tpope/vim-repeat'
 " Seamless navigation between tmux panes and vim splits
 Plug 'christoomey/vim-tmux-navigator'
-" Solarized colors
-Plug 'altercation/vim-colors-solarized'
+" base16 colors
+Plug 'chriskempson/base16-vim'
 " Distraction free writing
 Plug 'junegunn/goyo.vim'
 " Pulse search result
@@ -112,5 +112,6 @@ call plug#end()
 " Must load after plugins: https://github.com/altercation/vim-colors-solarized/issues/104
 syntax enable
 set background=dark
-colorscheme solarized
+let base16colorspace=256
+colorscheme base16-eighties
 highlight Search ctermbg=NONE ctermfg=106 cterm=underline

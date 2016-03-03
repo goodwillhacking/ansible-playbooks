@@ -4,8 +4,8 @@
   pacman: name=rxvt-unicode
   become: yes
 
-- name: Copy dircolors
-  copy: src=dircolors.256dark dest=~/.dircolors.256dark
+- name: Copy base16-shell
+  copy: src=base16-shell dest=~/.config
 
 - name: Copy bash files
   copy: src={{ item }} dest=~/.{{ item }}
