@@ -10,6 +10,7 @@
 
 - name: Load kernel modules
   modprobe: name={{ item }} state=present
+  become: yes
   with_items:
     - vboxdrv
     - vboxnetadp
