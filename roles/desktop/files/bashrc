@@ -37,7 +37,7 @@ BASE16_SHELL="$HOME/.config/base16-shell/base16-eighties.dark.sh"
 
 export EDITOR=vim
 
-RED="\[$(tput setaf 9)\]"
+PURPLE="\[$(tput setaf 5)\]"
 RESET="\[$(tput sgr0)\]"
 
 source /usr/share/git/completion/git-completion.bash
@@ -45,7 +45,7 @@ source /usr/share/git/completion/git-prompt.sh
 export GIT_PS1_SHOWDIRTYSTATE=1
 export GIT_PS1_SHOWUNTRACKEDFILES=1
 export GIT_PS1_SHOWCOLORHINTS=1
-PROMPT_COMMAND="__git_ps1 '$RED\n\w$RESET' '$RED\$ $RESET'"
+PROMPT_COMMAND="__git_ps1 '$PURPLE\n\w$RESET' '$PURPLE\$ $RESET'"
 
 export SSH_AUTH_SOCK=/home/lbischof/.gnupg/S.gpg-agent.ssh
 export PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
