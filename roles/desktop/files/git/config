@@ -3,10 +3,14 @@
     name = Lorenz Bischof
 [color]
     ui = auto
+[color "diff"]
+    meta = yellow
 [core]
     whitespace = trailing-space, space-before-tab
 [diff]
     renames = copies
+[diff "tex"]
+    command = /usr/local/bin/git-word-diff.sh
 [help]
     autocorrect = 1
 [push]

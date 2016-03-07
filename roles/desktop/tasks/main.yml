@@ -9,7 +9,6 @@
   become: yes
   with_items:
     - bash-completion
-    - git                   # commit everything
     - pass
     - transmission-gtk
     - vlc
@@ -26,12 +25,6 @@
     - tlp
     - pkgfile
     - sshfs
-
-- name: Copy git config
-  copy: src={{ item }} dest=~/.{{ item }}
-  with_items:
-    - gitconfig
-    - gitattributes
 
 - name: Start dhcpcd service
   service: name=dhcpcd state=started enabled=yes
@@ -53,5 +46,6 @@
 - include: i3.yml
 - include: vagrant.yml
 - include: fonts.yml
+- include: git.yml
 - include: laptop.yml
   when: ansible_product_name == "Latitude E7250"
