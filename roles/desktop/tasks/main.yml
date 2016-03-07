@@ -50,3 +50,5 @@
 - include: i3.yml
 - include: vagrant.yml
 - include: fonts.yml
+- include: laptop.yml
+  when: ansible_product_name == "Latitude E7250"
