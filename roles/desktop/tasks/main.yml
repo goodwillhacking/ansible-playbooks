@@ -28,7 +28,10 @@
     - sshfs
 
 - name: Copy git config
-  copy: src=gitconfig dest=~/.gitconfig
+  copy: src={{ item }} dest=~/.{{ item }}
+  with_items:
+    - gitconfig
+    - gitattributes
 
 - name: Start dhcpcd service
   service: name=dhcpcd state=started enabled=yes
