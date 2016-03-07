@@ -10,8 +10,6 @@ set mouse-=a      " disable mouse
 set undofile      " enable persistent undo
 set undolevels=1000
 
-filetype plugin indent on
-
 augroup autocmds
     autocmd!
     autocmd BufWritePre * :%s/\s\+$//e                " Remove trailing whitespace
@@ -110,7 +108,6 @@ Plug 'rhysd/vim-grammarous'
 call plug#end()
 
 " Must load after plugins: https://github.com/altercation/vim-colors-solarized/issues/104
-syntax enable
 set background=dark
 let base16colorspace=256
 colorscheme base16-eighties
