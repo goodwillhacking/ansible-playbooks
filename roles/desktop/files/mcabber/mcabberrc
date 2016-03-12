@@ -43,23 +43,23 @@ set events_ignore_active_window = 1
 set eventcmd_use_nickname = 1
 
 set color_background   = default
-set color_general      = 12
-set color_info         = 10
-set color_msgin        = 12
-set color_msgout       = 4
-set color_msghl        = 6
+set color_general      = blue
+set color_info         = yellow
+set color_msgin        = white
+set color_msgout       = yellow
+set color_msghl        = brightred
 set color_bgstatus     = black
-set color_status       = 3
-set color_log          = 10
-set color_roster       = 10
-set color_bgrostersel  = black
-set color_rostersel    = 12
-set color_rosterselmsg = 9
-set color_rosternewmsg = 9
-set color_readmark     = 10
+set color_status       = black
+set color_log          = black
+set color_roster       = white
+set color_bgrostersel  = blue
+set color_rostersel    = brightwhite
+set color_rosterselmsg = brightred
+set color_rosternewmsg = brightred
+set color_readmark     = green
 
 # set nick_colors = yellow brightred magenta brightmagenta blue cyan green brightcyan
-set nick_colors = 3 9 5 13 4 6 2 14
+set nick_colors = green blue cyan magenta
 
 # enable colors in muc
 color muc * on
