@@ -29,6 +29,9 @@ __git_complete gp _git_pull
 alias gd='git diff'
 __git_complete gd _git_diff
 
+alias gb='git branch'
+__git_complete gb _git_branch
+
 alias vim='NVIM_LISTEN_ADDRESS=/tmp/nvim.sock vim'
 
 alias gibb="sshfs lorenz.bischof@sftp.iet-gibb.ch: $HOME/gibb/ -o reconnect"
