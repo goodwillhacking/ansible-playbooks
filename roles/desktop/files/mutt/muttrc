@@ -45,5 +45,6 @@ color header default default .
 #color header yellow black ^From
 #color header yellow black ^Subject
 
+source "~/.mutt/gpg.rc"
 source $alias_file
 source "pass puzzle/mutt |"
