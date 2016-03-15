@@ -1,3 +1,4 @@
 $pdf_mode = 1;
-$pdflatex = 'pdflatex -synctex=1 -shell-escape %O %S';
+$pdflatex = 'pdflatex -interaction=nonstopmode -synctex=1 -shell-escape %O %S && cp %D %R.pdf';
+$out_dir = 'build';
 $out = 'build';
