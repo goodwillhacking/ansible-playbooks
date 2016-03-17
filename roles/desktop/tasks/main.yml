@@ -25,6 +25,7 @@
     - tlp
     - pkgfile
     - sshfs
+    - scrot
 
 - name: Start dhcpcd service
   service: name=dhcpcd state=started enabled=yes
