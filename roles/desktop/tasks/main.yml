@@ -45,7 +45,7 @@
 - include: jabber.yml
 - include: mutt.yml
 - include: gui.yml
-- include: vagrant.yml
+- include: vm.yml
 - include: fonts.yml
 - include: git.yml
 - include: laptop.yml
