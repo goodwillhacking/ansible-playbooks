@@ -8,6 +8,9 @@ alias egrep='egrep --color=auto'
 alias ..='cd ..'
 alias ...='cd ../..'
 
+alias radio='(cvlc http://live.eliberadio.ro:8002 &)'
+alias mergerequest='GITLAB_TOKEN=$(pass puzzle/gitlab_token) bundle exec rake mergerequest'
+
 alias g='git'
 __git_complete g _git
 
