@@ -1,0 +1,60 @@
+---
+
+# BUG: github.com/pradels/vagrant-libvirt/issues/541
+# SOLUTION: wiki.archlinux.org/index.php/Vagrant#vagrant-libvirt
+
+# BUG: github.com/fog/fog-libvirt/issues/16
+# SOLUTION: vagrant plugin install fog-libvirt --plugin-version 0.0.3
+
+- name: Install Vagrant
+  pacman: name=vagrant state=present
+  become: yes
+
+- name: Install Virtualbox
+  pacman: name=virtualbox state=present
+  become: yes
+
+- name: Load kernel modules for Virtualbox
+  modprobe: name={{ item }} state=present
+  become: yes
+  with_items:
+    - vboxdrv
+    - vboxnetadp
+    - vboxnetflt
+
+- name: Load kernel modules on boot
+  copy: src=modules-load.d dest=/etc
+  become: yes
+
+- name: Install virtualization dependencies
+  pacman: name={{ item }} state=present
+  become: yes
+  with_items:
+    - qemu
+    - net-tools
+    - ebtables
+    - dnsmasq
+    - bridge-utils
+    - rsync
+
+- name: Install libvirt client tools
+  pacman: name={{ item }} state=present
+  become: yes
+  with_items:
+    - virt-manager
+    - virtviewer
+
+- name: Start libvirtd
+  service: name={{ item }} state=started enabled=yes
+  become: yes
+  with_items:
+    - libvirtd
+    - virtlogd
+
+- name: Add user to libvirt group
+  become: yes
+  user:
+    name={{ ansible_user_id }}
+    groups=libvirt
+    append=yes
+
