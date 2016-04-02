@@ -16,8 +16,6 @@
     - xorg-server
     - xorg-server-utils
     - xorg-xinit
-    - xf86-video-intel
-    - mesa-libgl
 
 - name: Copy xinitrc
   copy: src=xinitrc dest=~/.xinitrc

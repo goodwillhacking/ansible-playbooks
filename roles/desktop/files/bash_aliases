@@ -50,9 +50,9 @@ vol() {
 }
 
 vid() {
-    xrandr --output HDMI2 --off
+    xrandr --output HDMI-2 --off
     killall -SIGUSR1 redshift
     mpv $@
-    xrandr --output HDMI2 --auto --right-of VGA1
+    xrandr --output HDMI-2 --auto --right-of VGA-1
     killall -SIGUSR1 redshift
 }
