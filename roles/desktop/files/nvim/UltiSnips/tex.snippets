@@ -1,6 +1,40 @@
 snippet skel
-\documentclass[a4paper,12pt]{article}
+\documentclass[a4paper,12pt,ngerman]{article}
+
+% PACKAGES
+\usepackage[utf8]{inputenc}          % Ermöglicht Umlaute usw...
+\usepackage[ngerman]{babel}          % Deutsch-Support
+\usepackage[ngerman]{translator}
+\usepackage{makeidx}                 % Benötigt man für das Inhaltsverzeichnis
+\usepackage{hyperref}                % Ermöglicht Hyperlinks
+\usepackage{tabularx}                % Wird benötig um Tabellen zu erstellen
+\usepackage{graphicx}                % Ermöglicht das einfügen von Bildern
+\usepackage{geometry}                % Dient zur Interface dimensionierung
+\usepackage{pdflscape}               % bessere Lesbarkeit des PDF Dokuments
+\usepackage{pdfpages}                % ermöglicht das importieren von PDF-Dateien
+\usepackage{fancyhdr}                % Ein schöner Header ist verfügbar
+\usepackage{comment}                 % Mehrlinien-Kommentar werden möglich
+\usepackage{listings}                % Auflistung für Codeblocks
+\usepackage{color}                   % Dient dem Syntaxhighlighting für Codeblocks
+\usepackage{parskip}                 % Leere Zeile zwischen Absätze
+\usepackage{microtype}               % Bessere Zeilenumbrüche
+\usepackage[outputdir=build]{minted} % Syntax highlighting für Code
+
+\hypersetup{%
+    colorlinks=false,         % hyperlinks will be black
+    pdfborderstyle={/S/U/W 0} % border style will be underline of width 1pt
+}
+
 \begin{document}
+
+\begin{titlepage}
+    \begin{center}
+        \vspace*{2cm}
+        \Huge{Some long Title}\\[1cm]
+        \Large{Lorenz Bischof}\\[5cm]
+        \large{\today}
+    \end{center}
+\end{titlepage}
 	${0}
 \end{document}
 endsnippet
