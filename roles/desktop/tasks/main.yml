@@ -26,6 +26,7 @@
     - pkgfile
     - sshfs
     - scrot
+    - openvpn
 
 - name: Start dhcpcd service
   service: name=dhcpcd state=started enabled=yes
