@@ -48,12 +48,6 @@ nnoremap <F5> :UndotreeToggle<cr>
 vnoremap <C-c> "+y
 inoremap <C-v> <esc>"+pa
 
-" Tmux navigation
-inoremap <C-h> <C-o>:TmuxNavigateLeft<cr>
-inoremap <C-l> <C-o>:TmuxNavigateRight<cr>
-inoremap <C-j> <C-o>:TmuxNavigateDown<cr>
-inoremap <C-k> <C-o>:TmuxNavigateUp<cr>
-
 " Snippets
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
@@ -94,8 +88,6 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'mbbill/undotree'
 " Enable repeating support for plugins
 Plug 'tpope/vim-repeat'
-" Seamless navigation between tmux panes and vim splits
-Plug 'christoomey/vim-tmux-navigator'
 " base16 colors
 Plug 'chriskempson/base16-vim'
 " Distraction free writing
