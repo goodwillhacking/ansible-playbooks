@@ -49,5 +49,6 @@
 - include: vm.yml
 - include: fonts.yml
 - include: git.yml
+- include: ntp.yml
 - include: laptop.yml
   when: ansible_product_name == "Latitude E7250"
