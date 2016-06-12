@@ -1,8 +1,8 @@
 #!/bin/bash
 
 export DISPLAY=:0
-export XAUTHORITY=~/.Xauthority
+export XAUTHORITY=/home/lbischof/.Xauthority
 
 echo "Monitor state changed"
-xrandr --output eDP1 --auto --output DP1 --auto --right-of eDP1 --primary --output DP2 --auto --right-of DP1
-
+xrandr --output DP-1-1 --off --output DP-1-2 --off
+xrandr --output eDP-1 --auto --output DP-1-1 --auto --right-of eDP-1 --primary --output DP-1-2 --auto --right-of DP-1-1

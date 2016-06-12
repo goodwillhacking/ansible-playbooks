@@ -1,9 +1,5 @@
 ---
 
-- name: Copy udev rules
-  copy: src=99-monitor-hotplug.rules dest=/etc/udev/rules.d
-  become: yes
-
 - name: Copy monitor hotplug script
   copy: src=monitor-hotplug.sh dest=/usr/local/bin
   become: yes
