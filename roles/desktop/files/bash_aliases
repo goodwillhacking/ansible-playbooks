@@ -40,7 +40,7 @@ alias vim='NVIM_LISTEN_ADDRESS=/tmp/nvim.sock vim'
 alias gibb="sshfs lorenz.bischof@sftp.iet-gibb.ch: $HOME/gibb/ -o reconnect"
 
 alias t="task"
-complete -F _task t
+alias r="bundle exec rake"
 
 vol() {
     if [ $1 ]; then
