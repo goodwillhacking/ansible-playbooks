@@ -14,3 +14,4 @@ set crypt_replyencrypt       = yes
 set crypt_replysignencrypted = yes
 
 set pgp_use_gpg_agent = yes
+set pgp_auto_decode=yes
