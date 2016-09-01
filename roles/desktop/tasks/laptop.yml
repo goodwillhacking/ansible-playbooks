@@ -3,3 +3,7 @@
 - name: Copy monitor hotplug script
   copy: src=monitor-hotplug.sh dest=/usr/local/bin
   become: yes
+
+- name: Copy delayed hibernation service file
+  copy: src=suspend-to-hibernate.service dest=/etc/systemd/system
+  become: yes
