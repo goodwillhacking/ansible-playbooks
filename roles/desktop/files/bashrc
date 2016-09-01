@@ -47,7 +47,7 @@ export GIT_PS1_SHOWUNTRACKEDFILES=1
 export GIT_PS1_SHOWCOLORHINTS=1
 PROMPT_COMMAND="__git_ps1 '$PURPLE\n\w$RESET' '$PURPLE\$ $RESET'"
 
-export SSH_AUTH_SOCK=/home/lbischof/.gnupg/S.gpg-agent.ssh
+export SSH_AUTH_SOCK=/run/user/1000/gnupg/S.gpg-agent.ssh
 export PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
 
 if [ -f ~/.bash_aliases ]; then

@@ -1,5 +1,15 @@
 ---
 
+- name: Install TLP and touchpad driver
+  pacman: name={{ item }} state=present
+  with_items:
+    - xf86-input-synaptics
+    - tlp
+
+- name: Start tlp service
+  service: name=tlp state=started enabled=yes
+  become: yes
+
 - name: Copy monitor hotplug script
   copy: src=monitor-hotplug.sh dest=/usr/local/bin
   become: yes

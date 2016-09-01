@@ -4,6 +4,10 @@
   pacman: name=rxvt-unicode
   become: yes
 
+- name: Install bash completion
+  pacman: name=bash-completion
+  become: yes
+
 - name: Copy base16-shell
   copy: src=base16-shell dest=~/.config
 

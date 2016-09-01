@@ -45,11 +45,8 @@
     - virtviewer
 
 - name: Start libvirtd
-  service: name={{ item }} state=started enabled=yes
+  service: name=libvirtd state=started enabled=yes
   become: yes
-  with_items:
-    - libvirtd
-    - virtlogd
 
 - name: Add user to libvirt group
   become: yes
