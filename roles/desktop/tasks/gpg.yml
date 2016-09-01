@@ -12,19 +12,11 @@
   with_items:
     - gpg.conf
     - gpg-agent.conf
-    - scdaemon.conf
 
 - name: Copy udev rules
   copy: src=40-nitrokey.rules dest=/etc/udev/rules.d
   become: yes
 
-- name: Install gpg software
-  pacman: name={{item}} state=present
-  become: yes
-  with_items:
-    - pcsclite
-    - libusb-compat
-
-- name: Start pcscd service
-  service: name=pcscd state=started enabled=yes
+- name: Install libusb-compat
+  pacman: name=libusb-compat state=present
   become: yes
