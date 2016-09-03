@@ -7,11 +7,11 @@
 # SOLUTION: vagrant plugin install fog-libvirt --plugin-version 0.0.3
 
 - name: Install Vagrant
-  pacman: name=vagrant state=present
+  package: name=vagrant state=present
   become: yes
 
 - name: Install Virtualbox
-  pacman: name=virtualbox state=present
+  package: name=virtualbox state=present
   become: yes
 
 - name: Load kernel modules for Virtualbox
@@ -27,7 +27,7 @@
   become: yes
 
 - name: Install virtualization dependencies
-  pacman: name={{ item }} state=present
+  package: name={{ item }} state=present
   become: yes
   with_items:
     - qemu
@@ -38,7 +38,7 @@
     - rsync
 
 - name: Install libvirt client tools
-  pacman: name={{ item }} state=present
+  package: name={{ item }} state=present
   become: yes
   with_items:
     - virt-manager

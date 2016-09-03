@@ -1,11 +1,11 @@
 ---
 
 - name: Install terminal
-  pacman: name=rxvt-unicode
+  package: name=rxvt-unicode
   become: yes
 
 - name: Install bash completion
-  pacman: name=bash-completion
+  package: name=bash-completion
   become: yes
 
 - name: Copy base16-shell

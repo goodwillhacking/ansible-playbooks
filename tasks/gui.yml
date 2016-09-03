@@ -1,7 +1,7 @@
 ---
 
 - name: Install i3
-  pacman: name={{ item }} state=present
+  package: name={{ item }} state=present
   become: yes
   with_items:
     - i3-wm

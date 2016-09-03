@@ -1,7 +1,7 @@
 ---
 
 - name: Install latex
-  pacman: name={{ item }} state=present
+  package: name={{ item }} state=present
   become: yes
   with_items:
     - texlive-core

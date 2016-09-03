@@ -1,7 +1,7 @@
 ---
 
 - name: Install git
-  pacman: name=git state=present
+  package: name=git state=present
   become: yes
 
 - name: Copy git config

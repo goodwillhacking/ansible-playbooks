@@ -1,7 +1,7 @@
 ---
 
 - name: Install neovim
-  pacman: name=neovim state=present
+  package: name=neovim state=present
   become: yes
 
 - name: Install neovim python packages

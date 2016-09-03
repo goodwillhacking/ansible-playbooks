@@ -18,5 +18,5 @@
   become: yes
 
 - name: Install libusb-compat
-  pacman: name=libusb-compat state=present
+  package: name=libusb-compat state=present
   become: yes

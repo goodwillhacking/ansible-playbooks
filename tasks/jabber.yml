@@ -1,7 +1,7 @@
 ---
 
 - name: Install mcabber
-  pacman: name=mcabber state=present
+  package: name=mcabber state=present
   become: yes
 
 - name: Create mcabber directory
