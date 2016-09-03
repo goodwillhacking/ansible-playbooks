@@ -1,3 +1,0 @@
-makepkg_nonroot_user: "{{ ansible_ssh_user | default(ansible_user) }}"
-packer_dependencies:
-    - jshon
