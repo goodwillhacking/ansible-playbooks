@@ -20,5 +20,5 @@
     - Xresources
 
 - name: Disable pc speaker beep
-  copy: src=nobeep.conf dest=/etc/modprobe.d
+  copy: content='blacklist pcspkr' dest=/etc/modprobe.d/nobeep.conf
   become: yes
