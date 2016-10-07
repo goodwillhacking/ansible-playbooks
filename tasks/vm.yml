@@ -14,18 +14,6 @@
   package: name=virtualbox state=present
   become: yes
 
-- name: Load kernel modules for Virtualbox
-  modprobe: name={{ item }} state=present
-  become: yes
-  with_items:
-    - vboxdrv
-    - vboxnetadp
-    - vboxnetflt
-
-- name: Load kernel modules on boot
-  copy: src=modules-load.d dest=/etc
-  become: yes
-
 - name: Install virtualization dependencies
   package: name={{ item }} state=present
   become: yes
@@ -36,6 +24,7 @@
     - dnsmasq
     - bridge-utils
     - rsync
+    - virtualbox-host-modules-arch
 
 - name: Install libvirt client tools
   package: name={{ item }} state=present
