@@ -1,9 +1,24 @@
 ---
 
+- name: Disable wireless n, because of bug
+  copy: content="options iwlwifi 11n_disable=1" dest=/etc/modprobe.d/iwlwifi.conf
+  become: yes
+
+- name: Install netctl-auto dependency
+  package: name=wpa_actiond state=present
+  become: yes
+
+- name: Start netctl-auto
+  service: name=netctl-auto@{{item}} state=started enabled=yes
+  become: yes
+  when: item | match('^wl')
+  with_items: "{{ansible_interfaces}}"
+
 - name: Install TLP and touchpad driver
   package: name={{ item }} state=present
+  become: yes
   with_items:
-    - xf86-input-synaptics
+    - xf86-input-libinput
     - tlp
 
 - name: Start tlp service
@@ -12,8 +27,4 @@
 
 - name: Copy monitor hotplug script
   copy: src=monitor-hotplug.sh dest=/usr/local/bin
-  become: yes
-
-- name: Copy delayed hibernation service file
-  copy: src=suspend-to-hibernate.service dest=/etc/systemd/system
   become: yes
