@@ -23,16 +23,14 @@
     - maim                  # screenshot tool
     - slop                  # allow selection in maim
     - openvpn
-    - jdk8-openjdk
-    - java-openjfx
-    - eclipse-java
-
+    - ifplugd               # for netctl ethernet support
 
 - name: Start ifplugd service
   service: name=netctl-ifplugd@{{item}} state=started enabled=yes
   become: yes
   when: item | match('^en')
   with_items: "{{ansible_interfaces}}"
+
 
 - include: nvim.yml
 - include: latex.yml
@@ -44,6 +42,7 @@
 - include: vm.yml
 - include: fonts.yml
 - include: git.yml
-- include: ntp.yml
+- include: timedate.yml
+- include: school.yml
 - include: laptop.yml
   when: ansible_product_name == "Latitude E7250"
