@@ -10,9 +10,13 @@
   package: name=vagrant state=present
   become: yes
 
+# Install virtualbox after the modules package, because of multiple providers
 - name: Install Virtualbox
-  package: name=virtualbox state=present
+  package: name={{ item }} state=present
   become: yes
+  with_items:
+    - virtualbox-host-modules-arch
+    - virtualbox
 
 - name: Install virtualization dependencies
   package: name={{ item }} state=present
@@ -24,7 +28,6 @@
     - dnsmasq
     - bridge-utils
     - rsync
-    - virtualbox-host-modules-arch
 
 - name: Install libvirt client tools
   package: name={{ item }} state=present
@@ -41,6 +44,6 @@
   become: yes
   user:
     name={{ ansible_user_id }}
-    groups=libvirt
+    groups=libvirt,vboxusers
     append=yes
 
