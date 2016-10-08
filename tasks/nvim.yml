@@ -1,15 +1,17 @@
 ---
 
 - name: Install neovim
-  package: name=neovim state=present
+  package: name={{ item }} state=present
   become: yes
+  with_items:
+    - neovim
+    - python-neovim
+    - python-unidecode
 
 - name: Install neovim python packages
   pip: name={{ item }}
   become: yes
   with_items:
-    - neovim
-    - unidecode
     - neovim-remote
 
 - name: Set neovim as default vim
