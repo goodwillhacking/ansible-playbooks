@@ -23,3 +23,18 @@
   command: /usr/bin/timedatectl set-ntp true
   when: "'Network time on: no' in timedatectl_result.stdout"
   become: yes
+
+# add newline because locale-gen doesn't work without
+- name: Specify locale
+  copy: content="en_US.UTF-8 UTF-8\n" dest=/etc/locale.gen
+  become: yes
+  register: locale
+
+- name: Generate locale
+  shell: locale-gen
+  become: yes
+  when: locale.changed
+
+- name: Set locale
+  copy: content="LANG=en_US.UTF-8" dest=/etc/locale.conf
+  become: yes
