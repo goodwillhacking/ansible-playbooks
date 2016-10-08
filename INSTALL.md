@@ -40,7 +40,7 @@ Add the `encrypt` hook after `base udev` in /etc/mkinitcpio.conf. Remove the fsc
 ```
 mkinitcpio -p linux
 cp /usr/share/systemd/bootctl/arch.conf /boot/loader/entries
-# options cryptdevice=/dev/sda2:cryptroot root=/dev/mapper/cryptroot quiet rw
+# options cryptdevice=/dev/sda2:cryptroot root=/dev/mapper/cryptroot quiet loglevel=3 rd.udev.log-priority=3 rw
 echo 'default arch' > /boot/loader/loader.conf
 ```
 
