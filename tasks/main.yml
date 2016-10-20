@@ -24,6 +24,7 @@
     - slop                  # allow selection in maim
     - openvpn
     - ifplugd               # for netctl ethernet support
+    - ruby-bundler
 
 - name: Start ifplugd service
   service: name=netctl-ifplugd@{{item}} state=started enabled=yes
