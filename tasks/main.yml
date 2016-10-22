@@ -23,16 +23,9 @@
     - maim                  # screenshot tool
     - slop                  # allow selection in maim
     - openvpn
-    - ifplugd               # for netctl ethernet support
     - ruby-bundler
 
-- name: Start ifplugd service
-  service: name=netctl-ifplugd@{{item}} state=started enabled=yes
-  become: yes
-  when: item | match('^en')
-  with_items: "{{ansible_interfaces}}"
-
-
+- include: network.yml
 - include: nvim.yml
 - include: latex.yml
 - include: terminal.yml

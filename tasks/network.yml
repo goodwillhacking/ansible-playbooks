@@ -1,0 +1,30 @@
+---
+
+- name: Install network dependencies
+  package: name={{ item }} state=present
+  become: yes
+  with_items:
+    - wpa_actiond
+    - ifplugd
+
+- name: Install ethernet profile
+  copy: content="Interface={{ item }}\nConnection=ethernet\nIP=dhcp" dest=/etc/netctl/ethernet
+  become: yes
+  when: item | match('^en')
+  with_items: "{{ansible_interfaces}}"
+
+- name: Start ifplugd service
+  service: name=netctl-ifplugd@{{item}} state=started enabled=yes
+  become: yes
+  when: item | match('^en')
+  with_items: "{{ansible_interfaces}}"
+
+- name: Disable wireless n, because of bug
+  copy: content="options iwlwifi 11n_disable=1" dest=/etc/modprobe.d/iwlwifi.conf
+  become: yes
+
+- name: Start netctl-auto
+  service: name=netctl-auto@{{item}} state=started enabled=yes
+  become: yes
+  when: item | match('^wl')
+  with_items: "{{ansible_interfaces}}"
