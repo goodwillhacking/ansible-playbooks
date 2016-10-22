@@ -1,9 +1,5 @@
 ---
 
-- name: Copy gpg-with-sec script
-  copy: src=gpg-with-sec.sh dest=/usr/local/bin/gpg-with-sec mode=0755
-  become: yes
-
 - name: Create gnupg directory
   file: path=~/.gnupg state=directory mode=0700
 
