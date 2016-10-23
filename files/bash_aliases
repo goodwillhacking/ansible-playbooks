@@ -20,6 +20,9 @@ __git_complete gs _git_status
 alias gc='git commit -m'
 __git_complete gc _git_commit
 
+alias gca='git commit --amend'
+__git_complete gca _git_commit
+
 alias gco='git checkout'
 __git_complete gco _git_checkout
 
@@ -29,15 +32,22 @@ __git_complete ga _git_add
 alias gp='git pull'
 __git_complete gp _git_pull
 
+alias gpr='git pull --rebase'
+__git_complete gpr _git_pull
+
+alias gf='git fetch'
+__git_complete gf _git_fetch
+
 alias gd='git diff'
 __git_complete gd _git_diff
+
+alias gdc='git diff --cached'
+__git_complete gdc _git_diff
 
 alias gb='git branch'
 __git_complete gb _git_branch
 
 alias vim='NVIM_LISTEN_ADDRESS=/tmp/nvim.sock vim'
-
-alias gibb="sshfs lorenz.bischof@sftp.iet-gibb.ch: $HOME/gibb/ -o reconnect"
 
 alias t="task"
 alias r="bundle exec rake"
@@ -47,12 +57,4 @@ vol() {
         amixer set Master -Mq $1
     fi
     amixer get Master -M | sed -n "$ p" | awk '{print $4}' | sed "s/[^0-9]//g" | awk '{print $1"%"}'
-}
-
-vid() {
-    xrandr --output HDMI-2 --off
-    killall -SIGUSR1 redshift
-    mpv $@
-    xrandr --output HDMI-2 --auto --right-of VGA-1
-    killall -SIGUSR1 redshift
 }
