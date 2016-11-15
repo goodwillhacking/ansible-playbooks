@@ -34,7 +34,7 @@
   become: yes
   with_items:
     - virt-manager
-    - virtviewer
+    - virt-viewer
 
 - name: Start libvirtd
   service: name=libvirtd state=started enabled=yes
