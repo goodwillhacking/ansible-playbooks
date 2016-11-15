@@ -4,12 +4,16 @@
   package: name=autofs state=installed
   become: yes
 
+- name: Install cifs-utils
+  package: name=cifs-utils state=installed
+  become: yes
+
 - name: Deploy autofs master configuration
   copy: content="/shares auto.shares --timeout=60 --ghost\n" dest=/etc/autofs/auto.master
   become: yes
 
 - name: Deploy autofs samba configuration
-  copy: content="* -fstype=cifs,workgroup=pitc,uid=1000,gid=1000,credentials=/etc/autofs/credentials.txt ://samba.ep4.puzzle.ch/&\n" dest=/etc/autofs/auto.shares
+  copy: content="* -fstype=cifs,workgroup=pitc,uid={{ ansible_user_id }},gid={{ ansible_user_id }},credentials=/etc/autofs/credentials.txt ://samba.ep4.puzzle.ch/&\n" dest=/etc/autofs/auto.shares
   become: yes
 
 - name: Get password if possible
