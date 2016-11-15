@@ -10,7 +10,7 @@ set to_chars          = "- +CFL"       # indicate mail not addressed to me direc
 set trash             = "+Archives"
 set record            = "+Sent"
 set postponed         = "+Drafts"
-set editor            = "vim -c 'set ft=mail'"
+set editor            = "vim -c 'set ft=markdown'"
 set sort              = threads
 set timeout           = 30             # check new mail
 set pager_index_lines = 10             # show 10 index page while in pager
