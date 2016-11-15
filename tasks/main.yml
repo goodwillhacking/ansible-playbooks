@@ -19,6 +19,7 @@
     - task
     - openssh
     - chromium
+    - ttf-liberation        # fix fonts in chromium pdf viewer
     - pkgfile
     - maim                  # screenshot tool
     - slop                  # allow selection in maim
