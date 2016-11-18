@@ -14,6 +14,7 @@ augroup autocmds
     autocmd!
     autocmd BufWritePre * :%s/\s\+$//e                " Remove trailing whitespace
     autocmd BufRead,BufNewFile *.tex set filetype=tex " set latex filetype
+    autocmd BufWritePost * Neomake
 augroup END
 
 " Setup some default ignores
@@ -80,22 +81,16 @@ Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 " Snippets
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-" List buffers
-Plug 'jeetsukumaran/vim-buffergator'
 " Fuzzy file opener
 Plug 'ctrlpvim/ctrlp.vim'
-" Undo tree visualizer
-Plug 'mbbill/undotree'
 " Enable repeating support for plugins
 Plug 'tpope/vim-repeat'
 " base16 colors
 Plug 'chriskempson/base16-vim'
-" Distraction free writing
-Plug 'junegunn/goyo.vim'
 " Pulse search result
 Plug 'inside/vim-search-pulse'
-" Grammar checking
-Plug 'rhysd/vim-grammarous'
+Plug 'neomake/neomake'
+
 
 call plug#end()
 

@@ -15,8 +15,6 @@
     - zathura
     - zathura-pdf-mupdf
     - ruby
-    - python-pip
-    - task
     - openssh
     - chromium
     - ttf-liberation        # fix fonts in chromium pdf viewer
@@ -25,6 +23,13 @@
     - slop                  # allow selection in maim
     - openvpn
     - ruby-bundler
+
+- name: Install aur packages
+  aur: name={{ item }}
+  with_items:
+    - dtrx
+    - puppet-lint
+    - python-proselint
 
 - include: network.yml
 - include: nvim.yml
