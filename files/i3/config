@@ -16,8 +16,7 @@ focus_follows_mouse no
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec urxvtc
-bindsym $mod+t exec urxvtc
+bindsym $mod+t exec termite
 
 # kill focused window
 bindsym $mod+Q kill
@@ -28,6 +27,8 @@ bindsym $mod+d kill
 bindsym $mod+a exec --no-startup-id i3-dmenu-desktop
 bindsym $mod+b exec --no-startup-id chromium
 bindsym $mod+n exec --no-startup-id i3lock -fc 000000
+
+bindsym Control+Return exec --no-startup-id amixer set Master -Mq 50% && chromium http://www.mycowichanvalleynow.com/stream/cjsu
 
 # change focus, vim
 bindsym Control+h focus left
@@ -163,7 +164,6 @@ exec --no-startup-id redshift
 exec --no-startup-id dunst
 exec --no-startup-id xset m 1 4
 exec --no-startup-id gpg-agent --daemon
-exec --no-startup-id urxvtd -f
 
 client.focused #6699cc #6699cc #2d2d2d #393939
 client.focused_inactive #515151 #515151 #747369 #393939

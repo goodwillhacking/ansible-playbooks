@@ -91,11 +91,10 @@ Plug 'chriskempson/base16-vim'
 Plug 'inside/vim-search-pulse'
 Plug 'neomake/neomake'
 
-
 call plug#end()
 
 " Must load after plugins: https://github.com/altercation/vim-colors-solarized/issues/104
 set background=dark
-let base16colorspace=256
 colorscheme base16-eighties
-highlight Search ctermbg=NONE ctermfg=106 cterm=underline
+highlight Search guibg=NONE guifg=NONE gui=underline
+set termguicolors

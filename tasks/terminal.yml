@@ -1,15 +1,12 @@
 ---
 
 - name: Install terminal
-  package: name=rxvt-unicode
+  package: name=termite
   become: yes
 
 - name: Install bash completion
   package: name=bash-completion
   become: yes
-
-- name: Copy base16-shell
-  copy: src=base16-shell dest=~/.config
 
 - name: Copy bash files
   copy: src={{ item }} dest=~/.{{ item }}
@@ -17,7 +14,9 @@
     - bashrc
     - bash_aliases
     - bash_profile
-    - Xresources
+
+- name: Copy termite config
+  copy: src=termite dest=~/.config
 
 - name: Disable pc speaker beep
   copy: content='blacklist pcspkr' dest=/etc/modprobe.d/nobeep.conf
