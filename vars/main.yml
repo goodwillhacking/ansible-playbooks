@@ -1,7 +1,0 @@
----
-
-ansible_python_interpreter: /usr/bin/python2
-makepkg_nonroot_user: "{{ ansible_user_id }}"
-packer_dependencies:
-  - jshon
-  - python2-httplib2

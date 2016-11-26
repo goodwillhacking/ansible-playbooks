@@ -2,6 +2,5 @@
 - name: Setup desktop pc
   hosts: localhost
   tasks:
-    - include_vars: vars/main.yml
     - include_vars: vars/vault.yml
     - include: tasks/main.yml
