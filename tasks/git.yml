@@ -5,7 +5,7 @@
   become: yes
 
 - name: Copy git config
-  copy: src=git dest=~/.config
+  copy: src=git/ dest=~/.config/git/
 
 - name: Copy git word diff script
   copy: src=git/git-word-diff.sh dest=/usr/local/bin mode=0755

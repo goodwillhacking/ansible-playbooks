@@ -17,7 +17,6 @@
     - ruby
     - openssh
     - chromium
-    - ttf-liberation        # fix fonts in chromium pdf viewer
     - pkgfile
     - maim                  # screenshot tool
     - slop                  # allow selection in maim
@@ -40,7 +39,6 @@
 - include: mutt.yml
 - include: gui.yml
 - include: vm.yml
-- include: fonts.yml
 - include: git.yml
 - include: timedate.yml
 - include: school.yml

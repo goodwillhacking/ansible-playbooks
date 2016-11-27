@@ -4,9 +4,16 @@
   package: name=termite
   become: yes
 
-- name: Install bash completion
-  package: name=bash-completion
+- name: Copy termite config
+  copy: src=termite/ dest=/etc/xdg/termite/
   become: yes
+
+- name: Install fonts
+  package: name={{ item }}
+  become: yes
+  with_items:
+    - ttf-dejavu
+    - ttf-liberation        # fix fonts in chromium pdf viewer
 
 - name: Copy bash files
   copy: src={{ item }} dest=~/.{{ item }}
@@ -15,8 +22,13 @@
     - bash_aliases
     - bash_profile
 
-- name: Copy termite config
-  copy: src=termite dest=~/.config
+- name: Install bash completion
+  package: name=bash-completion
+  become: yes
+
+- name: Copy inputrc
+  copy: src=inputrc dest=/etc/inputrc
+  become: yes
 
 - name: Disable pc speaker beep
   copy: content='blacklist pcspkr' dest=/etc/modprobe.d/nobeep.conf
