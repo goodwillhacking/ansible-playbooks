@@ -7,7 +7,7 @@
 - name: Run timedatectl status
   command: /usr/bin/timedatectl status
   changed_when: False
-  always_run: yes
+  check_mode: no
   register: timedatectl_result
 
 - name: Copy timesyncd config
