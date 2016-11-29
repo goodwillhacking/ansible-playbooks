@@ -17,6 +17,13 @@
     - zprofile
     - zshrc
 
+- name: Install terminal fonts
+  package: name={{ item }}
+  become: yes
+  with_items:
+    - ttf-dejavu
+    - ttf-liberation        # fix fonts in chromium pdf viewer
+
 - name: Disable pc speaker beep
   copy: content='blacklist pcspkr' dest=/etc/modprobe.d/nobeep.conf
   become: yes
