@@ -1,3 +1,21 @@
+autoload -Uz compinit promptinit
+compinit
+promptinit
+bindkey -e
+setopt noautomenu
+
+source /usr/share/git/completion/git-prompt.sh
+source /usr/share/doc/pkgfile/command-not-found.zsh
+
+export GIT_PS1_SHOWDIRTYSTATE=1
+export GIT_PS1_SHOWUNTRACKEDFILES=1
+export GIT_PS1_SHOWCOLORHINTS=1
+precmd () { __git_ps1 "%~" "$ " }
+
+export SSH_AUTH_SOCK=/run/user/1000/gnupg/S.gpg-agent.ssh
+export PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
+export EDITOR=vim
+
 alias ls='ls --color=auto'
 alias ll='ls -alF'
 
@@ -12,43 +30,19 @@ alias radio='(cvlc https://somafm.com/indiepop130.pls &)'
 alias mergerequest='GITLAB_TOKEN=$(pass puzzle/gitlab_token) bundle exec rake mergerequest'
 
 alias g='git'
-__git_complete g _git
-
 alias gs='git status'
-__git_complete gs _git_status
-
 alias gc='git commit -m'
-__git_complete gc _git_commit
-
 alias gca='git commit --amend'
-__git_complete gca _git_commit
-
 alias gco='git checkout'
-__git_complete gco _git_checkout
-
 alias ga='git add'
-__git_complete ga _git_add
-
 alias gp='git pull'
-__git_complete gp _git_pull
-
 alias gpr='git pull --rebase'
-__git_complete gpr _git_pull
-
 alias gf='git fetch'
-__git_complete gf _git_fetch
-
 alias gd='git diff'
-__git_complete gd _git_diff
-
 alias gdc='git diff --cached'
-__git_complete gdc _git_diff
-
 alias gb='git branch'
-__git_complete gb _git_branch
 
 alias vim='NVIM_LISTEN_ADDRESS=/tmp/nvim.sock vim'
-
 alias t="task"
 alias r="bundle exec rake"
 

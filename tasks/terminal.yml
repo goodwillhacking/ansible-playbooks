@@ -4,19 +4,18 @@
   package: name=termite
   become: yes
 
-- name: Install bash completion
-  package: name=bash-completion
-  become: yes
-
-- name: Copy bash files
-  copy: src={{ item }} dest=~/.{{ item }}
-  with_items:
-    - bashrc
-    - bash_aliases
-    - bash_profile
-
 - name: Copy termite config
   copy: src=termite dest=~/.config
+
+- name: Change shell to zsh
+  user: name={{ ansible_user_id }} shell=/bin/zsh
+  become: yes
+
+- name: Copy zsh files
+  copy: src={{ item }} dest=~/.{{ item }}
+  with_items:
+    - zprofile
+    - zshrc
 
 - name: Disable pc speaker beep
   copy: content='blacklist pcspkr' dest=/etc/modprobe.d/nobeep.conf
