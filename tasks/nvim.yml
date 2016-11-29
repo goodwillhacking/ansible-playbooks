@@ -16,5 +16,4 @@
   become: yes
 
 - name: Deploy neovim config files
-  copy: src=nvim/ dest=/etc/xdg/nvim/ owner={{ ansible_user_id }}
-  become: yes
+  copy: src=nvim dest=~/.config

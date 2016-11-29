@@ -1,0 +1,11 @@
+---
+
+- name: Install terminal font
+  package: name=ttf-dejavu
+  become: yes
+
+- name: Create fontconfig directory
+  file: path=~/.config/fontconfig state=directory
+
+- name: Copy font config
+  copy: src=fonts.conf dest=~/.config/fontconfig

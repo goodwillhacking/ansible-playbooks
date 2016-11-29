@@ -1,30 +1,7 @@
 [options]
-
-font                = DejaVu Sans Mono 12
-allow_bold          = false
-scroll_on_output    = false
-scroll_on_keystroke = true
-audible_bell        = false
-urgent_on_bell      = true
-mouse_autohide      = false
-clickable_url       = true
-scrollback_lines    = 100000
-search_wrap         = true
-cursor_blink        = system
-cursor_shape        = block
-
-
-[hints]
-#font = Monospace 12
-#foreground = #dcdccc
-#background = #3f3f3f
-#active_foreground = #e68080
-#active_background = #3f3f3f
-#padding = 2
-#border = #3f3f3f
-#border_width = 0.5
-#roundness = 2.0
-
+font           = DejaVu Sans Mono 12
+allow_bold     = false
+urgent_on_bell = true
 [colors]
 # Base16 Eighties
 # Scheme: Chris Kempson (http://chriskempson.com)

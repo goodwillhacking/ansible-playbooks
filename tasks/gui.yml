@@ -18,37 +18,34 @@
     - xorg-xinit
 
 - name: Copy xinitrc
-  copy: content="exec i3" dest=/etc/X11/xinit/xinitrc
-  become: yes
-
-- name: Copy xorg config
-  copy: src=xorg.conf.d/ dest=/etc/X11/xorg.conf.d/
-  become: yes
+  copy: content="exec i3" dest=~/.xinitrc
 
 - name: Copy i3 config
-  copy: src=i3/ dest=/etc/i3/
-  become: yes
+  copy: src=i3 dest=~/.config
 
 - name: Copy i3status config
-  copy: src=i3status.conf dest=/etc/i3status.conf
-  become: yes
+  copy: src=i3status dest=~/.config
 
 - name: Enable autologin
-  copy: src=getty@tty1.service.d/ dest=/etc/systemd/system/getty@tty1.service.d/
+  copy: src=getty@tty1.service.d dest=/etc/systemd/system
   become: yes
 
 - name: Copy wallpapers
-  copy: src=wallpapers/ dest=~/.config/wallpapers/
+  copy: src=wallpapers dest=~/.config
 
 - name: Copy dunst config
-  copy: src=dunst/ dest=~/.config/dunst/
+  copy: src=dunst dest=~/.config
+
+- name: Copy xorg config
+  copy: src=xorg.conf.d dest=/etc/X11
+  become: yes
 
 - name: Copy gtk config
-  copy: src=gtk/{{ item }} dest=/etc/{{ item }}
+  copy: src=gtk/{{ item }} dest=/etc/
   become: yes
   with_items:
-    - gtk-2.0/
-    - gtk-3.0/
+    - gtk-2.0
+    - gtk-3.0
 
 - name: Create hushlogin file
   copy: content="" dest=~/.hushlogin
