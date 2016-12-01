@@ -7,6 +7,10 @@
 - name: Copy termite config
   copy: src=termite dest=~/.config
 
+- name: Install zsh
+  package: name=zsh
+  become: yes
+
 - name: Change shell to zsh
   user: name={{ ansible_user_id }} shell=/bin/zsh
   become: yes
