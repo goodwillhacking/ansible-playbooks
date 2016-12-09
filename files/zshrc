@@ -53,3 +53,22 @@ vol() {
     fi
     amixer get Master -M | sed -n "$ p" | awk '{print $4}' | sed "s/[^0-9]//g" | awk '{print $1"%"}'
 }
+
+autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+
+typeset -g -A key
+key[PageUp]='^[[5~'
+key[PageDown]='^[[6~'
+key[Up]='^[[A'
+key[Down]='^[[B'
+key[^Left]='^[[1;5D'
+key[^Right]='^[[1;5C'
+key[Delete]='^[[3~'
+
+bindkey "${key[Up]}" up-line-or-beginning-search
+bindkey "${key[Down]}" down-line-or-beginning-search
+bindkey "${key[^Left]}" backward-word
+bindkey "${key[^Right]}" forward-word
+bindkey "${key[Delete]}" delete-char
