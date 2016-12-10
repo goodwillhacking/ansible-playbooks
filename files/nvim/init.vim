@@ -15,6 +15,7 @@ augroup autocmds
     autocmd BufWritePre * :%s/\s\+$//e                " Remove trailing whitespace
     autocmd BufRead,BufNewFile *.tex set filetype=tex " set latex filetype
     autocmd BufWritePost * Neomake
+    autocmd BufNewFile,BufRead /dev/shm/pass.* setlocal noswapfile nobackup noundofile
 augroup END
 
 " Setup some default ignores
