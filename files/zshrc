@@ -1,8 +1,18 @@
 autoload -Uz compinit promptinit
 compinit
 promptinit
+
+HISTFILE="$HOME/.zsh_history"
+SAVEHIST=5000
+HISTSIZE=6000
+
 bindkey -e
 setopt noautomenu
+setopt share_history             # Share history between all sessions
+setopt hist_expire_dups_first    # Expire a duplicate event first when trimming history
+setopt hist_ignore_dups          # Do not record an event that was just recorded again
+setopt complete_in_word
+setopt auto_cd
 
 source /usr/share/git/completion/git-prompt.sh
 source /usr/share/doc/pkgfile/command-not-found.zsh
