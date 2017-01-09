@@ -12,3 +12,6 @@
 
 - name: Deploy latex config
   copy: src=latexmkrc dest=~/.latexmkrc
+
+- name: Deploy chktexrc
+  copy: src=chktexrc dest=~/.chktexrc
