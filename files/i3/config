@@ -159,7 +159,7 @@ bar {
 }
 
 exec --no-startup-id compton -CGb --backend glx --vsync opengl
-exec --no-startup-id feh  --bg-scale "$HOME/.config/wallpapers/wallpaper1680_0.jpg" "$HOME/.config/wallpapers/wallpaper1680_1.jpg"
+exec --no-startup-id feh  --bg-fill "$HOME/.config/wallpapers/wallpaper_cropped_0.png" "$HOME/.config/wallpapers/wallpaper_cropped_1.png"
 exec --no-startup-id redshift
 exec --no-startup-id dunst
 exec --no-startup-id xset m 1 4
