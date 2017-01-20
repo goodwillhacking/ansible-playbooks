@@ -114,8 +114,8 @@ bindsym $mod+Shift+0 move container to workspace 10
 bindsym $mod+Shift+E exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # Laptop keys
-bindsym XF86MonBrightnessUp exec "xbacklight -inc 10"
-bindsym XF86MonBrightnessDown exec "xbacklight -dec 10"
+bindsym XF86MonBrightnessUp exec "light -A 10 && notify-send -h int:value:$(light -G) Brightness"
+bindsym XF86MonBrightnessDown exec "light -U 10 && notify-send -h int:value:$(light -G) Brightness"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {

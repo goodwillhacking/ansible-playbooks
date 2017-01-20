@@ -21,3 +21,11 @@
 
 - name: Install light
   aur: name=light-git
+
+- name: Creates light config directory
+  file: path=/etc/light/mincap state=directory
+  become: yes
+
+- name: Set min brightness
+  copy: content="1" dest=/etc/light/mincap/intel_backlight
+  become: yes
