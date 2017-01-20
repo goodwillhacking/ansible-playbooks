@@ -30,6 +30,9 @@
     - puppet-lint
     - python-proselint
 
+- name: Copy mimeapps.list
+  copy: src=mimeapps.list dest=~/.config/mimeapps.list
+
 - include: network.yml
 - include: nvim.yml
 - include: latex.yml
