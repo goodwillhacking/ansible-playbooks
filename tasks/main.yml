@@ -46,5 +46,9 @@
 - include: timedate.yml
 - include: school.yml
 - include: autofs.yml
+
 - include: laptop.yml
   when: ansible_product_name == "Latitude E7250"
+
+- include: nfs.yml
+  when: ansible_product_name != "Latitude E7250"
