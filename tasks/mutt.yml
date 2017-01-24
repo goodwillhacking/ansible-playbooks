@@ -7,5 +7,11 @@
 - name: Copy mutt directory
   copy: src=mutt/ dest=~/.mutt/
 
-- name: Copy mutt aliases
-  copy: content={{ mutt_aliases }} dest=~/.mutt/aliases
+- name: Get aliases if possible
+  command: pass puzzle/aliases creates=~/.mutt/aliases
+  ignore_errors: yes
+  register: aliases
+
+- name: Create aliases file
+  copy: content={{ aliases.stdout }} dest=~/.mutt/aliases
+  when: aliases.changed
