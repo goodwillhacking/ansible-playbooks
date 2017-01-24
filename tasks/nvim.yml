@@ -17,3 +17,8 @@
 
 - name: Deploy neovim config files
   copy: src=nvim dest=~/.config
+  register: nvim_config
+
+- name: Run PlugInstall
+  shell: vim +PlugInstall +qall
+  when: nvim_config.changed
