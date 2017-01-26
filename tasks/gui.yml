@@ -36,8 +36,8 @@
 - name: Copy dunst config
   copy: src=dunst dest=~/.config
 
-- name: Copy xorg config
-  copy: src=xorg.conf.d dest=/etc/X11
+- name: Copy touchpad config
+  copy: src=30-touchpad.conf dest=/etc/X11/xorg.conf.d
   become: yes
 
 - name: Copy gtk config
