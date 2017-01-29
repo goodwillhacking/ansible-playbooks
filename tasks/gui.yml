@@ -26,6 +26,10 @@
 - name: Copy i3status config
   copy: src=i3status dest=~/.config
 
+- name: Copy i3_focus script
+  copy: src=i3_focus.sh dest=/usr/local/bin mode=0755
+  become: yes
+
 - name: Enable autologin
   copy: src=getty@tty1.service.d dest=/etc/systemd/system
   become: yes

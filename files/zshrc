@@ -20,7 +20,9 @@ source /usr/share/doc/pkgfile/command-not-found.zsh
 export GIT_PS1_SHOWDIRTYSTATE=1
 export GIT_PS1_SHOWUNTRACKEDFILES=1
 export GIT_PS1_SHOWCOLORHINTS=1
-precmd () { __git_ps1 "%~" "%(!.#.$) " }
+precmd () { __git_ps1 "%~" "%(!.#.$) "; print -Pn "\e]0;terminal\a" }
+preexec () { print -Pn "\e]0;$1\a" }
+
 
 export SSH_AUTH_SOCK=/run/user/1000/gnupg/S.gpg-agent.ssh
 export PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
@@ -53,7 +55,6 @@ alias gd='git diff'
 alias gdc='git diff --cached'
 alias gb='git branch'
 
-alias vim='NVIM_LISTEN_ADDRESS=/tmp/nvim.sock vim'
 alias t="task"
 alias r="bundle exec rake"
 

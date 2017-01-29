@@ -55,6 +55,27 @@ let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
+func! Focus(comando,vim_comando)
+  let oldw = winnr()
+  silent exe 'wincmd ' . a:vim_comando
+  let neww = winnr()
+  if oldw == neww
+    silent exe '!i3-msg -q focus ' . a:comando
+    if !has("gui_running")
+        redraw!
+    endif
+  endif
+endfunction
+
+" Focus! ([r]ight,[l]eft,[u]p,[d]own)
+noremap <silent> gwr :call Focus('right','l')<cr>
+noremap <silent> gwl :call Focus('left','h')<cr>
+noremap <silent> gwu :call Focus('up','k')<cr>
+noremap <silent> gwd :call Focus('down','j')<cr>
+
+let &titlestring = "nvim:" . $NVIM_LISTEN_ADDRESS
+set title
+
 " Load vim-plug
 if empty(glob("~/.config/nvim/autoload/plug.vim"))
     execute '!curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.github.com/junegunn/vim-plug/master/plug.vim'
