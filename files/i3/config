@@ -158,7 +158,7 @@ bar {
   }
 }
 
-exec --no-startup-id compton -CGb --backend glx --vsync opengl
+exec --no-startup-id compton -b
 exec --no-startup-id feh  --bg-fill "$HOME/.config/wallpapers/wallpaper_cropped_0.png" "$HOME/.config/wallpapers/wallpaper_cropped_1.png"
 exec --no-startup-id redshift
 exec --no-startup-id dunst

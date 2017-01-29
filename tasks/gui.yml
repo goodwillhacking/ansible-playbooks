@@ -40,6 +40,9 @@
 - name: Copy dunst config
   copy: src=dunst dest=~/.config
 
+- name: Copy compton config
+  copy: src=compton.conf dest=~/.config/compton.conf
+
 - name: Copy touchpad config
   copy: src=30-touchpad.conf dest=/etc/X11/xorg.conf.d
   become: yes
