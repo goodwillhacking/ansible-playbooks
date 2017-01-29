@@ -164,6 +164,7 @@ exec --no-startup-id redshift
 exec --no-startup-id dunst
 exec --no-startup-id xset m 1 4
 exec --no-startup-id setxkbmap de adnw
+exec --no-startup-id xcape -e 'ISO_Level3_Shift=Escape'
 exec --no-startup-id gpg-agent --daemon
 
 client.focused #6699cc #6699cc #2d2d2d #393939

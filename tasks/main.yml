@@ -29,6 +29,7 @@
     - dtrx
     - puppet-lint
     - python-proselint
+    - xcape
 
 - name: Copy mimeapps.list
   copy: src=mimeapps.list dest=~/.config/mimeapps.list
