@@ -6,6 +6,7 @@ set expandtab     " convert tabs to spaces
 set showmatch     " set show matching parenthesis
 set ignorecase    " ignore case when searching
 set hidden        " allows switching modified buffers
+set noshowmode    " hide mode because of lightline
 set mouse-=a      " disable mouse
 set undofile      " enable persistent undo
 set undolevels=1000
@@ -20,9 +21,13 @@ augroup END
 
 " Setup some default ignores
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/](\.(git|hg|svn)|\_site|build)$',
-  \ 'file': '\v\.(exe|so|dll|class|png|jpg|jpeg)$',
-\}
+			\ 'dir':  '\v[\/](\.(git|hg|svn)|\_site|build)$',
+			\ 'file': '\v\.(exe|so|dll|class|png|jpg|jpeg)$',
+			\}
+
+let g:lightline = {
+            \ 'colorscheme': 'wombat',
+            \ }
 
 let g:vim_search_pulse_mode = 'pattern'
 
@@ -112,6 +117,7 @@ Plug 'chriskempson/base16-vim'
 " Pulse search result
 Plug 'inside/vim-search-pulse'
 Plug 'neomake/neomake'
+Plug 'itchyny/lightline.vim'
 
 call plug#end()
 
