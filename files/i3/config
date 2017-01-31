@@ -16,7 +16,7 @@ focus_follows_mouse no
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+t exec termite
+bindsym $mod+t exec --no-startup-id termite
 
 # kill focused window
 bindsym $mod+Q kill
@@ -31,22 +31,22 @@ bindsym $mod+n exec --no-startup-id i3lock -fc 000000
 bindsym Control+Return exec --no-startup-id amixer set Master -Mq 50% && chromium http://www.mycowichanvalleynow.com/stream/cjsu
 
 # change focus
-bindsym Control+h exec "i3_focus.sh left"
-bindsym Control+j exec "i3_focus.sh down"
-bindsym Control+k exec "i3_focus.sh up"
-bindsym Control+l exec "i3_focus.sh right"
+bindsym Control+h exec --no-startup-id "i3_focus.sh left"
+bindsym Control+j exec --no-startup-id "i3_focus.sh down"
+bindsym Control+k exec --no-startup-id "i3_focus.sh up"
+bindsym Control+l exec --no-startup-id "i3_focus.sh right"
 
 # change focus
-bindsym $mod+h exec "i3_focus.sh left"
-bindsym $mod+j exec "i3_focus.sh down"
-bindsym $mod+k exec "i3_focus.sh up"
-bindsym $mod+l exec "i3_focus.sh right"
+bindsym $mod+h exec --no-startup-id "i3_focus.sh left"
+bindsym $mod+j exec --no-startup-id "i3_focus.sh down"
+bindsym $mod+k exec --no-startup-id "i3_focus.sh up"
+bindsym $mod+l exec --no-startup-id "i3_focus.sh right"
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Left  exec "i3_focus.sh left"
-bindsym $mod+Down  exec "i3_focus.sh down"
-bindsym $mod+Up    exec "i3_focus.sh up"
-bindsym $mod+Right exec "i3_focus.sh right"
+bindsym $mod+Left  exec --no-startup-id "i3_focus.sh left"
+bindsym $mod+Down  exec --no-startup-id "i3_focus.sh down"
+bindsym $mod+Up    exec --no-startup-id "i3_focus.sh up"
+bindsym $mod+Right exec --no-startup-id "i3_focus.sh right"
 
 # move focused window
 bindsym $mod+Shift+H move left
@@ -114,8 +114,8 @@ bindsym $mod+Shift+0 move container to workspace 10
 bindsym $mod+Shift+E exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # Laptop keys
-bindsym XF86MonBrightnessUp exec "light -A 10 && notify-send -h int:value:$(light -G) Brightness"
-bindsym XF86MonBrightnessDown exec "light -U 10 && notify-send -h int:value:$(light -G) Brightness"
+bindsym XF86MonBrightnessUp exec --no-startup-id "light -A 10 && notify-send -h int:value:$(light -G) Brightness"
+bindsym XF86MonBrightnessDown exec --no-startup-id "light -U 10 && notify-send -h int:value:$(light -G) Brightness"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
