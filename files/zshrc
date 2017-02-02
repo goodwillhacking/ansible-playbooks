@@ -52,6 +52,7 @@ alias ...='cd ../..'
 alias radio='(cvlc https://somafm.com/indiepop130.pls &)'
 alias mergerequest='GITLAB_TOKEN=$(pass puzzle/gitlab_token) bundle exec rake mergerequest'
 alias serve='python -m http.server'
+alias print='lp -o media=a4 -o outputorder=reverse -o collate=true'
 
 alias g='git'
 alias gs='git status'
