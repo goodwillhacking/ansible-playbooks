@@ -72,12 +72,6 @@ func! Focus(comando,vim_comando)
   endif
 endfunction
 
-" Focus! ([r]ight,[l]eft,[u]p,[d]own)
-noremap <silent> gwr :call Focus('right','l')<cr>
-noremap <silent> gwl :call Focus('left','h')<cr>
-noremap <silent> gwu :call Focus('up','k')<cr>
-noremap <silent> gwd :call Focus('down','j')<cr>
-
 let &titlestring = "nvim:" . $NVIM_LISTEN_ADDRESS
 set title
 
