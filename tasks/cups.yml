@@ -1,0 +1,13 @@
+---
+
+- name: Install cups
+  package: name=cups state=present
+  become: yes
+
+- name: Copy cups directory
+  copy: src=cups/ dest=/etc/cups/
+  become: yes
+
+- name: Start cups service
+  service: name=org.cups.cupsd state=started enabled=yes
+  become: yes

@@ -21,7 +21,7 @@ export GIT_PS1_SHOWDIRTYSTATE=1
 export GIT_PS1_SHOWUNTRACKEDFILES=1
 export GIT_PS1_SHOWCOLORHINTS=1
 precmd () { __git_ps1 "%~" "%(!.#.$) "; print -Pn "\e]0;terminal\a" }
-preexec () { print -Pn "\e]0;$1\a" }
+preexec () { print -Pn "\e]0;${1:gs/%/%%}\a" }
 
 
 export SSH_AUTH_SOCK=/run/user/1000/gnupg/S.gpg-agent.ssh
@@ -52,7 +52,6 @@ alias ...='cd ../..'
 alias radio='(cvlc https://somafm.com/indiepop130.pls &)'
 alias mergerequest='GITLAB_TOKEN=$(pass puzzle/gitlab_token) bundle exec rake mergerequest'
 alias serve='python -m http.server'
-alias print='lp -o media=a4 -o outputorder=reverse -o collate=true'
 
 alias g='git'
 alias gs='git status'
@@ -71,8 +70,8 @@ alias t="task"
 alias r="bundle exec rake"
 
 vol() {
-    if [ $1 ]; then
-        amixer set Master -Mq $1
+    if [ "$1" ]; then
+        amixer set Master -Mq "$1"
     fi
     amixer get Master -M | sed -n "$ p" | awk '{print $4}' | sed "s/[^0-9]//g" | awk '{print $1"%"}'
 }
