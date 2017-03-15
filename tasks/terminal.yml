@@ -28,6 +28,10 @@
     - ttf-dejavu
     - ttf-liberation        # fix fonts in chromium pdf viewer
 
+- name: Copy radio script
+  copy: src=radio.sh dest=/usr/local/bin/radio
+  become: yes
+
 - name: Disable pc speaker beep
   copy: content='blacklist pcspkr' dest=/etc/modprobe.d/nobeep.conf
   become: yes
