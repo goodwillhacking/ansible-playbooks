@@ -1,0 +1,21 @@
+---
+
+- name: Install openvpn
+  package: name=openvpn state=present
+  become: yes
+
+- name: Get openvpn config
+  command: pass puzzle/vpn/{{item}}-config creates=/etc/openvpn/client/{{item}}.conf
+  ignore_errors: yes
+  register: openvpnconfig
+  with_items:
+    - be3
+    - rz
+    - sys-rz
+
+- name: Install openvpn config
+  copy: content="{{ item.stdout }}\n" dest=/etc/openvpn/client/{{item.item}}.conf owner=root group=root mode=600
+  when: item.changed
+  no_log: yes
+  become: yes
+  with_items: "{{openvpnconfig.results}}"

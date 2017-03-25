@@ -20,7 +20,6 @@
     - pkgfile
     - maim                  # screenshot tool
     - slop                  # allow selection in maim
-    - openvpn
     - ruby-bundler
 
 - name: Install aur packages
@@ -47,6 +46,7 @@
 - include: timedate.yml
 - include: school.yml
 - include: autofs.yml
+- include: openvpn.yml
 - include: cups.yml
 
 - include: laptop.yml
