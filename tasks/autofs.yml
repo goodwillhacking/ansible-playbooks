@@ -23,7 +23,7 @@
 
 - name: Create credentials file
   copy: content="username=lbischof\npassword={{ credentials.stdout }}\n" dest=/etc/autofs/credentials.txt owner=root group=root mode=600
-  when: credentials.changed
+  when: credentials.changed and not credentials.failed|default(false)
   become: yes
 
 - name: Start autofs service

@@ -4,6 +4,11 @@
   package: name=openvpn state=present
   become: yes
 
+  # this is needed so ansible sees the files in next task
+- name: Allow directory read access
+  file: path=/etc/openvpn/client mode=755
+  become: yes
+
 - name: Get openvpn config
   command: pass puzzle/vpn/{{item}}-config creates=/etc/openvpn/client/{{item}}.conf
   ignore_errors: yes
@@ -14,8 +19,8 @@
     - sys-rz
 
 - name: Install openvpn config
-  copy: content="{{ item.stdout }}\n" dest=/etc/openvpn/client/{{item.item}}.conf owner=root group=root mode=600
-  when: item.changed
+  copy: content="{{ item.stdout }}\n" dest=/etc/openvpn/client/{{item.item}}.conf owner=root mode=600
+  when: item.changed and not item.failed|default(false)
   no_log: yes
   become: yes
   with_items: "{{openvpnconfig.results}}"
