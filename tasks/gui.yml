@@ -43,8 +43,8 @@
 - name: Copy compton config
   copy: src=compton.conf dest=~/.config/compton.conf
 
-- name: Copy touchpad config
-  copy: src=30-touchpad.conf dest=/etc/X11/xorg.conf.d
+- name: Copy xorg config
+  copy: src=xorg.conf.d dest=/etc/X11
   become: yes
 
 - name: Copy gtk config
