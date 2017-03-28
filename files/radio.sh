@@ -5,7 +5,6 @@ if [[ -f $pidfile ]]; then
     echo
     if [[ $REPLY =~ ^[Yy]$ ]]; then
         pkill -F $pidfile
-        rm $pidfile
         echo "Stopped radio"
     fi
     exit 1
@@ -13,8 +12,9 @@ fi
 echo "Started radio"
 (
 # kill vlc when exiting
-trap "kill 0" EXIT
+trap "rm -f $pidfile; kill 0" EXIT
 vlc -I cli --rc-host 127.0.0.1:9876 --no-volume-save https://somafm.com/indiepop130.pls &> /dev/null &
+sleep 5
 volume=256
 while true; do
     if [[ -n $(lsof -tc '^vlc' /dev/snd/*) ]] ; then
