@@ -24,3 +24,7 @@
   no_log: yes
   become: yes
   with_items: "{{openvpnconfig.results}}"
+
+- name: Install vpn script
+  copy: src=vpn.sh dest=/usr/local/bin/vpn mode=755
+  become: yes
