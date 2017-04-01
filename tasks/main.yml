@@ -36,23 +36,40 @@
   copy: src=mimeapps.list dest=~/.config/mimeapps.list
 
 - include: network.yml
+  tags: network
 - include: nvim.yml
+  tags: nvim
 - include: latex.yml
+  tags: latex
 - include: terminal.yml
+  tags: terminal
 - include: gpg.yml
+  tags: gpg
 - include: jabber.yml
+  tags: jabber
 - include: mutt.yml
+  tags: mutt
 - include: gui.yml
+  tags: gui
 - include: vm.yml
+  tags: vm
 - include: git.yml
+  tags: git
 - include: timedate.yml
+  tags: timedate
 - include: school.yml
+  tags: school
 - include: autofs.yml
+  tags: autofs
 - include: openvpn.yml
+  tags: openvpn
 - include: cups.yml
+  tags: cups
 
 - include: laptop.yml
   when: ansible_product_name == "Latitude E7250"
+  tags: laptop
 
 - include: nfs.yml
   when: ansible_product_name != "Latitude E7250"
+  tags: nfs
