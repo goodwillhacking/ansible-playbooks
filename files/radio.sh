@@ -6,6 +6,7 @@ if [[ -f $pidfile ]]; then
     if [[ $REPLY =~ ^[Yy]$ ]]; then
         pkill -F $pidfile
         echo "Stopped radio"
+        rm -f $pidfile
     fi
     exit 1
 fi
