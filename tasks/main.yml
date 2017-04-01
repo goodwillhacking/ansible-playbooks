@@ -21,6 +21,7 @@
     - maim                  # screenshot tool
     - slop                  # allow selection in maim
     - ruby-bundler
+    - expect
 
 - name: Install aur packages
   aur: name={{ item }}
