@@ -112,6 +112,7 @@ Plug 'chriskempson/base16-vim'
 Plug 'inside/vim-search-pulse'
 Plug 'neomake/neomake'
 Plug 'itchyny/lightline.vim'
+Plug 'dhruvasagar/vim-table-mode'
 
 call plug#end()
 
