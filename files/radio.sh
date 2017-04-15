@@ -1,14 +1,10 @@
 #!/bin/bash
 pidfile=$HOME/.radio.pid
 if [[ -f $pidfile ]]; then
-    read -p "Stop playing radio? " -n 1 -r
-    echo
-    if [[ $REPLY =~ ^[Yy]$ ]]; then
-        pkill -F $pidfile
-        echo "Stopped radio"
-        rm -f $pidfile
-    fi
-    exit 1
+    pkill -F $pidfile
+    rm -f $pidfile
+    echo "Stopped radio"
+    exit
 fi
 echo "Started radio"
 (
