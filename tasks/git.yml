@@ -4,6 +4,9 @@
   package: name=git state=present
   become: yes
 
+- name: Install icdiff
+  aur: name=icdiff
+
 - name: Copy git config
   copy: src=git dest=~/.config
 

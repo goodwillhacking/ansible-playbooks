@@ -7,8 +7,15 @@
     meta = yellow
 [core]
     whitespace = trailing-space, space-before-tab
+[pager]
+    difftool = true
 [diff]
     renames = copies
+    tool = icdiff
+[difftool]
+    prompt = false
+[difftool "icdiff"]
+    cmd = icdiff --highlight --line-numbers -L \"$BASE\" -L \"$REMOTE\" \"$LOCAL\" \"$REMOTE\"
 [diff "tex"]
     command = /usr/local/bin/git-word-diff.sh
 [help]
