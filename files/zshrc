@@ -61,7 +61,7 @@ alias ga='git add'
 alias gp='git pull'
 alias gpr='git pull --rebase'
 alias gf='git fetch'
-alias gd='git diff'
+alias gd='git difftool'
 alias gdc='git diff --cached'
 alias gb='git branch'
 
