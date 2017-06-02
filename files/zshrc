@@ -14,8 +14,7 @@ setopt hist_ignore_dups          # Do not record an event that was just recorded
 setopt complete_in_word
 setopt auto_cd
 
-source /usr/share/git/completion/git-prompt.sh
-source /usr/share/doc/pkgfile/command-not-found.zsh
+source /usr/share/git/git-prompt.sh
 
 export GIT_PS1_SHOWDIRTYSTATE=1
 export GIT_PS1_SHOWUNTRACKEDFILES=1

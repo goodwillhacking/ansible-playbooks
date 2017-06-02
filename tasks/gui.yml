@@ -4,18 +4,18 @@
   package: name={{ item }} state=present
   become: yes
   with_items:
-    - i3-wm
+    - i3
     - i3lock
     - i3status
     - dmenu
     - dunst
     - libnotify
-    - compton
+#   - compton
     - feh
     - redshift
     - xorg-server
-    - xorg-server-utils
-    - xorg-xinit
+    - xrandr
+    - xinit
 
 - name: Copy xinitrc
   copy: content="exec i3" dest=~/.xinitrc
@@ -28,10 +28,6 @@
 
 - name: Copy i3_focus script
   copy: src=i3_focus.sh dest=/usr/local/bin mode=0755
-  become: yes
-
-- name: Enable autologin
-  copy: src=getty@tty1.service.d dest=/etc/systemd/system
   become: yes
 
 - name: Copy wallpapers
@@ -53,6 +49,3 @@
   with_items:
     - gtk-2.0
     - gtk-3.0
-
-- name: Create hushlogin file
-  copy: content="" dest=~/.hushlogin

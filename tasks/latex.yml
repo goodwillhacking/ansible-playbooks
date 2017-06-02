@@ -1,13 +1,10 @@
 ---
 
 - name: Install latex
-  package: name={{ item }} state=present
+  package: name=texlive-bin state=present
   become: yes
-  with_items:
-    - texlive-most
-    - texlive-bin
-    - texlive-langextra
-    - pygmentize
+
+# todo: pygmentize and latex modules
 
 - name: Deploy latex config
   copy: src=latexmkrc dest=~/.latexmkrc

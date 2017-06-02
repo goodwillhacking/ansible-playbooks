@@ -1,11 +1,11 @@
 ---
 
-- name: Install terminal
-  package: name=termite
-  become: yes
+#- name: Install terminal
+#  package: name=termite
+#  become: yes
 
-- name: Copy termite config
-  copy: src=termite dest=~/.config
+#- name: Copy termite config
+#  copy: src=termite dest=~/.config
 
 - name: Install zsh
   package: name=zsh
@@ -21,17 +21,13 @@
     - zprofile
     - zshrc
 
-- name: Install terminal fonts
-  package: name={{ item }}
-  become: yes
-  with_items:
-    - ttf-dejavu
-    - ttf-liberation        # fix fonts in chromium pdf viewer
+#- name: Install terminal fonts
+#  package: name={{ item }}
+#  become: yes
+#  with_items:
+#    - ttf-dejavu
+#    - ttf-liberation        # fix fonts in chromium pdf viewer
 
 - name: Copy radio script
   copy: src=radio.sh dest=/usr/local/bin/radio
-  become: yes
-
-- name: Disable pc speaker beep
-  copy: content='blacklist pcspkr' dest=/etc/modprobe.d/nobeep.conf
   become: yes

@@ -4,9 +4,9 @@
   package: name={{ item }} state=present
   become: yes
   with_items:
-    - jdk8-openjdk
-    - java-openjfx
-    - eclipse-java
+    - openjdk
+#   - java-openjfx
+    - eclipse
     - nasm
     - ddd
     - octave

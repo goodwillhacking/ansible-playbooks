@@ -4,6 +4,13 @@
   package: name=openvpn state=present
   become: yes
 
+- name: Create openvpn directory
+  file: path={{item}} state=directory mode=700
+  become: yes
+  with_items:
+    - /etc/openvpn
+    - /etc/openvpn/client
+
 - name: Check openvpn config
   shell: ls -A1 /etc/openvpn/client
   changed_when: False
