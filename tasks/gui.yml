@@ -18,7 +18,7 @@
     - xinit
 
 - name: Copy xinitrc
-  copy: content="exec i3" dest=~/.xinitrc
+  copy: src=xinitrc dest=~/.xinitrc
 
 - name: Copy i3 config
   copy: src=i3 dest=~/.config

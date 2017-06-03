@@ -1,14 +1,11 @@
 ---
 
-#- name: Install terminal
-#  package: name=termite
-#  become: yes
-
-#- name: Copy termite config
-#  copy: src=termite dest=~/.config
-
 - name: Install zsh
   package: name=zsh
+  become: yes
+
+- name: Install terminal
+  package: name=rxvt-unicode
   become: yes
 
 - name: Change shell to zsh
@@ -27,6 +24,12 @@
 #  with_items:
 #    - ttf-dejavu
 #    - ttf-liberation        # fix fonts in chromium pdf viewer
+
+- name: Copy base16-shell
+  copy: src=base16-shell dest=~/.config
+
+- name: Copy bash files
+  copy: src=Xresources dest=~/.Xresources
 
 - name: Copy radio script
   copy: src=radio.sh dest=/usr/local/bin/radio

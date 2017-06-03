@@ -114,10 +114,11 @@ Plug 'neomake/neomake'
 Plug 'itchyny/lightline.vim'
 Plug 'dhruvasagar/vim-table-mode'
 
+
 call plug#end()
 
 " Must load after plugins: https://github.com/altercation/vim-colors-solarized/issues/104
 set background=dark
+let base16colorspace=256
 colorscheme base16-eighties
-highlight Search guibg=NONE guifg=NONE gui=underline
-set termguicolors
+highlight Search ctermbg=NONE ctermfg=106 cterm=underline
