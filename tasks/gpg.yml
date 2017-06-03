@@ -10,7 +10,7 @@
     - gpg-agent.conf
 
 - name: Copy nitrokey udev rules
-  copy: src=udev/rules.d/40-nitrokey.rules dest=/etc/udev/rules.d
+  copy: src=udev/rules.d/40-nitrokey.rules dest=/etc/udev/rules.d/
   become: yes
 
 - name: Install libusb-compat
