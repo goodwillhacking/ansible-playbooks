@@ -54,6 +54,6 @@
   when: ansible_product_name == "Latitude E7250"
   tags: laptop
 
-#- include: nfs.yml
-#  when: ansible_product_name != "Latitude E7250"
-#  tags: nfs
+- include: nfs.yml
+  when: ansible_product_name != "Latitude E7250"
+  tags: nfs
