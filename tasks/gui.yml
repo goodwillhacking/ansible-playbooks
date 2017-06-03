@@ -16,6 +16,8 @@
     - xorg-server
     - xrandr
     - xinit
+    - xorg-input-drivers
+    - xorg-fonts
 
 - name: Copy xinitrc
   copy: src=xinitrc dest=~/.xinitrc
