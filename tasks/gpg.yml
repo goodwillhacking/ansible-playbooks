@@ -1,5 +1,13 @@
 ---
 
+
+- name: Install GPG packages
+  package: name={{ item }}
+  become: yes
+  with_items:
+    - gnupg2-scdaemon
+    - pinentry-gtk
+
 - name: Create gnupg directory
   file: path=~/.gnupg state=directory mode=0700
 
