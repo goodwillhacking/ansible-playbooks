@@ -65,6 +65,11 @@ alias gd='git diff'
 alias gdc='git diff --cached'
 alias gb='git branch'
 
+alias xu='sudo xbps-install -Su'
+alias xi='sudo xbps-install -S'
+alias xr='sudo xbps-remove'
+alias xq='xbps-query -Rs'
+
 alias t="task"
 alias r="bundle exec rake"
 
