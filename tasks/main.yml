@@ -13,6 +13,9 @@
     - chromium
     - maim                  # screenshot tool
     - slop                  # allow selection in maim
+    - python3-pip
+    - gcc                   # for pip and ruby compilations
+    - python3-devel         # for pip compilations
 
 # TODO
 #- name: Copy mimeapps.list

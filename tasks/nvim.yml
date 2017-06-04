@@ -5,12 +5,12 @@
   become: yes
   with_items:
     - neovim
-    - python-neovim
+    - python3-neovim
+    - python3-Unidecode
 
-# TODO:
-#    - python-unidecode
-#- name: Install neovim remote
-#  aur: name=neovim-remote
+- name: Install neovim-remote
+  pip: name=neovim-remote
+  become: yes
 
 - name: Set neovim as default vim
   file: src=/usr/bin/nvim dest=/usr/bin/vim state=link
