@@ -1,0 +1,17 @@
+---
+
+- name: Add user to audio group
+  user: name={{ ansible_user_id }} groups=audio append=yes
+  become: yes
+
+- name: Install radio dependencies
+  package: name={{ item }}
+  become: yes
+  with_items:
+    - vlc
+    - lsof
+    - alsa-utils
+
+- name: Copy radio script
+  copy: src=radio.sh dest=/usr/local/bin/radio mode=755
+  become: yes

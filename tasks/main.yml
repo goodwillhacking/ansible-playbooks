@@ -43,6 +43,8 @@
 #  tags: timedate
 - include: school.yml
   tags: school
+- include: audio.yml
+  tags: audio
 #- include: autofs.yml
 #  tags: autofs
 - include: openvpn.yml

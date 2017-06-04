@@ -28,9 +28,5 @@
 - name: Copy base16-shell
   copy: src=base16-shell dest=~/.config
 
-- name: Copy bash files
+- name: Copy Xresources
   copy: src=Xresources dest=~/.Xresources
-
-- name: Copy radio script
-  copy: src=radio.sh dest=/usr/local/bin/radio
-  become: yes
