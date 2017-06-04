@@ -30,23 +30,24 @@ bindsym $mod+n exec --no-startup-id i3lock -fc 000000
 
 bindsym Control+Return exec --no-startup-id amixer set Master -Mq 50% && chromium http://www.mycowichanvalleynow.com/stream/cjsu
 
+set $focus /usr/local/bin/i3_focus.sh
 # change focus
-bindsym Control+h exec --no-startup-id "i3_focus.sh left"
-bindsym Control+j exec --no-startup-id "i3_focus.sh down"
-bindsym Control+k exec --no-startup-id "i3_focus.sh up"
-bindsym Control+l exec --no-startup-id "i3_focus.sh right"
+bindsym Control+h exec --no-startup-id "$focus left"
+bindsym Control+j exec --no-startup-id "$focus down"
+bindsym Control+k exec --no-startup-id "$focus up"
+bindsym Control+l exec --no-startup-id "$focus right"
 
 # change focus
-bindsym $mod+h exec --no-startup-id "i3_focus.sh left"
-bindsym $mod+j exec --no-startup-id "i3_focus.sh down"
-bindsym $mod+k exec --no-startup-id "i3_focus.sh up"
-bindsym $mod+l exec --no-startup-id "i3_focus.sh right"
+bindsym $mod+h exec --no-startup-id "$focus left"
+bindsym $mod+j exec --no-startup-id "$focus down"
+bindsym $mod+k exec --no-startup-id "$focus up"
+bindsym $mod+l exec --no-startup-id "$focus right"
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Left  exec --no-startup-id "i3_focus.sh left"
-bindsym $mod+Down  exec --no-startup-id "i3_focus.sh down"
-bindsym $mod+Up    exec --no-startup-id "i3_focus.sh up"
-bindsym $mod+Right exec --no-startup-id "i3_focus.sh right"
+bindsym $mod+Left  exec --no-startup-id "$focus left"
+bindsym $mod+Down  exec --no-startup-id "$focus down"
+bindsym $mod+Up    exec --no-startup-id "$focus up"
+bindsym $mod+Right exec --no-startup-id "$focus right"
 
 # move focused window
 bindsym $mod+Shift+H move left
