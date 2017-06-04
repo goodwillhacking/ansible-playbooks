@@ -13,7 +13,6 @@
     - chromium
     - maim                  # screenshot tool
     - slop                  # allow selection in maim
-    - expect
 
 # TODO
 #- name: Copy mimeapps.list

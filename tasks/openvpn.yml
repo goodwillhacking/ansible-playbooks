@@ -37,3 +37,7 @@
 - name: Install vpn script
   copy: src=vpn.sh dest=/usr/local/bin/vpn mode=755
   become: yes
+
+- name: Install vpn script dependencies
+  package: name=expect state=present
+  become: yes
