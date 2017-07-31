@@ -10,10 +10,10 @@
     - dmenu
     - dunst
     - libnotify
-#   - compton
+    - compton-git
     - feh
     - redshift
-    - xorg-server
+    - xorg-minimal
     - xrandr
     - xinit
     - autox
