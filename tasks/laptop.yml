@@ -24,7 +24,7 @@
   become: yes
 
 - name: Install light
-  aur: name=light-git
+  package: name=light
 
 - name: Creates light config directory
   file: path=/etc/light/mincap state=directory
