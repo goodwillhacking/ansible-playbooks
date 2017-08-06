@@ -19,7 +19,7 @@
 
 - name: Get openvpn config
   command: pass puzzle/vpn/{{item}}-config
-  when: item not in openvpn_ls.stdout
+  when: not ansible_check_mode and item not in openvpn_ls.stdout
   register: openvpn_config
   ignore_errors: yes
   with_items:
