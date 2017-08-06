@@ -15,3 +15,7 @@
 - name: Copy radio script
   copy: src=radio.sh dest=/usr/local/bin/radio mode=755
   become: yes
+
+- name: Disable pc speaker beep
+  copy: content='blacklist pcspkr' dest=/etc/modprobe.d/nobeep.conf
+  become: yes
