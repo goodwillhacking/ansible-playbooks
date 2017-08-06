@@ -16,7 +16,7 @@
   mount: name={{ item.name }} src={{ item.src }} fstype=ext4 state=mounted
   become: yes
   with_items:
-    - { name: '/data/old', src: 'UUID=03997049-0de8-4f96-87f8-d655c90f7824' }
+    - { name: '/data/old', src: 'UUID=4d4d1343-72dc-488e-a7f0-49aece71378f' }
     - { name: '/data/new', src: 'UUID=e483ef7a-27d3-4e80-b5aa-d26702ff6e12' }
 
 - name: Export directories
