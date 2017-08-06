@@ -160,7 +160,7 @@ bar {
 }
 
 exec --no-startup-id compton -b
-exec --no-startup-id feh  --bg-fill "$HOME/.config/wallpapers/wallpaper_cropped_0.png" "$HOME/.config/wallpapers/wallpaper_cropped_1.png"
+exec --no-startup-id feh --bg-fill "$HOME/.config/wallpapers/wallpaper_cropped_0.png" "$HOME/.config/wallpapers/wallpaper_cropped_1.png"
 exec --no-startup-id -l 46.9480:7.4474
 exec --no-startup-id dunst
 exec --no-startup-id xset m 1 4
