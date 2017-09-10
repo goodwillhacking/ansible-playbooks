@@ -32,8 +32,6 @@
   tags: terminal
 - include: gpg.yml
   tags: gpg
-#- include: jabber.yml
-#  tags: jabber
 #- include: mutt.yml
 #  tags: mutt
 - include: gui.yml
@@ -48,8 +46,6 @@
 #  tags: school
 #- include: audio.yml
 #  tags: audio
-#- include: autofs.yml
-#  tags: autofs
 #- include: openvpn.yml
 #  tags: openvpn
 #- include: cups.yml
