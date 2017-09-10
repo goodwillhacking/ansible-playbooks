@@ -1,6 +1,5 @@
 ---
 
-
 - name: Install GPG packages
   package: name={{ item }}
   become: yes

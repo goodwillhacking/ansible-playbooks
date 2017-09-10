@@ -4,60 +4,52 @@
   package: name={{ item }} state=present
   become: yes
   with_items:
-    - i3
-    - i3lock
-    - i3status
-    - dmenu
-    - dunst
-    - libnotify
-    - compton-git
-    - feh
-    - redshift
-    - xorg-minimal
-    - xrandr
-    - xinit
-    - autox
-    - xorg-input-drivers
-    - xorg-fonts
-    - xrdb
-
-- name: Insert autox config
-  copy: content="USER={{ ansible_user_id }}\nTTY=tty7" dest=/etc/sv/autox/conf
+    - sway
+    - dejavu-fonts-ttf
+#    - dmenu
+#    - dunst
+#    - libnotify
+#    - compton-git
+#    - feh
+#    - redshift
+#    - xorg-minimal
+#    - xrandr
+#    - xinit
+#    - autox
+#    - xorg-input-drivers
+#    - xorg-fonts
+#    - xrdb
+#
+- name: Copy agetty config
+  copy: src=agetty-tty1/conf dest=/etc/sv/agetty-tty1/conf
   become: yes
 
-- name: Enable autox service
-  service: name=autox state=started enabled=yes
-  become: yes
+- name: Copy sway config
+  copy: src=sway dest=~/.config
 
-- name: Copy xinitrc
-  copy: src=xinitrc dest=~/.xinitrc
-
-- name: Copy i3 config
-  copy: src=i3 dest=~/.config
-
-- name: Copy i3status config
-  copy: src=i3status dest=~/.config
-
-- name: Copy i3_focus script
-  copy: src=i3_focus.sh dest=/usr/local/bin mode=0755
-  become: yes
-
+#- name: Copy i3status config
+#  copy: src=i3status dest=~/.config
+#
+#- name: Copy i3_focus script
+#  copy: src=i3_focus.sh dest=/usr/local/bin mode=0755
+#  become: yes
+#
 - name: Copy wallpapers
   copy: src=wallpapers dest=~/.config
 
-- name: Copy dunst config
-  copy: src=dunst dest=~/.config
-
-- name: Copy compton config
-  copy: src=compton.conf dest=~/.config/compton.conf
-
-- name: Copy xorg config
-  copy: src=xorg.conf.d dest=/etc/X11
-  become: yes
-
-- name: Copy gtk config
-  copy: src=gtk/{{ item }} dest=/etc/
-  become: yes
-  with_items:
-    - gtk-2.0
-    - gtk-3.0
+#- name: Copy dunst config
+#  copy: src=dunst dest=~/.config
+#
+#- name: Copy compton config
+#  copy: src=compton.conf dest=~/.config/compton.conf
+#
+#- name: Copy xorg config
+#  copy: src=xorg.conf.d dest=/etc/X11
+#  become: yes
+#
+#- name: Copy gtk config
+#  copy: src=gtk/{{ item }} dest=/etc/
+#  become: yes
+#  with_items:
+#    - gtk-2.0
+#    - gtk-3.0

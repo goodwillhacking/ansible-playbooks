@@ -5,14 +5,15 @@
   become: yes
   with_items:
     - pass
-    - transmission-gtk
-    - xdotool               # so vimtex knows if the pdf viewer is already open
-    - zathura
-    - zathura-pdf-mupdf
+#    - transmission-gtk
+#    - xdotool               # so vimtex knows if the pdf viewer is already open
+#    - zathura
+#    - zathura-pdf-mupdf
     - ruby
+    - curl
     - chromium
-    - maim                  # screenshot tool
-    - slop                  # allow selection in maim
+#    - maim                  # screenshot tool
+#    - slop                  # allow selection in maim
     - python3-pip
     - gcc                   # for pip and ruby compilations
     - python3-devel         # for pip compilations
@@ -21,43 +22,43 @@
 #- name: Copy mimeapps.list
 #  copy: src=mimeapps.list dest=~/.config/mimeapps.list
 
-#- include: network.yml
-#  tags: network
+- include: network.yml
+  tags: network
 - include: nvim.yml
   tags: nvim
-- include: latex.yml
-  tags: latex
+#- include: latex.yml
+#  tags: latex
 - include: terminal.yml
   tags: terminal
 - include: gpg.yml
   tags: gpg
-- include: jabber.yml
-  tags: jabber
-- include: mutt.yml
-  tags: mutt
+#- include: jabber.yml
+#  tags: jabber
+#- include: mutt.yml
+#  tags: mutt
 - include: gui.yml
   tags: gui
-- include: vm.yml
-  tags: vm
+#- include: vm.yml
+#  tags: vm
 - include: git.yml
   tags: git
-- include: ntp.yml
-  tags: ntp
-- include: school.yml
-  tags: school
-- include: audio.yml
-  tags: audio
+#- include: ntp.yml
+#  tags: ntp
+#- include: school.yml
+#  tags: school
+#- include: audio.yml
+#  tags: audio
 #- include: autofs.yml
 #  tags: autofs
-- include: openvpn.yml
-  tags: openvpn
-- include: cups.yml
-  tags: cups
+#- include: openvpn.yml
+#  tags: openvpn
+#- include: cups.yml
+#  tags: cups
 
-- include: laptop.yml
-  when: ansible_product_name == "Latitude E7250"
-  tags: laptop
+#- include: laptop.yml
+#  when: ansible_product_name == "Latitude E7250"
+#  tags: laptop
 
-- include: nfs.yml
-  when: ansible_product_name != "Latitude E7250"
-  tags: nfs
+#- include: nfs.yml
+#  when: ansible_product_name != "Latitude E7250"
+#  tags: nfs

@@ -1,6 +1,0 @@
-if [ -f $HOME/.Xresources ]; then
-    xrdb -load $HOME/.Xresources
-fi
-export LANG=en_US.UTF-8
-
-exec i3
