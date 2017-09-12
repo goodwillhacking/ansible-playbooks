@@ -1,63 +1,77 @@
 # Install guide
 
 ```
-loadkeys sg
-wifi-menu
+# loadkeys sg
 ```
-Due to a bug the connection takes a while to connect. Running `pacman -Syy` seems to help...
+Update wifi configuration:
+```
+# vi /etc/wpa_supplicant/wpa_supplicant.conf
+network={
+    ssid="****"
+    psk="****"
+}
+# wpa_supplicant -B -iwlp2s0 -c /etc/wpa_supplicant/wpa_supplicant.conf
+# dhcpcd
+```
 
 ## Partitioning
+Create two partitions (don't forget bootable flag):
 ```
-(parted) mklabel gpt
-(parted) mkpart primary ext4 0% 512M
-(parted) mkpart primary btrfs 512M 100%
-(parted) set 1 boot on
+# fdisk /dev/sda
 ```
+
 ## Encryption
 ```
-cryptsetup -y -v luksFormat /dev/sdaX
-cryptsetup open /dev/sdaX cryptroot
-mkfs.btrfs /dev/mapper/cryptroot
-mount /dev/mapper/cryptroot /mnt
+# cryptsetup -y -v luksFormat /dev/sda2
+# cryptsetup open /dev/sdaX cryptroot
+# mkfs.ext4 /dev/mapper/cryptroot
+# mount /dev/mapper/cryptroot /mnt
 
-# Boot partition
-mkfs.fat -F 32 /dev/sdaY
-mkdir /mnt/boot
-mount /dev/sdaY /mnt/boot
+# mkfs.ext4 -O ^64bit /dev/sda1
+# mkdir /mnt/boot
+# mount /dev/sda1 /mnt/boot
 ```
 
 ## Base system
 ```
-echo 'Server = http://archlinux.puzzle.ch/$repo/os/$arch' > /etc/pacman.d/mirrorlist
-pacstrap /mnt base base-devel
-genfstab -U /mnt >> /mnt/etc/fstab
-cp /etc/netctl/profile /mnt/etc/netctl
-arch-chroot /mnt /bin/bash
+# XBPS_ARCH=x86_64-musl xpbs-install -S -R https://repo.voidlinux.eu/current/musl -r /mnt base-system cryptsetup syslinux ansible git
+# cp /etc/wpa_supplicant/wpa_supplicant.conf /mnt/etc/wpa_supplicant
+# mount -t proc /proc /mnt/proc
+# mount --rbind /dev /mnt/dev
+# mount --rbind /sys /mnt/sys
+# chroot /mnt /bin/bash
+
+# passwd root
+# vi /etc/fstab
+# echo myhostname > /etc/hostname
 ```
 
 ## Bootloader
-Add the `encrypt` hook after `base udev` in /etc/mkinitcpio.conf. Remove the fsck hook
 ```
-mkinitcpio -p linux
-cp /usr/share/systemd/bootctl/arch.conf /boot/loader/entries
-# options cryptdevice=/dev/sda2:cryptroot root=/dev/mapper/cryptroot quiet loglevel=3 rd.udev.log-priority=3 rw
-echo 'default arch' > /boot/loader/loader.conf
+# find / -name mbr.bin
+# dd conv=notrunc bs=440 count=1 if=mbr.bin of=/dev/sdX
+# mkdir /boot/syslinux
+# extlinux --install /boot/syslinux
+# xbps-reconfigure -f linux4.12
+# useradd -m -G wheel -s /bin/bash lbischof
+# passwd lbischof
 ```
+add following configuration in `/boot/syslinux/syslinux.cfg`:
+```
+DEFAULT void
+LABEL void
+  LINUX ../vmlinuz-4.12.12_1
+  APPEND root=/dev/mapper/luks-$UID cryptdevice=/dev/sda2:cryptroot ro rd.auto quiet
+  INITRD ../initramfs-4.12.12_1.img
+```
+uncomment wheel rule in /etc/sudoers
+
+umount and reboot
 
 ## Finishing
-```
-pacman -S iw wpa_supplicant dialog git sudo ansible
-exit
-umount -R /mnt
-reboot
 
-echo "work" > /etc/hostname #also update /etc/hosts
-# uncomment sudo rule in /etc/sudoers
-groupadd sudo
-useradd -m -G sudo -s /bin/bash lbischof
-passwd lbischof
-passwd --lock
-su - lbischof
-git clone https://github.com/lbischof/ansible-playbooks
-ansible-playbook ansible-playbooks/desktop.yml
+```
+$ sudo ln -s /etc/sv/dhcpcd /var/service
+$ git clone https://github.com/lbischof/ansible-playbooks
+$ ansible-playbook ansible-playbooks/playbook.yml
 ```
