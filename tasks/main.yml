@@ -16,6 +16,7 @@
     - python3-pip
     - gcc                   # for pip and ruby compilations
     - python3-devel         # for pip compilations
+    - curl
 
 # TODO
 #- name: Copy mimeapps.list
@@ -25,30 +26,22 @@
 #  tags: network
 - include: nvim.yml
   tags: nvim
-- include: latex.yml
-  tags: latex
 - include: terminal.yml
   tags: terminal
 - include: gpg.yml
   tags: gpg
-- include: jabber.yml
-  tags: jabber
-- include: mutt.yml
-  tags: mutt
+#- include: mutt.yml
+#  tags: mutt
 - include: gui.yml
   tags: gui
-- include: vm.yml
-  tags: vm
+#- include: vm.yml
+#  tags: vm
 - include: git.yml
   tags: git
 - include: ntp.yml
   tags: ntp
-- include: school.yml
-  tags: school
 - include: audio.yml
   tags: audio
-#- include: autofs.yml
-#  tags: autofs
 - include: openvpn.yml
   tags: openvpn
 - include: cups.yml
