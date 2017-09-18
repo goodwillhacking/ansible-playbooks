@@ -11,10 +11,6 @@
   package: name=zsh
   become: yes
 
-- name: Install terminal
-  package: name=rxvt-unicode
-  become: yes
-
 - name: Change shell to zsh
   user: name={{ ansible_user_id }} shell=/bin/zsh
   become: yes
@@ -31,9 +27,3 @@
   with_items:
     - ttf-dejavu
     - ttf-liberation        # fix fonts in chromium pdf viewer
-
-- name: Copy base16-shell
-  copy: src=base16-shell dest=~/.config
-
-- name: Copy Xresources
-  copy: src=Xresources dest=~/.Xresources

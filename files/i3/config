@@ -16,7 +16,7 @@ focus_follows_mouse no
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+t exec --no-startup-id urxvtc
+bindsym $mod+t exec --no-startup-id termite
 
 # kill focused window
 bindsym $mod+Q kill
@@ -166,7 +166,6 @@ exec --no-startup-id dunst
 exec --no-startup-id xset m 1 4
 exec --no-startup-id gpg-agent --daemon
 exec --no-startup-id "sleep 5 && xcape -e ISO_Level3_Shift=Escape"
-exec --no-startup-id urxvtd -f
 
 client.focused #6699cc #6699cc #2d2d2d #393939
 client.focused_inactive #515151 #515151 #747369 #393939
