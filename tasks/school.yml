@@ -1,0 +1,12 @@
+---
+
+- name: Install apps
+  package: name={{ item }} state=present
+  become: yes
+  with_items:
+    - openjdk
+#   - java-openjfx
+    - eclipse
+    - nasm
+    - ddd
+    - octave

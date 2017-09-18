@@ -1,0 +1,13 @@
+---
+
+- name: Install latex
+  package: name=texlive-bin state=present
+  become: yes
+
+# todo: pygmentize and latex modules
+
+- name: Deploy latex config
+  copy: src=latexmkrc dest=~/.latexmkrc
+
+- name: Deploy chktexrc
+  copy: src=chktexrc dest=~/.chktexrc

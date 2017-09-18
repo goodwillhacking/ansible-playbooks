@@ -11,9 +11,20 @@
   service: name=tlp state=started enabled=yes
   become: yes
 
+- name: Enable tlp-sleep service
+  service: name=tlp-sleep enabled=yes
+  become: yes
+
+- name: Copy monitor hotplug script
+  copy: src=monitor-hotplug.sh dest=/usr/local/bin
+  become: yes
+
+- name: Copy monitor-hotplug udev rule
+  copy: src=udev/rules.d/99-monitor-hotplug.rules dest=/etc/udev/rules.d
+  become: yes
+
 - name: Install light
   package: name=light
-  become: yes
 
 - name: Creates light config directory
   file: path=/etc/light/mincap state=directory
