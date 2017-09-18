@@ -25,7 +25,7 @@ preexec () { print -Pn "\e]0;${1:gs/%/%%}\a" }
 
 
 export SSH_AUTH_SOCK=$HOME/.gnupg/S.gpg-agent.ssh
-export PATH="$(ruby -e 'print Gem.user_dir')/bin:/usr/local/bin:$PATH"
+export PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
 export EDITOR=vim
 export KEYTIMEOUT=1
 
