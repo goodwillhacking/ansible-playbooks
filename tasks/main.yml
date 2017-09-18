@@ -26,7 +26,7 @@
 - name: Install aur packages
   aur: name={{ item }}
   with_items:
-    - pacaur
+    #    - pacaur
     - dtrx
     - puppet-lint
     - python-proselint
