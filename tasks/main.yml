@@ -41,8 +41,8 @@
   tags: vm
 - include: git.yml
   tags: git
-- include: ntp.yml
-  tags: ntp
+#- include: timedate.yml
+#  tags: timedate
 - include: school.yml
   tags: school
 - include: audio.yml

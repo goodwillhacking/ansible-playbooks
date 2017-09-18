@@ -1,9 +1,0 @@
----
-
-- name: Install Chrony
-  package: name=chrony
-  become: yes
-
-- name: Start Chronyd
-  service: name=chronyd state=started enabled=yes
-  become: yes
