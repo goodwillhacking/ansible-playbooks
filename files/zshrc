@@ -24,7 +24,7 @@ precmd () { __git_ps1 "%~" "%(!.#.$) "; print -Pn "\e]0;terminal\a" }
 preexec () { print -Pn "\e]0;${1:gs/%/%%}\a" }
 
 
-export SSH_AUTH_SOCK=$HOME/.gnupg/S.gpg-agent.ssh
+export SSH_AUTH_SOCK=/run/user/1000/gnupg/S.gpg-agent.ssh
 export PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
 export EDITOR=vim
 export KEYTIMEOUT=1
