@@ -1,9 +1,5 @@
 ---
 
-- name: Set timezone
-  copy: content="TIMEZONE=\"Europe/Zurich\"" dest=/etc/rc.conf
-  become: yes
-
 - name: Install Chrony
   package: name=chrony
   become: yes
