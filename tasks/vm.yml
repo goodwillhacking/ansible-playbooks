@@ -11,23 +11,23 @@
   become: yes
 
 # Install virtualbox after the modules package, because of multiple providers
-#- name: Install Virtualbox
-#  package: name={{ item }} state=present
-#  become: yes
-#  with_items:
-#    - virtualbox-ose
-#    - virtualbox
-#
-#- name: Install virtualization dependencies
-#  package: name={{ item }} state=present
-#  become: yes
-#  with_items:
-#    - qemu
-#    - net-tools
-#    - ebtables
-#    - dnsmasq
-#    - bridge-utils
-#    - rsync
+- name: Install Virtualbox
+  package: name={{ item }} state=present
+  become: yes
+  with_items:
+    - virtualbox-host-modules-arch
+    - virtualbox
+
+- name: Install virtualization dependencies
+  package: name={{ item }} state=present
+  become: yes
+  with_items:
+    - qemu
+    - net-tools
+    - ebtables
+    - dnsmasq
+    - bridge-utils
+    - rsync
 
 - name: Install libvirt client tools
   package: name={{ item }} state=present
@@ -44,6 +44,6 @@
   become: yes
   user:
     name={{ ansible_user_id }}
-    groups=libvirt
+    groups=libvirt,vboxusers
     append=yes
 

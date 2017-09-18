@@ -6,11 +6,10 @@
   with_items:
     - neovim
     - python-neovim
+    - python-unidecode
 
-# TODO:
-#    - python-unidecode
-#- name: Install neovim remote
-#  aur: name=neovim-remote
+- name: Install neovim remote
+  aur: name=neovim-remote
 
 - name: Set neovim as default vim
   file: src=/usr/bin/nvim dest=/usr/bin/vim state=link

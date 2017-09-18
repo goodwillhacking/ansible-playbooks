@@ -1,25 +1,42 @@
 ---
 
+- name: Copy mirrorlist
+  copy: src=mirrorlist dest=/etc/pacman.d
+  become: yes
+
 - name: Install apps
   package: name={{ item }} state=present update_cache=yes
   become: yes
   with_items:
     - pass
     - transmission-gtk
+    - xclip                 # cli clipboard management
     - xdotool               # so vimtex knows if the pdf viewer is already open
     - zathura
     - zathura-pdf-mupdf
     - ruby
+    - openssh
     - chromium
+    - pkgfile
     - maim                  # screenshot tool
     - slop                  # allow selection in maim
+    - ruby-bundler
+    - expect
 
-# TODO
-#- name: Copy mimeapps.list
-#  copy: src=mimeapps.list dest=~/.config/mimeapps.list
+- name: Install aur packages
+  aur: name={{ item }}
+  with_items:
+    - pacaur
+    - dtrx
+    - puppet-lint
+    - python-proselint
+    - xcape
 
-#- include: network.yml
-#  tags: network
+- name: Copy mimeapps.list
+  copy: src=mimeapps.list dest=~/.config/mimeapps.list
+
+- include: network.yml
+  tags: network
 - include: nvim.yml
   tags: nvim
 - include: latex.yml
@@ -38,14 +55,12 @@
   tags: vm
 - include: git.yml
   tags: git
-#- include: timedate.yml
-#  tags: timedate
+- include: timedate.yml
+  tags: timedate
 - include: school.yml
   tags: school
 - include: audio.yml
   tags: audio
-#- include: autofs.yml
-#  tags: autofs
 - include: openvpn.yml
   tags: openvpn
 - include: cups.yml
