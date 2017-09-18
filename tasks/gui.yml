@@ -19,7 +19,6 @@
     - autox
     - xorg-input-drivers
     - xorg-fonts
-    - xrdb
 
 - name: Insert autox config
   copy: content="USER={{ ansible_user_id }}\nTTY=tty7" dest=/etc/sv/autox/conf
