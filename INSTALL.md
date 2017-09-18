@@ -4,26 +4,22 @@
 loadkeys sg
 wifi-menu
 ```
-Due to a bug the connection takes a while to connect. Running `pacman -Syy` seems to help...
 
 ## Partitioning
-```
-(parted) mklabel gpt
-(parted) mkpart primary ext4 0% 512M
-(parted) mkpart primary btrfs 512M 100%
-(parted) set 1 boot on
-```
+Create two partitions for `/boot` and `/`
+
 ## Encryption
 ```
-cryptsetup -y -v luksFormat /dev/sdaX
-cryptsetup open /dev/sdaX cryptroot
-mkfs.btrfs /dev/mapper/cryptroot
+cryptsetup -y -v luksFormat /dev/sda2
+cryptsetup open /dev/sda2 cryptroot
+mkfs.ext4 /dev/mapper/cryptroot
 mount /dev/mapper/cryptroot /mnt
 
 # Boot partition
-mkfs.fat -F 32 /dev/sdaY
+mkfs.ext4 /dev/sda1
+resize2fs -s /dev/sda1
 mkdir /mnt/boot
-mount /dev/sdaY /mnt/boot
+mount /dev/sda1 /mnt/boot
 ```
 
 ## Base system
@@ -38,25 +34,31 @@ arch-chroot /mnt /bin/bash
 ## Bootloader
 Add the `encrypt` hook after `base udev` in /etc/mkinitcpio.conf. Remove the fsck hook
 ```
+find / -name mbr.bin
+dd conv=notrunc bs=440 count=1 if=mbr.bin of=/dev/sda
+mkdir /boot/syslinux
+extlinux --install /boot/syslinux
 mkinitcpio -p linux
-cp /usr/share/systemd/bootctl/arch.conf /boot/loader/entries
-# options cryptdevice=/dev/sda2:cryptroot root=/dev/mapper/cryptroot quiet loglevel=3 rd.udev.log-priority=3 rw
-echo 'default arch' > /boot/loader/loader.conf
+```
+add following configuration in `/boot/syslinux/syslinux.cfg`:
+```
+DEFAULT void
+LABEL void
+  LINUX ../vmlinuz-linux
+  APPEND root=/dev/mapper/cryptroot cryptdevice=/dev/sda2:cryptroot ro rd.auto quiet
+  INITRD ../initramfs-linux.img
 ```
 
 ## Finishing
+uncomment wheel rule in /etc/sudoers
 ```
 pacman -S iw wpa_supplicant dialog git sudo ansible
+useradd -m -G wheel -s /bin/bash lbischof
+passwd lbischof
 exit
 umount -R /mnt
 reboot
 
-echo "work" > /etc/hostname #also update /etc/hosts
-# uncomment sudo rule in /etc/sudoers
-groupadd sudo
-useradd -m -G sudo -s /bin/bash lbischof
-passwd lbischof
-passwd --lock
 su - lbischof
 git clone https://github.com/lbischof/ansible-playbooks
 ansible-playbook ansible-playbooks/desktop.yml
