@@ -46,8 +46,6 @@
   tags: openvpn
 - include: cups.yml
   tags: cups
-- include: docker.yml
-  tags: docker
 
 - include: laptop.yml
   when: ansible_product_name == "Latitude E7250"
