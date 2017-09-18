@@ -16,17 +16,8 @@
     - xorg-server
     - xrandr
     - xinit
-    - autox
     - xorg-input-drivers
     - xorg-fonts
-
-- name: Insert autox config
-  copy: content="USER={{ ansible_user_id }}\nTTY=tty7" dest=/etc/sv/autox/conf
-  become: yes
-
-- name: Enable autox service
-  service: name=autox state=started enabled=yes
-  become: yes
 
 - name: Copy xinitrc
   copy: src=xinitrc dest=~/.xinitrc
