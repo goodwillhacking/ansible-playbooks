@@ -161,11 +161,11 @@ bar {
 
 exec --no-startup-id compton -b
 exec --no-startup-id feh --bg-fill "$HOME/.config/wallpapers/wallpaper_cropped_0.png" "$HOME/.config/wallpapers/wallpaper_cropped_1.png"
-exec --no-startup-id -l 46.9480:7.4474
+exec --no-startup-id redshift
 exec --no-startup-id dunst
 exec --no-startup-id xset m 1 4
 exec --no-startup-id gpg-agent --daemon
-#exec --no-startup-id "sleep 5 && xcape -e ISO_Level3_Shift=Escape"
+exec --no-startup-id "sleep 5 && xcape -e ISO_Level3_Shift=Escape"
 exec --no-startup-id urxvtd -f
 
 client.focused #6699cc #6699cc #2d2d2d #393939
