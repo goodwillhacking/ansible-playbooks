@@ -14,8 +14,8 @@
     - feh
     - redshift
     - xorg-server
-    - xorg-server-utils
     - xorg-xinit
+    - xorg-xrandr
 
 - name: Copy xinitrc
   copy: content="exec i3" dest=~/.xinitrc
