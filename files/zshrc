@@ -28,6 +28,11 @@ export PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
 export EDITOR=vim
 export KEYTIMEOUT=1
 
+# Set GPG TTY
+export GPG_TTY=$(tty)
+# Refresh gpg-agent tty in case user switches into an X session
+gpg-connect-agent updatestartuptty /bye >/dev/null
+
 function zle-line-init zle-keymap-select {
     RPS1="${${KEYMAP/vicmd/NORMAL}/(main|viins)/INSERT}"
     RPS2=$RPS1
