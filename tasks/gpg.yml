@@ -16,3 +16,10 @@
 - name: Install libusb-compat
   package: name=libusb-compat state=present
   become: yes
+
+- name: Download public key
+  gpg_import: key_id=34C7D8DEF3CA1548652B393F2285067DAFBA32A6
+
+- name: Download passwords
+  git: repo=lorenzbi@bitbucket.org:lorenzbi/pass.git dest=~/.password-store update=no accept_hostkey=yes
+  ignore_errors: yes
