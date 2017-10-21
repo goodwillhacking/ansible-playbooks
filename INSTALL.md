@@ -25,28 +25,17 @@ mount /dev/sda1 /mnt/boot
 ## Base system
 ```
 echo 'Server = http://archlinux.puzzle.ch/$repo/os/$arch' > /etc/pacman.d/mirrorlist
-pacstrap /mnt base base-devel
+pacstrap /mnt base base-devel grub
 genfstab -U /mnt >> /mnt/etc/fstab
 cp /etc/netctl/profile /mnt/etc/netctl
 arch-chroot /mnt /bin/bash
 ```
 
 ## Bootloader
-Add the `encrypt` hook after `base udev` in /etc/mkinitcpio.conf. Remove the fsck hook
+Add the `encrypt` hook after `base udev` in /etc/mkinitcpio.conf.
 ```
-find / -name mbr.bin
-dd conv=notrunc bs=440 count=1 if=mbr.bin of=/dev/sda
-mkdir /boot/syslinux
-extlinux --install /boot/syslinux
-mkinitcpio -p linux
-```
-add following configuration in `/boot/syslinux/syslinux.cfg`:
-```
-DEFAULT void
-LABEL void
-  LINUX ../vmlinuz-linux
-  APPEND root=/dev/mapper/cryptroot cryptdevice=/dev/sda2:cryptroot ro rd.auto quiet
-  INITRD ../initramfs-linux.img
+grub-install /dev/sda
+grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
 ## Finishing
