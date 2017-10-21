@@ -26,6 +26,7 @@
 
 - name: Restart NFS immediately if exports are updated.
   service: name=nfs-server state=restarted
+  become: yes
   when: nfs_exports.changed
 
 - name: Start NFS service

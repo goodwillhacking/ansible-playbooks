@@ -9,7 +9,6 @@
     - i3status
     - dmenu
     - dunst
-    - libnotify
     - compton
     - feh
     - redshift
