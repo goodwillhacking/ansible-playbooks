@@ -6,9 +6,10 @@
   with_items:
     - wpa_actiond
     - ifplugd
+    - ethtool
 
 - name: Install ethernet profile
-  copy: content="Interface={{ item }}\nConnection=ethernet\nIP=dhcp" dest=/etc/netctl/ethernet
+  copy: content="Interface={{item}}\nConnection=ethernet\nIP=dhcp\nExecUpPost='/usr/bin/ethtool -s {{item}} wol g'" dest=/etc/netctl/ethernet
   become: yes
   when: item | match('^en')
   with_items: "{{ansible_interfaces}}"
