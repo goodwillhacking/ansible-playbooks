@@ -66,6 +66,8 @@
   tags: openvpn
 - include: cups.yml
   tags: cups
+- include: mqtt.yml
+  tags: mqtt
 
 - include: laptop.yml
   when: ansible_product_name == "Latitude E7250"

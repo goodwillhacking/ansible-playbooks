@@ -1,0 +1,10 @@
+[Unit]
+After=network.target
+
+[Service]
+ExecStart=/usr/local/bin/mqtt.sh
+User=lbischof
+Group=lbischof
+
+[Install]
+WantedBy=default.target

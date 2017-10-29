@@ -75,6 +75,7 @@ alias r="bundle exec rake"
 vol() {
     if [ "$1" ]; then
         amixer set Master -Mq "$1"
+        mosquitto_pub -t computer/volume/status -m $(echo $1 | tr -d '%')
     fi
     amixer get Master -M | sed -n "$ p" | awk '{print $4}' | sed "s/[^0-9]//g" | awk '{print $1"%"}'
 }

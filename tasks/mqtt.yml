@@ -1,0 +1,30 @@
+---
+
+- name: copy mosquitto config
+  copy: src=mqtt/{{ item }} dest=~/.config
+  with_items:
+    - mosquitto_pub
+    - mosquitto_sub
+
+- name: install mqtt script
+  copy: src=mqtt/mqtt.sh dest=/usr/local/bin
+  become: yes
+
+- name: install mqtt service
+  copy: src=mqtt/mqtt.service dest=/etc/systemd/system
+  become: yes
+  register: mqtt_service
+
+- name: reload systemd
+  systemd: state=restarted name=mqtt daemon_reload=yes
+  become: yes
+  when: mqtt_service.changed
+
+- name: enable service
+  service: name=mqtt state=started enabled=yes
+  become: yes
+
+
+
+
+

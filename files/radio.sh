@@ -1,7 +1,7 @@
 #!/bin/bash
 pidfile=$HOME/.radio.pid
 if [[ -f $pidfile ]]; then
-    pkill -F $pidfile
+    pkill -P $(cat $pidfile)
     rm -f $pidfile
     echo "Stopped radio"
     exit
@@ -9,8 +9,9 @@ fi
 echo "Started radio"
 (
 # kill vlc when exiting
-trap "rm -f $pidfile; kill 0" EXIT
-vlc -I cli --rc-host 127.0.0.1:9876 --no-volume-save https://somafm.com/indiepop130.pls &> /dev/null &
+trap "rm -f $pidfile; mosquitto_pub -t computer/radio/status -m OFF" EXIT
+vlc -I cli --rc-host 127.0.0.1:9876 --no-volume-save https://somafm.com/indiepop130.pls &
+mosquitto_pub -t computer/radio/status -m ON
 sleep 5
 volume=256
 while true; do
@@ -25,5 +26,5 @@ while true; do
     fi
     sleep 1
 done
-) &
+) &> /dev/null &
 echo $! > $pidfile
