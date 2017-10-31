@@ -26,7 +26,7 @@ function radio_set {
 
 function volume_set {
     message=$1
-    amixer set Master -Mq "$message"
+    amixer set Master -Mq "${message}%"
 }
 
 while read line; do
