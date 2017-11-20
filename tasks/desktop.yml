@@ -1,0 +1,76 @@
+---
+
+- name: Install NFS
+  package: name=nfs-utils state=present
+  become: yes
+
+- name: Mount disks
+  mount: name=/data src='UUID=e483ef7a-27d3-4e80-b5aa-d26702ff6e12' fstype=ext4 state=mounted
+  become: yes
+
+- name: Create directories
+  file: path={{ item }} state=directory mode=755 owner=lbischof group=lbischof
+  become: yes
+  with_items:
+    - /data
+    - /data/downloads
+    - /data/filebot
+
+- name: Export directories
+  copy: content="/data 192.168.0.0/24(rw,all_squash,insecure)" dest=/etc/exports
+  register: nfs_exports
+  become: yes
+
+- name: Restart NFS immediately if exports are updated.
+  service: name=nfs-server state=restarted
+  become: yes
+  when: nfs_exports.changed
+
+- name: Start NFS service
+  service: name={{ item }} state=started enabled=yes
+  become: yes
+  with_items:
+    - rpcbind
+    - nfs-server
+
+- name: Install transmission
+  package: name=transmission-cli
+  become: yes
+
+- name: Check transmission config
+  copy: src=transmission.json dest=~/.config/transmission-daemon/settings.json
+  check_mode: yes
+  register: transmission_config
+
+- name: Stop transmission daemon
+  service: name=transmission state=stopped
+  when: transmission_config.changed
+  become: yes
+
+- name: Copy transmission config
+  copy: src=transmission.json dest=~/.config/transmission-daemon/settings.json
+
+- name: Install transmission postprocess script
+  copy: src=transmission-postprocess.sh dest=/usr/local/bin mode=755
+  become: yes
+
+- name: Create systemd transmission directory
+  file: path=/etc/systemd/system/transmission.service.d state=directory
+  become: yes
+
+- name: Set transmission user
+  copy: content="[Service]\nUser=lbischof" dest=/etc/systemd/system/transmission.service.d/username.conf
+  register: transmission_systemd
+  become: yes
+
+- name: Reload systemd daemon
+  systemd: daemon_reload=yes
+  when: transmission_systemd.changed
+  become: yes
+
+- name: Start transmission daemon
+  service: name=transmission state=started enabled=yes
+  become: yes
+
+- name: Install filebot
+  aur: name=filebot

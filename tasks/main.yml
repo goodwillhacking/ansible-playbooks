@@ -73,6 +73,6 @@
   when: ansible_product_name == "Latitude E7250"
   tags: laptop
 
-- include: nfs.yml
+- include: desktop.yml
   when: ansible_product_name != "Latitude E7250"
-  tags: nfs
+  tags: desktop
