@@ -29,6 +29,7 @@ function volume_set {
     amixer set Master -Mq "${message}%"
 }
 
+until ping -n -c1 -w5 8.8.8.8; do sleep 5; done
 while read line; do
     echo $line
     topic=$(echo $line | awk '{print $1}')
