@@ -1,8 +1,11 @@
 ---
 
 - name: Install docker
-  package: name=docker state=present
+  package: name={{ item }} state=present
   become: yes
+  with_items:
+    - docker
+    - docker-compose
 
 - name: Start docker
   service: name=docker state=started enabled=yes
