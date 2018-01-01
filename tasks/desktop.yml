@@ -9,12 +9,8 @@
   become: yes
 
 - name: Create directories
-  file: path={{ item }} state=directory mode=755 owner=lbischof group=lbischof
+  file: path=/data state=directory mode=775 owner=lbischof group=nzbget
   become: yes
-  with_items:
-    - /data
-    - /data/downloads
-    - /data/filebot
 
 - name: Export directories
   copy: content="/data 192.168.0.0/24(rw,all_squash,insecure)" dest=/etc/exports
@@ -33,44 +29,57 @@
     - rpcbind
     - nfs-server
 
-- name: Install transmission
-  package: name=transmission-cli
+- name: Install nzbget
+  package: name=nzbget
   become: yes
 
-- name: Check transmission config
-  copy: src=transmission.json dest=~/.config/transmission-daemon/settings.json
-  check_mode: yes
-  register: transmission_config
+- name: Install apps
+  aur: name={{ item }}
+  with_items:
+    - nzbget-systemd
+    - sonarr
+    - radarr
 
-- name: Stop transmission daemon
-  service: name=transmission state=stopped
-  when: transmission_config.changed
+- name: Create directories
+  file: path=/data/{{item}} state=directory owner={{item}} group={{item}}
   become: yes
+  with_items:
+    - sonarr
+    - radarr
+    - nzbget
 
-- name: Copy transmission config
-  copy: src=transmission.json dest=~/.config/transmission-daemon/settings.json
-
-- name: Install transmission postprocess script
-  copy: src=transmission-postprocess.sh dest=/usr/local/bin mode=755
+- name: Create systemd override directories
+  file: path=/etc/systemd/system/{{item}}.service.d state=directory
   become: yes
+  with_items:
+    - sonarr
+    - radarr
 
-- name: Create systemd transmission directory
-  file: path=/etc/systemd/system/transmission.service.d state=directory
+- name: Set correct groups
+  copy: content="[Service]\nGroup=nzbget" dest=/etc/systemd/system/{{item}}.service.d/group.conf
+  register: systemd_services
   become: yes
-
-- name: Set transmission user
-  copy: content="[Service]\nUser=lbischof" dest=/etc/systemd/system/transmission.service.d/username.conf
-  register: transmission_systemd
-  become: yes
+  with_items:
+    - sonarr
+    - radarr
 
 - name: Reload systemd daemon
   systemd: daemon_reload=yes
-  when: transmission_systemd.changed
+  when: systemd_services.changed
   become: yes
 
-- name: Start transmission daemon
-  service: name=transmission state=started enabled=yes
+- name: Restart services
+  service: name={{ item }} state=restarted
+  when: systemd_services.changed
   become: yes
+  with_items:
+    - sonarr
+    - radarr
 
-- name: Install filebot
-  aur: name=filebot
+- name: Start services
+  service: name={{ item }} state=started enabled=yes
+  become: yes
+  with_items:
+    - nzbget
+    - sonarr
+    - radarr
