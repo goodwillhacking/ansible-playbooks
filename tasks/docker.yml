@@ -6,6 +6,7 @@
   with_items:
     - docker
     - docker-compose
+    - python2-docker
 
 - name: Start docker
   service: name=docker state=started enabled=yes

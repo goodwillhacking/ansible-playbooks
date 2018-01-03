@@ -9,8 +9,7 @@
   become: yes
 
 - name: Create directories
-  file: path=/data state=directory mode=775 owner=lbischof group=nzbget
-  become: yes
+  file: path=/data state=directory
 
 - name: Export directories
   copy: content="/data 192.168.0.0/24(rw,all_squash,insecure)" dest=/etc/exports
@@ -29,57 +28,66 @@
     - rpcbind
     - nfs-server
 
-- name: Install nzbget
-  package: name=nzbget
-  become: yes
-
-- name: Install apps
-  aur: name={{ item }}
-  with_items:
-    - nzbget-systemd
-    - sonarr
-    - radarr
-
 - name: Create directories
-  file: path=/data/{{item}} state=directory owner={{item}} group={{item}}
-  become: yes
+  file: path=/data/{{item}} state=directory
   with_items:
-    - sonarr
-    - radarr
-    - nzbget
+    - tv
+    - movies
+    - downloads
+    - config/sonarr
+    - config/radarr
+    - config/nzbget
 
-- name: Create systemd override directories
-  file: path=/etc/systemd/system/{{item}}.service.d state=directory
-  become: yes
-  with_items:
-    - sonarr
-    - radarr
-
-- name: Set correct groups
-  copy: content="[Service]\nGroup=nzbget" dest=/etc/systemd/system/{{item}}.service.d/group.conf
-  register: systemd_services
-  become: yes
-  with_items:
-    - sonarr
-    - radarr
-
-- name: Reload systemd daemon
-  systemd: daemon_reload=yes
-  when: systemd_services.changed
+- name: Create nzbget container
+  docker_container:
+    name: nzbget
+    image: linuxserver/nzbget
+    restart_policy: unless-stopped
+    published_ports:
+      - 6789:6789
+    env:
+      PUID: 1000
+      PGID: 1000
+      TZ: Europe/Zurich
+    volumes:
+      - /data/config/nzbget:/config
+      - /data/downloads:/downloads
   become: yes
 
-- name: Restart services
-  service: name={{ item }} state=restarted
-  when: systemd_services.changed
+- name: Create radarr container
+  docker_container:
+    name: radarr
+    image: linuxserver/radarr
+    links:
+      - nzbget:nzbget
+    restart_policy: unless-stopped
+    published_ports:
+      - 7878:7878
+    env:
+      PUID: 1000
+      PGID: 1000
+      TZ: Europe/Zurich
+    volumes:
+      - /data/config/radarr:/config
+      - /data/movies:/movies
+      - /data/downloads:/downloads
   become: yes
-  with_items:
-    - sonarr
-    - radarr
 
-- name: Start services
-  service: name={{ item }} state=started enabled=yes
+- name: Create sonarr container
+  docker_container:
+    name: sonarr
+    image: linuxserver/sonarr
+    links:
+      - nzbget:nzbget
+    restart_policy: unless-stopped
+    published_ports:
+      - 8989:8989
+    env:
+      PUID: 1000
+      PGID: 1000
+      TZ: Europe/Zurich
+    volumes:
+      - /data/config/sonarr:/config
+      - /data/tv:/tv
+      - /data/downloads:/downloads
   become: yes
-  with_items:
-    - nzbget
-    - sonarr
-    - radarr
