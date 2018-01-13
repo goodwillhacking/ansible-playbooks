@@ -3,5 +3,6 @@ ACTION!="add", GOTO="gnupg_rules_end"
 
 ## Nitrokey Pro
 ATTR{idVendor}=="20a0", ATTR{idProduct}=="4108", ENV{ID_SMARTCARD_READER}="1", ENV{ID_SMARTCARD_READER_DRIVER}="gnupg", GROUP+="lbischof", TAG+="uaccess"
+ATTR{idVendor}=="1050", ATTR{idProduct}=="0113|0114|0115|0116|0120|0402|0403|0406|0407|0410", TAG+="uaccess"
 
 LABEL="gnupg_rules_end"
